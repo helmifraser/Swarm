@@ -60,6 +60,8 @@ private:
   const char *data;
 
   std::array<int, 3> speed;
+  std::array<double, 3> emitterDirection;
+  double signalStrength;
   int multiplier;
   double highReading;
   double lowReading;
@@ -159,6 +161,12 @@ public:
 
           // -----get data-----
           std::string temp = getReceiverData(8);
+          std::cout << "[" << robot_name << "] "
+                    << "sig str " << signalStrength << std::endl;
+          std::cout << "[" << robot_name << "] "
+                    << "dir " << emitterDirection[0] << " "
+                    << emitterDirection[1] << " " << emitterDirection[2]
+                    << std::endl;
 
           // -----process data-----
           processReceiverData(temp);
@@ -166,7 +174,7 @@ public:
           // -----send actuator commands-----
           if (myData.received == true) {
             std::cout << "[" << robot_name << "] "
-                      << "Received signal" << myData.data[1] << " "
+                      << "Received signal " << myData.data[1] << " "
                       << myData.data[2] << std::endl;
             move(myData.data[1], myData.data[2]);
           }
@@ -185,6 +193,10 @@ public:
     Receiver *copy = (Receiver *)malloc(sizeof(Receiver));
     while (irRec[i]->getQueueLength() > 0) {
       data = (char *)irRec[i]->getData();
+      signalStrength = (double)irRec[i]->getSignalStrength();
+      for (size_t n = 0; n < 3; n++) {
+        emitterDirection[n] = irRec[i]->getEmitterDirection()[n];
+      }
       memcpy(copy, data, sizeof(Receiver));
       irRec[i]->nextPacket();
     }
@@ -209,8 +221,6 @@ public:
         count++;
         if (next == end) {
           myData.received = true;
-          std::cout << "[" << robot_name << "] "
-                    << "Set to true" << std::endl;
         }
       }
 
