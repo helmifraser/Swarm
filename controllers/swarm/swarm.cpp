@@ -50,8 +50,8 @@ private:
   LED *leds[8];
   DifferentialWheels *diffWheels;
   LightSensor *ambientLight[8];
-  Emitter *irEm[8];
-  Receiver *irRec[8];
+  Emitter *irEm[9];
+  Receiver *irRec[9];
   Keyboard *keyboard;
 
   ReceiverData myData;
@@ -87,6 +87,10 @@ public:
       irRec[i]->enable(TIME_STEP);
       leds[i] = getLED(led.replace(3, 1, std::to_string(i)));
     }
+
+    irEm[8] = getEmitter("em8");
+    irRec[8] = getReceiver("rc8");
+    irRec[8]->enable(TIME_STEP);
 
     keyboard = getKeyboard();
     keyboard->enable(TIME_STEP);
@@ -136,12 +140,8 @@ public:
         setLEDs(1);
         // -----get data-----
         int keyPress = readKey();
-        std::string temp = getReceiverData(2);
-        std::cout << "[" << robot_name << "] "
-                  << "Data: " << temp << std::endl;
 
         // -----process data-----
-        processReceiverData(temp);
 
         // -----send actuator commands-----
         keyboardControl(keyPress);
@@ -158,23 +158,16 @@ public:
           setLEDs(0);
 
           // -----get data-----
-          std::string temp[8];
-          for (unsigned int i = 0; i < 8; i++) {
-            temp[i] = getReceiverData(i);
-          }
-          std::cout << "[" << robot_name << "] " << myData.received
-                    << " Data: " << temp[0] << std::endl;
+          std::string temp = getReceiverData(8);
 
           // -----process data-----
-          myData.received = false;
-          for (unsigned int i = 0; i < 8; i++) {
-            processReceiverData(temp[i]);
-          }
+          processReceiverData(temp);
 
           // -----send actuator commands-----
           if (myData.received == true) {
             std::cout << "[" << robot_name << "] "
-                      << "Received signal" << std::endl;
+                      << "Received signal" << myData.data[1] << " "
+                      << myData.data[2] << std::endl;
             move(myData.data[1], myData.data[2]);
           }
 
@@ -199,6 +192,10 @@ public:
   }
 
   void processReceiverData(std::string data) {
+    myData.received = false;
+    for (unsigned int i = 0; i < 6; i++) {
+      myData.data[i] = 0;
+    }
     try {
       std::regex re("[*0-9*]+|[-][*0-9*]+");
       std::sregex_iterator next(data.begin(), data.end(), re);
@@ -210,12 +207,14 @@ public:
         myData.data[count] = atoi(match1.c_str());
         next++;
         count++;
+        if (next == end) {
+          myData.received = true;
+          std::cout << "[" << robot_name << "] "
+                    << "Set to true" << std::endl;
+        }
       }
-      if (isInteger(myData.data[0]) == 1) {
-        myData.received = true;
-      } else {
-        myData.received = false;
-      }
+
+      // myData.received = false;
     } catch (std::regex_error &e) {
     }
   }
@@ -256,8 +255,8 @@ public:
       std::cout << "[" << robot_name << "] "
                 << "Turning right" << std::endl;
     } else if (right_obstacle & left_obstacle) {
-      left_speed -= 500;
-      right_speed -= 500;
+      left_speed = -500;
+      right_speed = -500;
       std::cout << "[" << robot_name << "] "
                 << "Backwards" << std::endl;
     }
