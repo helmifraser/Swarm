@@ -1,0 +1,7 @@
+Webots Proto Cache File version 1.2
+protoFileHash: db0c80fa4470b238fef1257f030feda6
+containsDevices: 1
+baseType: DifferentialWheels
+slotType: 
+parameters: translation,rotation,controller,controllerArgs,name,camera_fieldOfView,camera_width,camera_height,camera_antiAliasing,camera_rotation,camera_noise,emitter_channel,receiver_channel,battery,window,turretSlot,groundSensorsSlot,kinematic
+info: EPFL\seducational\sand\sresearch\smini\smobile\srobot.\nThe\se-puck\sis\spowered\sby\sa\sdsPIC\sprocessor\sand\sfeatures\sa\svery\slarge\snumber\sof\ssensors\sin\sits\sbasic\sconfiguration.\nMore\sinfo\shere:\shttp://www.e-puck.org.

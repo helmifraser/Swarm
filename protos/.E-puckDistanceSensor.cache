@@ -1,0 +1,7 @@
+Webots Proto Cache File version 1.2
+protoFileHash: 483195cc3f31c8b816afb8a9a876de3b
+containsDevices: 1
+baseType: Solid
+slotType: 
+parameters: translation,rotation,name
+info: Distance\ssensor\sof\sthe\se-puck\smobile\srobot.

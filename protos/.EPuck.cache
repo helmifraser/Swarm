@@ -1,0 +1,7 @@
+Webots Proto Cache File version 1.2
+protoFileHash: 5ce2a53f140c91bd1ec258d77a25714d
+containsDevices: 0
+baseType: DifferentialWheels
+slotType: 
+parameters: translation,rotation,controller,controllerArgs,name,camera_fieldOfView,camera_width,camera_height,camera_antiAliasing,camera_rotation,camera_noise,emitter_channel,receiver_channel,battery,window,turretSlot,groundSensorsSlot
+info: tags:\sdeprecated\nPlease\suse\sE-puck.proto\sinstead

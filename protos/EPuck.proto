@@ -1,0 +1,45 @@
+#VRML_SIM V8.5 utf8
+# tags: deprecated
+# Please use E-puck.proto instead
+
+PROTO EPuck [
+  field SFVec3f    translation 0 0 0
+  field SFRotation rotation  0 1 0 0
+  field SFString   controller "e-puck_avoid_obstacles"
+  field SFString   controllerArgs ""
+  field SFString   name "e-puck"
+  field SFFloat    camera_fieldOfView 0.84
+  field SFInt32    camera_width 52
+  field SFInt32    camera_height 39
+  field SFBool     camera_antiAliasing FALSE
+  field SFRotation camera_rotation 1 0 0 0
+  field SFFloat    camera_noise 0.0
+  field SFInt32    emitter_channel 1
+  field SFInt32    receiver_channel 1
+  field MFFloat    battery []
+  field SFString   window "e-puck_window"
+  field MFNode     turretSlot []
+  field MFNode     groundSensorsSlot []
+]
+{
+  %{ io.stderr:write("Deprecated PROTO: please use E-puck.proto instead\n") }%
+  E-puck {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    name IS name
+    camera_fieldOfView IS camera_fieldOfView
+    camera_width IS camera_width
+    camera_height IS camera_height
+    camera_antiAliasing IS camera_antiAliasing
+    camera_rotation IS camera_rotation
+    camera_noise IS camera_noise
+    emitter_channel IS emitter_channel
+    receiver_channel IS receiver_channel
+    battery IS battery
+    window IS window
+    turretSlot IS turretSlot
+    groundSensorsSlot IS groundSensorsSlot
+  }
+}

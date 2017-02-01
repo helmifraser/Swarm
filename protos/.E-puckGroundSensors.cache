@@ -1,0 +1,7 @@
+Webots Proto Cache File version 1.2
+protoFileHash: 351a649fc46a9c43a2bb5836dc7dda90
+containsDevices: 1
+baseType: Transform
+slotType: 
+parameters: translation,rotation
+info: Ground\ssensors\sextension\sfor\sthe\se-puck\srobot.\nIt\sincludes\sthree\sinfra-red\sproximity\ssensors\npointing\sdown\sto\sthe\sground\sin\sfront\sof\sthe\srobot.

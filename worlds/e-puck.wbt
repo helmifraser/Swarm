@@ -1,0 +1,100 @@
+#VRML_SIM V8.5 utf8
+WorldInfo {
+  info [
+    "The model of the E-puck robot"
+  ]
+  title "E-puck simulation"
+}
+Viewpoint {
+  orientation -0.99963387 -0.026581864 0.0050527186 0.69306326
+  position 0.10412621 0.57726537 2.5200659
+  follow "e2"
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+PointLight {
+  ambientIntensity 1
+  intensity 0.6
+  location 0.14 0.6 -0.55
+  castShadows TRUE
+}
+PointLight {
+  ambientIntensity 1
+  intensity 0.6
+  location -0.43 0.6 0.5
+}
+RectangleArena {
+  translation -0.046084768 0 1.1467202
+  floorSize 2 2
+}
+SolidPipe {
+  translation 0.59 0 1.76
+  height 0.3
+  radius 0.2
+  appearance Appearance {
+    material Material {
+    }
+    texture ImageTexture {
+      url [
+        "textures/rock.jpg"
+      ]
+    }
+  }
+}
+E-puck {
+  hidden translation_1 -0.026000864 0.020020932 8.3034245e-08
+  hidden rotation_1 0.99999999 2.2972118e-05 -0.00011294941 -1.4489499
+  hidden translation_2 0.026000858 0.020020912 -8.0143745e-08
+  hidden rotation_2 1 4.3446391e-05 -2.4506806e-06 2.0209045
+  translation 0.00046320531 -8.3707069e-05 1.9789282
+  rotation 0.057856656 0.99832393 0.0013949877 -0.00092357179
+  controller "swarm"
+  name "e1"
+  emitter_channel 0
+  receiver_channel 0
+}
+WoodenBox {
+  translation -0.35 0.09 1.88
+  rotation 0 1 0 0.78539816
+  size 0.2 0.2 0.2
+}
+E-puck {
+  hidden translation_1 -0.026000973 0.020017587 -4.12573e-06
+  hidden rotation_1 0.99999983 -0.00056376276 -0.00014651203 -0.61188838
+  hidden translation_2 0.026000165 0.020017452 -3.7658309e-06
+  hidden rotation_2 0.99999998 6.4919244e-05 -0.00018430461 -2.8097637
+  translation 0.099989147 -8.0297118e-05 1.9796515
+  rotation -0.98420176 0.17704016 -0.0019191757 -0.00079748344
+  controller "swarm"
+  name "e2"
+  emitter_channel 0
+  receiver_channel 0
+}
+E-puck {
+  hidden translation_1 -0.026004509 0.020018089 -1.7108246e-06
+  hidden rotation_1 0.99999999 -2.3965216e-05 0.0001396981 3.0694427
+  hidden translation_2 0.026004788 0.020016927 -1.8653423e-06
+  hidden rotation_2 0.99999999 0.00014123569 7.9512313e-05 3.1251944
+  translation 0.19997015 -8.0290611e-05 1.9795686
+  rotation 0.87970201 0.47361937 0.042533119 0.00035987819
+  controller "swarm"
+  name "e3"
+  emitter_channel 0
+  receiver_channel 0
+}
+SolidBox {
+  translation 0.12 0 1.2
+  size 0.5 0.5 0.5
+  appearance Appearance {
+    material Material {
+    }
+    texture ImageTexture {
+      url [
+        "textures/lightwood.jpg"
+      ]
+    }
+  }
+}
