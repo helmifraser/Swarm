@@ -918,8 +918,8 @@ DifferentialWheels {
     }
     DEF EPUCK_EMITTER Emitter {
       type         "infra-red"  # or "serial" or "infra-red
-      range        0.5       # -1 or positive
-      maxRange     0.5       # -1 or positive
+      range        0.2       # -1 or positive
+      maxRange     0.2       # -1 or positive
       aperture     -1       # -1 or between 0 and 2*pi
       channel      0
       baudRate     -1       # -1 or positive
@@ -1021,15 +1021,15 @@ DifferentialWheels {
     }
     DEF EPUCK_EMITTER Emitter {
       type         "infra-red"  # or "serial" or "infra-red
-      range        0.00       # -1 or positive
-      maxRange     -1      # -1 or positive
-      aperture     6.28      # -1 or between 0 and 2*pi
+      range        0.35       # -1 or positive
+      maxRange     -1     # -1 or positive
+      aperture     -1      # -1 or between 0 and 2*pi
       channel      0
       baudRate     -1       # -1 or positive
       byteSize      32       # 8 or more
       bufferSize   -1       # -1 or positive
-      translation 0.0 0.331 0.0
-      rotation 0 1 0 1.27
+      translation 0.01 0.33 0.01
+      rotation 0 0 0 0
       name "em8"
     }
     DEF EPUCK_PS0 E-puckDistanceSensor {

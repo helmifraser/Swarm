@@ -150,9 +150,10 @@ public:
         std::string message = std::to_string((int)diffWheels->getLeftSpeed()) +
                               " " +
                               std::to_string((int)diffWheels->getRightSpeed());
-        for (unsigned int i = 0; i < 8; i++) {
-          sendPacket(i, message);
-        }
+        // for (unsigned int i = 0; i < 8; i++) {
+        //   sendPacket(i, message);
+        // }
+        sendPacket(8, message);
       }
       if (robot_name.compare("e2") != 0) {
         while (step(TIME_STEP) != -1) {
