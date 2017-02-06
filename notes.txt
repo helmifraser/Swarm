@@ -1,0 +1,5 @@
+Notes:
+
+e-puck emitter direction:
+  ~0.3 = 3oclock
+  ~-0.3 = 9oclock

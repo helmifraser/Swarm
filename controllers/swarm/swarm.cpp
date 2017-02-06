@@ -23,6 +23,8 @@
 using namespace webots;
 
 #define TIME_STEP 64
+#define PS_THRESHOLD 250.0
+#define SEPARATION_THRESHOLD 80
 
 template <class T, std::size_t I, std::size_t... J> struct MultiDimArray {
   using Nested = typename MultiDimArray<T, J...>::type;
@@ -65,6 +67,9 @@ private:
   int multiplier;
   double highReading;
   double lowReading;
+
+  double ps_values[8];
+  bool left_obstacle, right_obstacle;
 
 public:
   MyRobot() {
@@ -147,12 +152,10 @@ public:
 
         // -----send actuator commands-----
         keyboardControl(keyPress);
+        // objectDetection();
         std::string message = std::to_string((int)diffWheels->getLeftSpeed()) +
                               " " +
                               std::to_string((int)diffWheels->getRightSpeed());
-        // for (unsigned int i = 0; i < 8; i++) {
-        //   sendPacket(i, message);
-        // }
         sendPacket(8, message);
       }
       if (robot_name.compare("e2") != 0) {
@@ -162,27 +165,26 @@ public:
 
           // -----get data-----
           std::string temp = getReceiverData(8);
-          std::cout << "[" << robot_name << "] "
-                    << "sig str " << signalStrength << std::endl;
-          std::cout << "[" << robot_name << "] "
-                    << "dir " << emitterDirection[0] << " "
+          std::cout << printName() << "sig str " << roundNum(signalStrength)
+                    << std::endl;
+          std::cout << printName() << "dir " << emitterDirection[0] << " "
                     << emitterDirection[1] << " " << emitterDirection[2]
                     << std::endl;
+          distanceCheck();
 
           // -----process data-----
           processReceiverData(temp);
+          std::cout << printName()
+                    << "Resultant: " << computeVectorMagnitude(emitterDirection)
+                    << std::endl;
+          std::cout << printName()
+                    << "Angle: " << computeVectorAngle(emitterDirection)
+                    << std::endl;
 
           // -----send actuator commands-----
-          if (myData.received == true) {
-            std::cout << "[" << robot_name << "] "
-                      << "Received signal " << myData.data[1] << " "
-                      << myData.data[2] << std::endl;
-            move(myData.data[1], myData.data[2]);
-          }
-
-          else {
-            std::cout << "[" << robot_name << "] "
-                      << "Signal lost, roaming" << std::endl;
+          if (myData.received) {
+            align();
+          } else if (!myData.received) {
             setLEDs(1);
             objectDetection();
           }
@@ -190,6 +192,7 @@ public:
       }
     }
   }
+
   std::string getReceiverData(int i) {
     Receiver *copy = (Receiver *)malloc(sizeof(Receiver));
     while (irRec[i]->getQueueLength() > 0) {
@@ -210,7 +213,7 @@ public:
       myData.data[i] = 0;
     }
     try {
-      std::regex re("[*0-9*]+|[-][*0-9*]+");
+      std::regex re("[*0-9*]+|[-][*0-9*]+|[*0-9*.*0-9*]|[-][*0-9*.*0-9*]");
       std::sregex_iterator next(data.begin(), data.end(), re);
       std::sregex_iterator end;
       int count = 0;
@@ -231,22 +234,25 @@ public:
   }
 
   void sendPacket(int emitterNumber, std::string message) {
-    std::string temp = "[" + robot_name + "] ";
+    std::string temp = printName();
     temp.append(message);
     const char *packet = temp.c_str();
     irEm[emitterNumber]->send(packet, (strlen(packet) + 1));
   }
 
-  void objectDetection() {
-    double ps_values[8];
+  void distanceCheck() {
     for (int i = 0; i < 8; i++)
       ps_values[i] = checkDistanceSensor(i);
 
     // detect obsctacles
-    bool left_obstacle =
-        ps_values[0] > 100.0 || ps_values[1] > 100.0 || ps_values[2] > 100.0;
-    bool right_obstacle =
-        ps_values[5] > 100.0 || ps_values[6] > 100.0 || ps_values[7] > 100.0;
+    left_obstacle = ps_values[0] > PS_THRESHOLD ||
+                    ps_values[1] > PS_THRESHOLD || ps_values[2] > PS_THRESHOLD;
+    right_obstacle = ps_values[5] > PS_THRESHOLD ||
+                     ps_values[6] > PS_THRESHOLD || ps_values[7] > PS_THRESHOLD;
+  }
+
+  void objectDetection() {
+    distanceCheck();
 
     // init speeds
     double left_speed = 500;
@@ -257,22 +263,72 @@ public:
       // turn left
       left_speed -= 500;
       right_speed += 500;
-      std::cout << "[" << robot_name << "] "
-                << "Turning left" << std::endl;
+      std::cout << printName() << "Turning left" << std::endl;
     } else if (right_obstacle & !left_obstacle) {
       // turn right
       left_speed += 500;
       right_speed -= 500;
-      std::cout << "[" << robot_name << "] "
-                << "Turning right" << std::endl;
+      std::cout << printName() << "Turning right" << std::endl;
     } else if (right_obstacle & left_obstacle) {
       left_speed = -500;
       right_speed = -500;
-      std::cout << "[" << robot_name << "] "
-                << "Backwards" << std::endl;
+      std::cout << printName() << "Backwards" << std::endl;
     }
 
     move((int)left_speed, (int)right_speed);
+  }
+
+  void align() {
+    double target = roundNum(computeVectorAngle(emitterDirection));
+    bool ahead = false;
+    if ((target > 355) | (target < 5)) {
+      ahead = true;
+    }
+    if ((ps_values[0] <= SEPARATION_THRESHOLD) &
+        (ps_values[7] <= SEPARATION_THRESHOLD)) {
+      if ((target <= 180) & !ahead) {
+        move(500, -500);
+      } else if ((target > 180) & !ahead) {
+        move(-500, 500);
+      } else if (ahead & !left_obstacle & !right_obstacle) {
+        move(500, 500);
+      } else if (left_obstacle & right_obstacle) {
+        move(-500, -500);
+      }
+    } else {
+      move(0, 0);
+    }
+  }
+
+  double computeVectorMagnitude(std::array<double, 3> components) {
+    double resultant = sqrt(pow(components[0], 2) + pow(components[2], 2));
+    return resultant;
+  }
+
+  double computeVectorAngle(std::array<double, 3> components) {
+    double x = components[0];
+    double z = components[2];
+    double angle = 0;
+    double pi = 3.141592;
+
+    // Front of robot taken as 0 degrees i.e -z
+
+    if ((x > 0) && (z < 0)) {
+      z = -z;
+      angle = 90 - atan((z / x)) * 180 / pi;
+    } else if ((x > 0) && (z > 0)) {
+      angle = 90 + atan((z / x)) * 180 / pi;
+    } else if ((x < 0) && (z > 0)) {
+      x = -x;
+      angle = 180 + (90 - atan((z / x)) * 180 / pi);
+    }
+    if ((x < 0) && (z < 0)) {
+      x = -x;
+      z = -z;
+      angle = 270 + atan((z / x)) * 180 / pi;
+    }
+
+    return angle;
   }
 
   void keyboardControl(int keyPress) {
@@ -361,6 +417,13 @@ public:
     } else {
       return 0;
     }
+  }
+
+  double roundNum(double x) { return floor(x * 10) / 10; }
+
+  std::string printName() {
+    std::string name = "[" + robot_name + "] ";
+    return name;
   }
 };
 

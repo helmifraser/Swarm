@@ -912,7 +912,7 @@ DifferentialWheels {
       signalStrengthNoise 0        # [0,inf)
       directionNoise      0        # [0,inf)
       translation 0.0 0.033 0.0
-      rotation 0 1 0 1.27
+      rotation 0 0 0 0
       name "rc8"
       channel IS receiver_channel
     }
@@ -1028,7 +1028,7 @@ DifferentialWheels {
       baudRate     -1       # -1 or positive
       byteSize      32       # 8 or more
       bufferSize   -1       # -1 or positive
-      translation 0.01 0.33 0.01
+      translation 0.00 0.33 0.00
       rotation 0 0 0 0
       name "em8"
     }
