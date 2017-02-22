@@ -14,6 +14,7 @@
 #include <array>
 #include <chrono>
 #include <cmath>
+#include <ctime>
 #include <iostream>
 #include <regex>
 #include <stdio.h>
@@ -21,10 +22,19 @@
 #include <string.h>
 #include <thread>
 #include <vector>
+#include <algorithm>
+#include <iterator>
 
 using namespace webots;
+using namespace std::chrono_literals;
+
+typedef std::chrono::high_resolution_clock Clock;
 
 #define TIME_STEP 64
-#define PS_THRESHOLD 250.0
+#define PS_THRESHOLD 200
 #define SEPARATION_THRESHOLD 80
-#define WHEEL_SPEED 500
+#define WHEEL_SPEED 800
+#define ARRAY_SIZE 10
+#define SECTOR_ANGLE 45
+#define ALIGN_ERROR 25
+#define ALIGN_THRESHOLD 2

@@ -7,8 +7,8 @@ WorldInfo {
   northDirection 0 0 -10
 }
 Viewpoint {
-  orientation -0.99963387 -0.026581864 0.0050527186 0.69306326
-  position 0.10412621 0.57726418 2.5200659
+  orientation -0.9999755 -0.0027341586 0.0064445474 1.6427601
+  position 0.049851682 1.6790644 1.8478069
   follow "e2"
 }
 Background {
@@ -28,11 +28,74 @@ PointLight {
   location -0.43 0.6 0.5
 }
 RectangleArena {
-  translation -0.046084768 0 1.1467202
-  floorSize 2 2
+  translation 0.10391523 0 1.9667202
+}
+E-puck {
+  hidden translation_1 -0.026000864 0.020029164 8.2757994e-08
+  hidden rotation_1 0.99999999 2.2972109e-05 -0.00011294941 -1.4489499
+  hidden translation_2 0.026000858 0.020029157 -8.0397862e-08
+  hidden rotation_2 1 4.344625e-05 -2.4507688e-06 2.0209045
+  translation -0.32930688 -9.194577e-05 2.3819806
+  rotation 0.0034381204 0.99999224 0.001923586 -0.00079018231
+  controller "swarm"
+  name "e7"
+  emitter_channel 0
+  receiver_channel 0
+  turretSlot [
+    Compass {
+    }
+  ]
+}
+E-puck {
+  hidden translation_1 -0.026000864 0.020029164 8.3054336e-08
+  hidden rotation_1 0.99999999 2.2972104e-05 -0.0001129494 -1.4489499
+  hidden translation_2 0.026000858 0.020029157 -8.0082252e-08
+  hidden rotation_2 1 4.3446251e-05 -2.4507703e-06 2.0209045
+  translation -0.32854847 -9.1945514e-05 1.5272324
+  rotation 0.0031338345 0.99999362 0.001715234 -0.00088629726
+  controller "swarm"
+  name "e4"
+  emitter_channel 0
+  receiver_channel 0
+  turretSlot [
+    Compass {
+    }
+  ]
+}
+E-puck {
+  hidden translation_1 -0.026000867 0.020029164 8.3066758e-08
+  hidden rotation_1 0.99999999 2.2972072e-05 -0.00011294937 -1.4489499
+  hidden translation_2 0.026000861 0.020029157 -8.0106186e-08
+  hidden rotation_2 1 4.3446282e-05 -2.4507499e-06 2.0209045
+  translation 0.54076105 -9.1945417e-05 1.5179038
+  rotation 0.0033171986 0.99999303 0.0017150209 -0.00088645325
+  controller "swarm"
+  name "e5"
+  emitter_channel 0
+  receiver_channel 0
+  turretSlot [
+    Compass {
+    }
+  ]
+}
+E-puck {
+  hidden translation_1 -0.026001083 0.020029164 8.3079596e-08
+  hidden rotation_1 0.99999999 2.2969926e-05 -0.00011294694 -1.4489499
+  hidden translation_2 0.026001077 0.020029157 -8.0096515e-08
+  hidden rotation_2 1 4.344843e-05 -2.4494009e-06 2.0209045
+  translation 0.54012515 -9.2282328e-05 2.3822448
+  rotation 0.014288255 0.99989234 0.0033393257 -0.00077446214
+  controller "swarm"
+  name "e6"
+  emitter_channel 0
+  receiver_channel 0
+  turretSlot [
+    Compass {
+    }
+  ]
 }
 SolidPipe {
-  translation 0.59 0 1.76
+  translation 0.59 0 0.98
   height 0.3
   radius 0.2
   appearance Appearance {
@@ -46,12 +109,12 @@ SolidPipe {
   }
 }
 E-puck {
-  hidden translation_1 -0.026000864 0.020022107 8.3047256e-08
-  hidden rotation_1 0.99999999 2.2972116e-05 -0.00011294941 -1.4489499
-  hidden translation_2 0.026000858 0.020022089 -8.012594e-08
-  hidden rotation_2 1 4.3446371e-05 -2.4506933e-06 2.0209045
-  translation 0.00046320531 -8.4882864e-05 1.9789282
-  rotation 0.011232823 0.99993591 0.0014171893 -0.00092208278
+  hidden translation_1 -0.026000864 0.020026812 8.3060935e-08
+  hidden rotation_1 0.99999999 2.297211e-05 -0.00011294941 -1.4489499
+  hidden translation_2 0.026000858 0.020026801 -8.0112229e-08
+  hidden rotation_2 1 4.344629e-05 -2.4507437e-06 2.0209045
+  translation -0.3391034 -8.9591217e-05 1.9795185
+  rotation 0.0030181018 0.9999942 0.0015752372 -0.00092047901
   controller "swarm"
   name "e1"
   emitter_channel 0
@@ -62,17 +125,17 @@ E-puck {
   ]
 }
 WoodenBox {
-  translation -0.35 0.09 1.88
+  translation -1.4106602 0.09 0.81933982
   rotation 0 1 0 0.78539816
   size 0.2 0.2 0.2
 }
 E-puck {
-  hidden translation_1 -0.026000973 0.020018762 -4.1266081e-06
-  hidden rotation_1 0.99999983 -0.00056376273 -0.00014651214 -0.61188838
-  hidden translation_2 0.026000165 0.020018629 -3.7667028e-06
-  hidden rotation_2 0.99999998 6.4919197e-05 -0.0001843046 -2.8097637
-  translation 0.099989147 -8.1483087e-05 1.9796515
-  rotation -0.98226159 0.18750533 -0.0019816364 -0.00075297033
+  hidden translation_1 -0.026000973 0.020022293 -4.1288887e-06
+  hidden rotation_1 0.99999983 -0.00056376265 -0.00014651247 -0.61188837
+  hidden translation_2 0.026000165 0.020022163 -3.7689841e-06
+  hidden rotation_2 0.99999998 6.4919057e-05 -0.00018430457 -2.8097637
+  translation 0.099989148 -8.5014877e-05 1.9804099
+  rotation -0.97332056 0.22943895 -0.0022025939 -0.00061511788
   controller "swarm"
   name "e2"
   emitter_channel 0
@@ -83,12 +146,12 @@ E-puck {
   ]
 }
 E-puck {
-  hidden translation_1 -0.026004509 0.020019261 -1.7112437e-06
-  hidden rotation_1 0.99999999 -2.3965255e-05 0.0001396981 3.0694427
-  hidden translation_2 0.026004788 0.020018107 -1.8657471e-06
-  hidden rotation_2 0.99999999 0.00014123563 7.9512312e-05 3.1251944
-  translation 0.19997015 -8.1476386e-05 1.9795686
-  rotation 0.89964773 0.43489728 0.038708108 0.00039192097
+  hidden translation_1 -0.026004509 0.020023956 -1.7129313e-06
+  hidden rotation_1 0.99999999 -2.3965415e-05 0.0001396981 3.0694427
+  hidden translation_2 0.026004788 0.020022831 -1.8674449e-06
+  hidden rotation_2 0.99999999 0.0001412354 7.951231e-05 3.1251944
+  translation 0.54956684 -8.6185704e-05 1.9802841
+  rotation 0.90339542 0.42723144 0.036742545 0.00039773171
   controller "swarm"
   name "e3"
   emitter_channel 0
@@ -99,7 +162,7 @@ E-puck {
   ]
 }
 SolidBox {
-  translation 0.12 0 1.2
+  translation 0.12 0 -0.28
   size 0.5 0.5 0.5
   appearance Appearance {
     material Material {
