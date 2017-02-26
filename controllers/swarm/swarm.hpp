@@ -30,11 +30,13 @@ using namespace std::chrono_literals;
 
 typedef std::chrono::high_resolution_clock Clock;
 
-#define TIME_STEP 64
-#define PS_THRESHOLD 200
+#define TIME_STEP 16
+#define PS_THRESHOLD 150
 #define SEPARATION_THRESHOLD 80
-#define WHEEL_SPEED 800
+#define WHEEL_SPEED 1000
 #define ARRAY_SIZE 10
 #define SECTOR_ANGLE 45
-#define ALIGN_ERROR 25
-#define ALIGN_THRESHOLD 2
+#define ALIGN_ERROR 15
+#define ALIGN_THRESHOLD 1
+#define RANGE 0.35
+#define ROULETTE 7

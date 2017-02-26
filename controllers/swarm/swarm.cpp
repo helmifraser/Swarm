@@ -1,17 +1,5 @@
 #include "swarm.hpp"
 
-template <class T, std::size_t I, std::size_t... J> struct MultiDimArray {
-  using Nested = typename MultiDimArray<T, J...>::type;
-  // typedef typename MultiDimArray<T, J...>::type Nested;
-  using type = std::array<Nested, I>;
-  // typedef std::array<Nested, I> type;
-};
-
-template <class T, std::size_t I> struct MultiDimArray<T, I> {
-  using type = std::array<T, I>;
-  // typedef std::array<T, I> type;
-};
-
 struct ReceiverData {
   std::array<int, 6> data{};
   bool received;
@@ -21,7 +9,7 @@ struct ReceiverData {
   double surrounding[2][2];
 };
 
-class MyRobot : public DifferentialWheels {
+class Swarm : public DifferentialWheels {
 
 private:
   Camera *camera;
@@ -52,11 +40,11 @@ private:
   int matrix[100][100];
 
   double ps_values[8];
-  bool left_obstacle, right_obstacle, front_obstacle;
+  bool left_obstacle, right_obstacle, front_obstacle, back_obstacle;
   bool aligned;
 
 public:
-  MyRobot() {
+  Swarm() {
 
     // camera
     camera = getCamera("camera");
@@ -82,7 +70,7 @@ public:
     }
 
     irEm[8] = getEmitter("em8");
-    irEm[8]->setRange(0.35);
+    irEm[8]->setRange(RANGE);
     irRec[8] = getReceiver("rc8");
     irRec[8]->enable(TIME_STEP);
 
@@ -115,14 +103,14 @@ public:
         matrix[i][j] = rand() % 15872567351;
       }
     }
-
   }
 
-  virtual ~MyRobot() {}
+  virtual ~Swarm() {}
 
   void run() {
     while (step(TIME_STEP) != -1) {
-      std::cout << "1 for keyboard control, 2 for object avoidance, 3 for other, 4 for randomVal"
+      std::cout << "1 for keyboard control, 2 for object avoidance, 3 for "
+                   "other, 4 for randomVal"
                 << std::endl;
       int decide = readKey();
       switch (decide) {
@@ -145,32 +133,34 @@ public:
     }
   }
 
-  void randomAlign(){
-    int random = randomVal();
+  void randomAlign() {
+    int random = randomVal(8);
     while (step(TIME_STEP != -1)) {
       saveCompassValues();
       int test2 = getCurrentHeading();
       std::cout << printName() << "random " << random << std::endl;
       if (test2 != random) {
         align(random);
-        std::cout << printName() << "Moving, current " << getCurrentHeading() << std::endl;
-      } else{
-        move(0,0);
+        std::cout << printName() << "Moving, current " << getCurrentHeading()
+                  << std::endl;
+      } else {
+        move(0, 0);
         std::cout << printName() << "Stop" << std::endl;
         break;
       }
     }
   }
 
-  int randomVal(){
-    int robNum = atoi(robot_name.substr(1,strlen(robot_name.c_str())-1).c_str());
-    return matrix[robNum][rand() % 100] % 8;
+  int randomVal(int range) {
+    int robNum =
+        atoi(robot_name.substr(1, strlen(robot_name.c_str()) - 1).c_str());
+    return matrix[robNum][rand() % 100] % range;
   }
 
   void objectDetectionMode() {
     setLEDs(1);
     while (step(TIME_STEP != -1)) {
-      objectDetection();
+      objectDetection(1.0);
     }
   }
 
@@ -215,7 +205,7 @@ public:
         //   //   align();
         //   // } else if (!myData.received) {
         //   //   setLEDs(1);
-        //   //   objectDetection();
+        //   //   objectDetection(double speedAdjust);
         //   // }
         // }
         // }
@@ -237,7 +227,7 @@ public:
         //   if (targetHeading != getCurrentHeading()) {
         //     align(targetHeading);
         //   } else {
-        //     // objectDetection();
+        //     // objectDetection(double speedAdjust);
         //     move(0, 0);
         //   }
         // while (targetHeading != getCurrentHeading()) {
@@ -260,6 +250,20 @@ public:
 
       processReceiverData(myData.orientationString);
 
+      // std::array<double, 100> allDirections = {};
+      // std::array<int, 4> sectorCount = {};
+      // computeDirections(allDirections);
+      // computeCluster(allDirections, sectorCount);
+      //
+      // int test = chooseSector(sectorCount);
+      // std::cout << printName() << "i value: " << test << std::endl;
+      //
+      // std::cout << printName();
+      // for (int i = 0; i < 4; i++) {
+      //  std::cout << sectorCount[i] << " ";
+      // }
+      // std::cout << std::endl;
+
       int index = std::distance(
           signalStrength,
           std::max_element(signalStrength,
@@ -269,65 +273,163 @@ public:
       for (int k = 0; k < 3; k++) {
         direction[k] = emitterDirection[index][k];
       }
+
       double nearestNeighbour = computeVectorAngle(direction);
 
-      // together = false;
+      bool converge = false;
+      bool lead = false;
+
       if ((robots >= ALIGN_THRESHOLD) && (!left_obstacle) &&
           (!right_obstacle) && together == false &&
-          signalStrength[index] < 10) {
-            setLEDs(0);
-
-        adjust(nearestNeighbour);
-        std::cout << printName() << "Sig str " << signalStrength[index]
-                  << std::endl;
-      } else if ((robots >= ALIGN_THRESHOLD) && (left_obstacle) &&
-                 (right_obstacle) && together == false) {
-                   setLEDs(0);
-
-        separation();
-      } else if ((robots < ALIGN_THRESHOLD) && together == false) {
+          signalStrength[index] < 10 && converge == false && lead == false) {
         setLEDs(0);
 
-        std::cout << printName() << "Robots" << robots << std::endl;
-        std::cout << printName() << "Searching, sig str " << signalStrength[index] << std::endl;
-        objectDetection();
+        adjust(nearestNeighbour);
+        // std::cout << printName() << "Sig str " << signalStrength[index]
+                  // << std::endl;
+      } else if ((robots >= ALIGN_THRESHOLD) && (left_obstacle) &&
+                 (right_obstacle) && together == false && converge == false) {
+        setLEDs(0);
+        separation();
+      } else if ((robots < ALIGN_THRESHOLD) && together == false &&
+                 converge == false) {
+        setLEDs(0);
 
-        // adjust(nearestNeighbour);
+        // std::cout << printName() << "Robots " << robots << std::endl;
+        // std::cout << printName() << "Searching, sig str "
+                  // << signalStrength[index] << std::endl;
+        objectDetection(1.0);
+
       } else if ((robots >= ALIGN_THRESHOLD) && together == false &&
-                 signalStrength[index] > 10) {
-                   setLEDs(0);
+                 signalStrength[index] > 10 && converge == false) {
+        setLEDs(0);
 
-        std::cout << printName() << " Done, sig str " << signalStrength[index]
-                  << std::endl;
-
-        // irEm[8]->setRange(2);
-        move(0, 0);
-        together = true;
-      }
-
-      std::cout << printName() << "Range " << irEm[8]->getRange() << std::endl;
-
-      if (together == true) {
-        setLEDs(1);
-        irEm[8]->setRange(2);
-        int heading = getCurrentHeading();
-        int targetHeading = 2;
-        // std::cout << printName() << "targetHeading " << targetHeading
-        //           << std::endl;
-        if (heading == targetHeading & checkAlignment() == true) {
-          heading = computeAverageHeading();
+        // std::cout << printName() << " Done, sig str " << signalStrength[index]
+                  // << std::endl;
+        if (front_obstacle) {
+          move(0, 0);
+          converge = true;
+          together = true;
         } else {
-          heading = targetHeading;
+          objectDetection(0.5);
+          lead = true;
         }
-        align(heading);
-        if (robots < ALIGN_THRESHOLD) {
-          together = false;
-          setLEDs(0);
-        }
+
+      } else if (converge == true) {
+        adjust(nearestNeighbour);
       }
 
+      if (robots > ALIGN_THRESHOLD) {
+        irEm[8]->setRange(RANGE * (1 + 1.1 * log(robots - ALIGN_THRESHOLD)));
+        // std::cout << printName() << "Range " << irEm[8]->getRange()
+                  // << std::endl;
+      } else if (robots == 1) {
+        irEm[8]->setRange(RANGE * 1.1);
+      } else {
+        irEm[8]->setRange(RANGE);
+      }
+
+      // if (together == true && lead == false) {
+      //   setLEDs(1);
+      //
+      //   if (robots > ALIGN_THRESHOLD) {
+      //     // std::cout << "log " << RANGE * (1 + log(3)) << std::endl;
+      //     // irEm[8]->setRange(RANGE * (1 + (robots - ALIGN_THRESHOLD) / 2));
+      //     irEm[8]->setRange(RANGE * (1 + 1.1 * log(robots -
+      //     ALIGN_THRESHOLD)));
+      //     std::cout << printName() << "Range " << irEm[8]->getRange()
+      //               << std::endl;
+      //   } else {
+      //     irEm[8]->setRange(RANGE);
+      //   }
+      //
+      //   int heading = getCurrentHeading();
+      //   int targetHeading = 5;
+      //   if (heading == targetHeading & checkAlignment() == true) {
+      //     heading = computeAverageHeading();
+      //   } else {
+      //     heading = targetHeading;
+      //   }
+      //
+      //   align(heading);
+      //
+      //   if (robots < ALIGN_THRESHOLD) {
+      //     together = false;
+      //     converge = false;
+      //     setLEDs(0);
+      //   }
+      //
+      //   int rangeRand = randomVal(100);
+      //
+      //   if (rangeRand < 5) {
+      //     irEm[8]->setRange(0.01);
+      //     together = false;
+      //   }
+      // }
+      std::cout << printName() << "Range " << irEm[8]->getRange() << std::endl;
       sendCurrentOrientation();
     }
+  }
+
+  void computeDirections(std::array<double, 100> &allDirections) {
+    std::array<double, 3> vector;
+    for (int i = 0; i < robots; i++) {
+      for (int j = 0; j < 3; j++) {
+        vector[j] = emitterDirection[i][j];
+      }
+
+      allDirections[i] = computeVectorAngle(vector);
+    }
+  }
+
+  void computeCluster(std::array<double, 100> &allDirections, std::array<int, 4> &output) {
+
+    int countArray[4] = {0, 0, 0, 0};
+    // Sorts in ascending order
+    std::sort(std::begin(allDirections), std::end(allDirections));
+
+    for (int i = 100 - robots; i < 100; i++) {
+      if (allDirections[i] >= 0 && allDirections[i] < 90) {
+        countArray[0]++;
+      } else if (allDirections[i] >= 90 && allDirections[i] < 180) {
+        countArray[1]++;
+      } else if (allDirections[i] >= 180 && allDirections[i] < 270) {
+        countArray[2]++;
+      } else if (allDirections[i] >= 270 && allDirections[i] <= 360) {
+        countArray[3]++;
+      }
+    }
+
+    for (int i = 0; i < 4; i++) {
+      output[i] = countArray[i];
+    }
+  }
+
+  int chooseSector(std::array<int, 4> &output) {
+    // roullette wheel selection using a fitness function
+    int sum = 0;
+    std::array<int, 4> outputCopy = output;
+
+    for (int i = 0; i < 4; i++) {
+      outputCopy[i] = outputCopy[i] * ROULETTE;
+      if (outputCopy[i] == 0) {
+        outputCopy[i] = 1;
+      }
+      sum += outputCopy[i];
+    }
+
+    int value = randomVal(sum);
+    int i = 0;
+
+    while (step(TIME_STEP != -1) && value >= 0) {
+      value -= outputCopy[i];
+      i++;
+    }
+    i--;
+    std::cout << printName() << "Value: " << value << std::endl;
+
+    return i;
+
   }
 
   void adjust(double angle) {
@@ -399,26 +501,37 @@ public:
   void sendCurrentOrientation() {
     std::string message = std::to_string(getCurrentOrientation());
     sendPacket(8, message);
+
+    message = "I'm here!";
+    sendPacket(7, message);
   }
 
-  void getReceiverData(int i) {
-    Receiver *copy = (Receiver *)malloc(sizeof(Receiver));
-    myData.orientationString = {};
-    robots = (irRec[i]->getQueueLength() + 1) / 2;
-    for (int i = 0; i < 100; i++) {
-      signalStrength[i] = 0;
-    }
-    for (int k = 0; k < irRec[i]->getQueueLength(); k++) {
-      data = (char *)irRec[i]->getData();
-      signalStrength[k] = (double)irRec[i]->getSignalStrength();
-      for (int n = 0; n < 3; n++) {
-        emitterDirection[k][n] = irRec[i]->getEmitterDirection()[n];
+  void getReceiverData(int receiver) {
+    if (receiver == 8) {
+      Receiver *copy = (Receiver *)malloc(sizeof(Receiver));
+      myData.orientationString = {};
+      robots = (irRec[receiver]->getQueueLength() + 1) / 2;
+      for (int i = 0; i < 100; i++) {
+        signalStrength[i] = 0;
       }
-      memcpy(copy, data, sizeof(Receiver));
-      myData.orientationString[k] = (char *)copy;
-      // std::cout << "OS: " << k << " " << myData.orientationString[k] <<
-      // std::endl;
-      irRec[i]->nextPacket();
+      for (int k = 0; k < irRec[receiver]->getQueueLength(); k++) {
+        data = (char *)irRec[receiver]->getData();
+        signalStrength[k] = (double)irRec[receiver]->getSignalStrength();
+        for (int n = 0; n < 3; n++) {
+          emitterDirection[k][n] = irRec[receiver]->getEmitterDirection()[n];
+        }
+        memcpy(copy, data, sizeof(Receiver));
+        myData.orientationString[k] = (char *)copy;
+        irRec[receiver]->nextPacket();
+      }
+    } else {
+      // for (int k = 0; k < irRec[i]->getQueueLength(); k++) {
+      //   signalStrength[k] = (double)irRec[i]->getSignalStrength();
+      //   for (int n = 0; n < 3; n++) {
+      //     emitterDirection[k][n] = irRec[i]->getEmitterDirection()[n];
+      //   }
+      //   irRec[i]->nextPacket();
+      // }
     }
   }
 
@@ -473,30 +586,31 @@ public:
                      (ps_values[7] > PS_THRESHOLD);
     front_obstacle =
         (ps_values[0] > PS_THRESHOLD) & (ps_values[7] > PS_THRESHOLD);
+    back_obstacle = (ps_values[3] > PS_THRESHOLD) & (ps_values[4] > PS_THRESHOLD);
   }
 
-  void objectDetection() {
+  void objectDetection(double speedAdjust) {
     // setLEDs(1);
     distanceCheck();
 
     // init speeds
-    double left_speed = WHEEL_SPEED;
-    double right_speed = WHEEL_SPEED;
+    double left_speed = speedAdjust * WHEEL_SPEED;
+    double right_speed = speedAdjust * WHEEL_SPEED;
 
     // modify speeds according to obstacles
     if (left_obstacle & !right_obstacle) {
       // turn left
-      left_speed -= WHEEL_SPEED;
-      right_speed += WHEEL_SPEED;
+      left_speed -= speedAdjust * WHEEL_SPEED;
+      right_speed += speedAdjust * WHEEL_SPEED;
       // std::cout << printName() << "Turning left" << std::endl;
     } else if (right_obstacle & !left_obstacle) {
       // turn right
-      left_speed += WHEEL_SPEED;
-      right_speed -= WHEEL_SPEED;
+      left_speed += speedAdjust * WHEEL_SPEED;
+      right_speed -= speedAdjust * WHEEL_SPEED;
       // std::cout << printName() << "Turning right" << std::endl;
     } else if (right_obstacle & left_obstacle) {
-      left_speed = -WHEEL_SPEED;
-      right_speed = -WHEEL_SPEED;
+      left_speed = -speedAdjust * WHEEL_SPEED;
+      right_speed = -speedAdjust * WHEEL_SPEED;
       // std::cout << printName() << "Backwards" << std::endl;
     }
 
@@ -519,9 +633,10 @@ public:
 
     // modify speeds according to obstacles
     if (left_obstacle | right_obstacle) {
-      // turn left
       left_speed = -left_speed;
       right_speed = -right_speed;
+    } else if (back_obstacle) {
+      left_speed = right_speed = WHEEL_SPEED;
     } else {
       left_speed = right_speed = 0;
     }
@@ -877,7 +992,7 @@ public:
 
 int main(int argc, char *argv[]) {
 
-  MyRobot *robot = new MyRobot();
+  Swarm *robot = new Swarm();
   robot->run();
   delete robot;
   return 0;
