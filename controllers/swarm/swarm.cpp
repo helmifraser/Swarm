@@ -3,7 +3,6 @@
 struct ReceiverData {
   std::array<int, 6> data{};
   bool received;
-  // MultiDimArray<int, 8, 6>::type data2;
   std::array<std::string, ARRAY_SIZE> orientationString;
   std::array<double, ARRAY_SIZE> orientationDouble;
   double surrounding[2][2];
@@ -21,6 +20,7 @@ private:
   Receiver *irRec[9];
   Keyboard *keyboard;
   Compass *compass;
+  GPS *gps;
 
   ReceiverData myData;
 
@@ -28,7 +28,6 @@ private:
   const char *data;
 
   std::array<int, 3> speed;
-  // std::array<double, 3> emitterDirection;
   std::array<double, 3> currentOrientation;
   double signalStrength[100];
   double emitterDirection[100][3];
@@ -46,10 +45,11 @@ private:
 public:
   Swarm() {
 
-    // camera
-    camera = getCamera("camera");
     compass = getCompass("compass");
     compass->enable(TIME_STEP);
+
+    gps = getGPS("gps");
+    gps->enable(TIME_STEP);
 
     std::string ls = "ls";
     std::string ps = "ps";
@@ -110,7 +110,7 @@ public:
   void run() {
     while (step(TIME_STEP) != -1) {
       std::cout << "1 for keyboard control, 2 for object avoidance, 3 for "
-                   "other, 4 for randomVal"
+                   "flocking, 4 for randomVal"
                 << std::endl;
       int decide = readKey();
       switch (decide) {
@@ -123,8 +123,8 @@ public:
         objectDetectionMode();
         break;
       case 51:
-        std::cout << "Other" << std::endl;
-        follow();
+        std::cout << "Flock" << std::endl;
+        flock();
         break;
       case 52:
         randomAlign();
@@ -165,6 +165,10 @@ public:
   }
 
   void teleop() {
+    std::string test;
+    std::string filename = printName() + "_data_" + test + ".csv";
+    std::ofstream data(filename, std::ios::out);
+
     while (step(TIME_STEP) != -1) {
       if (robot_name.compare("e2") == 0) {
         setLEDs(0);
@@ -177,198 +181,125 @@ public:
 
         // -----send actuator commands-----
         keyboardControl(keyPress);
+        std::array<double, 3> position = getGPSValue();
+        std::cout << printName();
+        std::cout << "GPS ";
+        for (int i = 0; i < 3; i++) {
+          std::cout << position[i] << " ";
+        }
+        std::cout << std::endl;
 
         // sendCurrentOrientation();
       }
       if (robot_name.compare("e2") != 0) {
-        follow();
-        // while (step(TIME_STEP) != -1) {
-        //
-        //   setLEDs(0);
-        //
-        //   // -----get data-----
-        //   getReceiverData(8);
-        //   distanceCheck();
-        //   saveCompassValues();
-        //
-        //   // -----process data-----
-        //   // processReceiverData(temp);
-        //   // std::cout << printName() << "Received: " << temp << std::endl;
-        //   // std::cout << printName()
-        //   //           << "Angle: " << computeVectorAngle(emitterDirection)
-        //   //           << std::endl;
-        //
-        //   // -----send actuator commands-----
-        //   sendCurrentOrientation();
-        //   separation();
-        //   // if (myData.received) {
-        //   //   align();
-        //   // } else if (!myData.received) {
-        //   //   setLEDs(1);
-        //   //   objectDetection(double speedAdjust);
-        //   // }
-        // }
-        // }
-        // if (1) {
-        //   setLEDs(1);
-        //   // -----get data-----
-        //   getReceiverData(8);
-        //   saveCompassValues();
-        //
-        //   // -----process data-----
-        //   processReceiverData(myData.orientationString);
-        //   int targetHeading = computeAverageHeading();
-        //   std::cout << printName()
-        //             << "Average heading: " << computeAverageHeading()
-        //             << std::endl;
-        //
-        //   // -----send actuator commands-----
-        //   std::cout << printName() << "Aligned:" << aligned << std::endl;
-        //   if (targetHeading != getCurrentHeading()) {
-        //     align(targetHeading);
-        //   } else {
-        //     // objectDetection(double speedAdjust);
-        //     move(0, 0);
-        //   }
-        // while (targetHeading != getCurrentHeading()) {
-        //   align(targetHeading);
-        //   std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        // }
+        flock();
         sendCurrentOrientation();
       }
     }
   }
 
-  void follow() {
-    bool together = false;
+  void flock() {
+    std::string filename = printName() + "_data.csv";
+    std::ofstream data(filename, std::ios::out);
+    if (data.is_open()) {
+      data << printName() << "\n";
+      data << "x-value,z-value,robots,orientation\n";
+    }
+
     randomAlign();
 
-    while (step(TIME_STEP != -1)) {
+    int quit = 0;
+    int step_count = 0;
+
+    while (step(TIME_STEP != -1) && quit != 1) {
+
+      int quitKey = readKey();
+
+      switch (quitKey) {
+      case 53:
+        quit = 1;
+        break;
+
+      default:
+        break;
+      }
+
       getReceiverData(8);
       saveCompassValues();
       distanceCheck();
 
       processReceiverData(myData.orientationString);
 
-      // std::array<double, 100> allDirections = {};
-      // std::array<int, 4> sectorCount = {};
-      // computeDirections(allDirections);
-      // computeCluster(allDirections, sectorCount);
-      //
-      // int test = chooseSector(sectorCount);
-      // std::cout << printName() << "i value: " << test << std::endl;
-      //
-      // std::cout << printName();
-      // for (int i = 0; i < 4; i++) {
-      //  std::cout << sectorCount[i] << " ";
-      // }
-      // std::cout << std::endl;
-
       int index = std::distance(
           signalStrength,
           std::max_element(signalStrength,
                            signalStrength +
                                sizeof(signalStrength) / sizeof(double)));
+
       std::array<double, 3> direction = {0, 0, 0};
-      for (int k = 0; k < 3; k++) {
-        direction[k] = emitterDirection[index][k];
+      if (robots > ALIGN_THRESHOLD) {
+        for (int k = 0; k < 3; k++) {
+          direction[k] = emitterDirection[index + 1][k];
+        }
+      } else if (robots == 1) {
+        for (int k = 0; k < 3; k++) {
+          direction[k] = emitterDirection[index][k];
+        }
       }
 
       double nearestNeighbour = computeVectorAngle(direction);
 
-      bool converge = false;
-      bool lead = false;
-
       if ((robots >= ALIGN_THRESHOLD) && (!left_obstacle) &&
-          (!right_obstacle) && together == false &&
-          signalStrength[index] < 10 && converge == false && lead == false) {
+          (!right_obstacle) && signalStrength[index] < 10) {
         setLEDs(0);
-
         adjust(nearestNeighbour);
-        // std::cout << printName() << "Sig str " << signalStrength[index]
-                  // << std::endl;
-      } else if ((robots >= ALIGN_THRESHOLD) && (left_obstacle) &&
-                 (right_obstacle) && together == false && converge == false) {
-        setLEDs(0);
-        separation();
-      } else if ((robots < ALIGN_THRESHOLD) && together == false &&
-                 converge == false) {
-        setLEDs(0);
 
-        // std::cout << printName() << "Robots " << robots << std::endl;
-        // std::cout << printName() << "Searching, sig str "
-                  // << signalStrength[index] << std::endl;
+      } else if ((robots >= ALIGN_THRESHOLD) && (left_obstacle) &&
+                 (right_obstacle)) {
+        setLEDs(0);
+        // separation();
+        objectDetection(0.75);
+
+      } else if (robots < ALIGN_THRESHOLD) {
+        setLEDs(0);
         objectDetection(1.0);
 
-      } else if ((robots >= ALIGN_THRESHOLD) && together == false &&
-                 signalStrength[index] > 10 && converge == false) {
+      } else if ((robots >= ALIGN_THRESHOLD) && signalStrength[index] > 10) {
         setLEDs(0);
-
-        // std::cout << printName() << " Done, sig str " << signalStrength[index]
-                  // << std::endl;
-        if (front_obstacle) {
-          move(0, 0);
-          converge = true;
-          together = true;
-        } else {
-          objectDetection(0.5);
-          lead = true;
-        }
-
-      } else if (converge == true) {
-        adjust(nearestNeighbour);
+        objectDetection(0.5);
       }
 
-      if (robots > ALIGN_THRESHOLD) {
-        irEm[8]->setRange(RANGE * (1 + 1.1 * log(robots - ALIGN_THRESHOLD)));
-        // std::cout << printName() << "Range " << irEm[8]->getRange()
-                  // << std::endl;
-      } else if (robots == 1) {
-        irEm[8]->setRange(RANGE * 1.1);
-      } else {
-        irEm[8]->setRange(RANGE);
-      }
-
-      // if (together == true && lead == false) {
-      //   setLEDs(1);
-      //
-      //   if (robots > ALIGN_THRESHOLD) {
-      //     // std::cout << "log " << RANGE * (1 + log(3)) << std::endl;
-      //     // irEm[8]->setRange(RANGE * (1 + (robots - ALIGN_THRESHOLD) / 2));
-      //     irEm[8]->setRange(RANGE * (1 + 1.1 * log(robots -
-      //     ALIGN_THRESHOLD)));
-      //     std::cout << printName() << "Range " << irEm[8]->getRange()
-      //               << std::endl;
-      //   } else {
-      //     irEm[8]->setRange(RANGE);
-      //   }
-      //
-      //   int heading = getCurrentHeading();
-      //   int targetHeading = 5;
-      //   if (heading == targetHeading & checkAlignment() == true) {
-      //     heading = computeAverageHeading();
-      //   } else {
-      //     heading = targetHeading;
-      //   }
-      //
-      //   align(heading);
-      //
-      //   if (robots < ALIGN_THRESHOLD) {
-      //     together = false;
-      //     converge = false;
-      //     setLEDs(0);
-      //   }
-      //
-      //   int rangeRand = randomVal(100);
-      //
-      //   if (rangeRand < 5) {
-      //     irEm[8]->setRange(0.01);
-      //     together = false;
-      //   }
+      std::cout << printName() << "Robots " << robots << std::endl;
+      double robotsDouble = robots;
+      // if (robots > ALIGN_THRESHOLD && robots > 4) {
+      //   irEm[8]->setRange((-exp(-RANGE * robotsDouble + 2) + 2));
+      // } else if (robots <= 4) {
+      //   irEm[8]->setRange(RANGE * (1 + robotsDouble / 4));
+      // } else {
+      //   irEm[8]->setRange(RANGE);
       // }
-      std::cout << printName() << "Range " << irEm[8]->getRange() << std::endl;
+
+      if (robots >= 1) {
+        irEm[8]->setRange(RANGE*(robotsDouble+1));
+        std::cout << printName() << "Range " << irEm[8]->getRange() << std::endl;
+      }
+
+      std::array<double, 3> position = getGPSValue();
+
+      if (data.is_open()) {
+        data << position[0] << ",";
+        data << position[2] << ",";
+        data << robots << ",";
+        data << getCurrentOrientation() << ",";
+        data << " \n";
+      }
+
       sendCurrentOrientation();
+      step_count++;
     }
+    std::cout << step_count << std::endl;
+    move(0, 0);
+    data.close();
   }
 
   void computeDirections(std::array<double, 100> &allDirections) {
@@ -382,7 +313,8 @@ public:
     }
   }
 
-  void computeCluster(std::array<double, 100> &allDirections, std::array<int, 4> &output) {
+  void computeCluster(std::array<double, 100> &allDirections,
+                      std::array<int, 4> &output) {
 
     int countArray[4] = {0, 0, 0, 0};
     // Sorts in ascending order
@@ -421,15 +353,61 @@ public:
     int value = randomVal(sum);
     int i = 0;
 
-    while (step(TIME_STEP != -1) && value >= 0) {
+    while (value >= 0) {
       value -= outputCopy[i];
       i++;
     }
     i--;
-    std::cout << printName() << "Value: " << value << std::endl;
 
     return i;
+  }
 
+  bool checkSector(int sector) {
+    int myHeading = getCurrentHeading();
+    int mySector = 0;
+
+    if ((myHeading >= 0) & (myHeading < 2)) {
+      mySector = 1;
+    }
+
+    if ((myHeading >= 2) & (myHeading < 4)) {
+      mySector = 2;
+    }
+
+    if ((myHeading >= 4) & (myHeading < 6)) {
+      mySector = 3;
+    }
+
+    if ((myHeading >= 6) & (myHeading <= 7)) {
+      mySector = 4;
+    }
+
+    if (mySector == sector) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  double randomSectorAngle(int sector) {
+    double angle = randomVal(90);
+
+    switch (sector) {
+    case 0:
+      angle += 0;
+      break;
+    case 1:
+      angle += 90;
+      break;
+    case 2:
+      angle += 180;
+      break;
+    case 3:
+      angle += 270;
+      break;
+    }
+
+    return angle;
   }
 
   void adjust(double angle) {
@@ -501,16 +479,13 @@ public:
   void sendCurrentOrientation() {
     std::string message = std::to_string(getCurrentOrientation());
     sendPacket(8, message);
-
-    message = "I'm here!";
-    sendPacket(7, message);
   }
 
   void getReceiverData(int receiver) {
     if (receiver == 8) {
       Receiver *copy = (Receiver *)malloc(sizeof(Receiver));
       myData.orientationString = {};
-      robots = (irRec[receiver]->getQueueLength() + 1) / 2;
+      robots = roundNum((irRec[receiver]->getQueueLength() + 1) / 2);
       for (int i = 0; i < 100; i++) {
         signalStrength[i] = 0;
       }
@@ -524,14 +499,6 @@ public:
         myData.orientationString[k] = (char *)copy;
         irRec[receiver]->nextPacket();
       }
-    } else {
-      // for (int k = 0; k < irRec[i]->getQueueLength(); k++) {
-      //   signalStrength[k] = (double)irRec[i]->getSignalStrength();
-      //   for (int n = 0; n < 3; n++) {
-      //     emitterDirection[k][n] = irRec[i]->getEmitterDirection()[n];
-      //   }
-      //   irRec[i]->nextPacket();
-      // }
     }
   }
 
@@ -586,7 +553,8 @@ public:
                      (ps_values[7] > PS_THRESHOLD);
     front_obstacle =
         (ps_values[0] > PS_THRESHOLD) & (ps_values[7] > PS_THRESHOLD);
-    back_obstacle = (ps_values[3] > PS_THRESHOLD) & (ps_values[4] > PS_THRESHOLD);
+    back_obstacle =
+        (ps_values[3] > PS_THRESHOLD) & (ps_values[4] > PS_THRESHOLD);
   }
 
   void objectDetection(double speedAdjust) {
@@ -632,7 +600,7 @@ public:
     double right_speed = WHEEL_SPEED;
 
     // modify speeds according to obstacles
-    if (left_obstacle | right_obstacle) {
+    if (left_obstacle | right_obstacle && !back_obstacle) {
       left_speed = -left_speed;
       right_speed = -right_speed;
     } else if (back_obstacle) {
@@ -727,6 +695,36 @@ public:
     return heading;
   }
 
+  int orientationToHeading(int current) {
+    int heading = 0;
+    if ((current >= (360 - SECTOR_ANGLE / 2)) |
+        (current < (SECTOR_ANGLE / 2))) {
+      heading = 0;
+    } else if ((current >= SECTOR_ANGLE / 2) &
+               (current < (1.5 * SECTOR_ANGLE))) {
+      heading = 1;
+    } else if ((current >= (1.5 * SECTOR_ANGLE)) &
+               (current < (2.5 * SECTOR_ANGLE))) {
+      heading = 2;
+    } else if ((current >= (2.5 * SECTOR_ANGLE)) &
+               (current < (3.5 * SECTOR_ANGLE))) {
+      heading = 3;
+    } else if ((current >= (3.5 * SECTOR_ANGLE)) &
+               (current < (4.5 * SECTOR_ANGLE))) {
+      heading = 4;
+    } else if ((current >= (4.5 * SECTOR_ANGLE)) &
+               (current < (5.5 * SECTOR_ANGLE))) {
+      heading = 5;
+    } else if ((current >= (5.5 * SECTOR_ANGLE)) &
+               (current < (6.5 * SECTOR_ANGLE))) {
+      heading = 6;
+    } else if ((current >= (6.5 * SECTOR_ANGLE)) &
+               (current < (7.5 * SECTOR_ANGLE))) {
+      heading = 7;
+    }
+    return heading;
+  }
+
   bool checkAlignment() {
     bool alignment = false;
     if (getCurrentHeading() == computeAverageHeading()) {
@@ -740,6 +738,16 @@ public:
     for (int i = 0; i < 3; i++) {
       currentOrientation[i] = compassVal[i];
     }
+  }
+
+  std::array<double, 3> getGPSValue() {
+    const double *dataGPS = gps->getValues();
+    std::array<double, 3> GPSout;
+    for (int i = 0; i < 3; i++) {
+      GPSout[i] = dataGPS[i];
+    }
+
+    return GPSout;
   }
 
   double getCurrentOrientation() {

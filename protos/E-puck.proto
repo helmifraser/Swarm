@@ -1595,6 +1595,17 @@ DifferentialWheels {
         1 0.3 0
       ]
     }
+    DEF EPUCK_GPS GPS {
+      type             "satellite"
+      accuracy         0
+      noiseCorrelation 0
+      resolution       -1
+      speedNoise       0
+      speedResolution  1
+      translation 0.0 0.035 0.0
+      rotation 0 0 0 0
+      name "gps"
+    }
     DEF EPUCK_ACCELEROMETER Accelerometer {
       rotation 1 0 0 -1.57
     }
