@@ -4,28 +4,27 @@
 #include <webots/DifferentialWheels.hpp>
 #include <webots/DistanceSensor.hpp>
 #include <webots/Emitter.hpp>
+#include <webots/GPS.hpp>
 #include <webots/Keyboard.hpp>
 #include <webots/LED.hpp>
 #include <webots/LightSensor.hpp>
 #include <webots/Receiver.hpp>
-#include <webots/GPS.hpp>
 #include <webots/Robot.hpp>
 
 // standard
+#include <algorithm>
 #include <array>
-#include <chrono>
 #include <cmath>
-#include <ctime>
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <iterator>
+#include <map>
 #include <regex>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <thread>
 #include <vector>
-#include <algorithm>
-#include <iterator>
 
 using namespace webots;
 
