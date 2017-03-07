@@ -26,9 +26,12 @@
 #include <thread>
 #include <vector>
 
+// own
+#include "configLoader.hpp"
+
 using namespace webots;
 
-#define TIME_STEP 4
+#define TIME_STEP 32
 #define PS_THRESHOLD 150
 #define SEPARATION_THRESHOLD 80
 #define WHEEL_SPEED 1000

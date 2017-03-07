@@ -11,4 +11,5 @@ build/release/swarm.o: swarm.cpp swarm.hpp \
  /home/helmi/Desktop/webots/include/controller/cpp/webots/Keyboard.hpp \
  /home/helmi/Desktop/webots/include/controller/cpp/webots/LED.hpp \
  /home/helmi/Desktop/webots/include/controller/cpp/webots/LightSensor.hpp \
- /home/helmi/Desktop/webots/include/controller/cpp/webots/Receiver.hpp
+ /home/helmi/Desktop/webots/include/controller/cpp/webots/Receiver.hpp \
+ configLoader.hpp
