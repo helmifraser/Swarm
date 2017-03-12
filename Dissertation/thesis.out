@@ -6,12 +6,33 @@
 \BOOKMARK [1][-]{section.2.2}{2.2 Objectives}{chapter.2}% 6
 \BOOKMARK [1][-]{section.2.3}{2.3 Relevance}{chapter.2}% 7
 \BOOKMARK [0][-]{chapter.3}{3 Literature Review}{}% 8
-\BOOKMARK [1][-]{section.3.1}{3.1 Aim}{chapter.3}% 9
-\BOOKMARK [1][-]{section.3.2}{3.2 Objectives}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.3}{3.3 Relevance}{chapter.3}% 11
-\BOOKMARK [0][-]{chapter.4}{4 Conclusion}{}% 12
-\BOOKMARK [1][-]{section.4.1}{4.1 What was I right about?}{chapter.4}% 13
-\BOOKMARK [2][-]{subsection.4.1.1}{4.1.1 Previous theories were wrong}{section.4.1}% 14
-\BOOKMARK [2][-]{subsection.4.1.2}{4.1.2 My new idea is right}{section.4.1}% 15
-\BOOKMARK [0][-]{section*.4}{Bibliography}{}% 16
-\BOOKMARK [0][-]{appendix.A}{A Code}{}% 17
+\BOOKMARK [1][-]{section.3.1}{3.1 Biologically Inspired Computation and Engineering}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.2}{3.2 Artificial Intelligence}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.3}{3.3 Collective and Swarm Intelligence}{chapter.3}% 11
+\BOOKMARK [0][-]{chapter.4}{4 Methodology}{}% 12
+\BOOKMARK [1][-]{section.4.1}{4.1 Hardware}{chapter.4}% 13
+\BOOKMARK [2][-]{subsection.4.1.1}{4.1.1 E-puck robots}{section.4.1}% 14
+\BOOKMARK [2][-]{subsection.4.1.2}{4.1.2 Alternatives}{section.4.1}% 15
+\BOOKMARK [1][-]{section.4.2}{4.2 Software}{chapter.4}% 16
+\BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Webots simulator}{section.4.2}% 17
+\BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 C++ programming language}{section.4.2}% 18
+\BOOKMARK [0][-]{chapter.5}{5 Implementation}{}% 19
+\BOOKMARK [1][-]{section.5.1}{5.1 Design}{chapter.5}% 20
+\BOOKMARK [2][-]{subsection.5.1.1}{5.1.1 System Diagram}{section.5.1}% 21
+\BOOKMARK [2][-]{subsection.5.1.2}{5.1.2 Control Equations}{section.5.1}% 22
+\BOOKMARK [2][-]{subsection.5.1.3}{5.1.3 Software Architecture}{section.5.1}% 23
+\BOOKMARK [1][-]{section.5.2}{5.2 Code Implementation}{chapter.5}% 24
+\BOOKMARK [2][-]{subsection.5.2.1}{5.2.1 Libraries and dependencies}{section.5.2}% 25
+\BOOKMARK [2][-]{subsection.5.2.2}{5.2.2 Low level}{section.5.2}% 26
+\BOOKMARK [2][-]{subsection.5.2.3}{5.2.3 High level}{section.5.2}% 27
+\BOOKMARK [2][-]{subsection.5.2.4}{5.2.4 Behavioural}{section.5.2}% 28
+\BOOKMARK [0][-]{chapter.6}{6 Evaluation}{}% 29
+\BOOKMARK [1][-]{section.6.1}{6.1 Testing}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.2}{6.2 Results}{chapter.6}% 31
+\BOOKMARK [1][-]{section.6.3}{6.3 Analysis}{chapter.6}% 32
+\BOOKMARK [0][-]{chapter.7}{7 Conclusion}{}% 33
+\BOOKMARK [1][-]{section.7.1}{7.1 Problems encountered}{chapter.7}% 34
+\BOOKMARK [1][-]{section.7.2}{7.2 Limitations}{chapter.7}% 35
+\BOOKMARK [1][-]{section.7.3}{7.3 Future work}{chapter.7}% 36
+\BOOKMARK [0][-]{section*.5}{Bibliography}{}% 37
+\BOOKMARK [0][-]{appendix.A}{A Code}{}% 38

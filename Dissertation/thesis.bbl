@@ -1,9 +1,21 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
 
-\bibitem[{Einstein}, 1905]{Einstein1905}
-{Einstein}, A. (1905).
-\newblock {Ist die Tr{\"a}gheit eines K{\"o}rpers von seinem Energieinhalt
-  abh{\"a}ngig?}
-\newblock {\em Annalen der Physik}, 323:639--641.
+\bibitem{Bojinov2000}
+H.~Bojinov, A.~Casal, and T.~Hogg.
+\newblock {Emergent structures in modular self-reconfigurable robots}.
+\newblock {\em Proceedings 2000 ICRA. Millennium Conference. IEEE International
+  Conference on Robotics and Automation. Symposia Proceedings (Cat.
+  No.00CH37065)}, 2:1734--1741, 2000.
+
+\bibitem{Moeslinger2010}
+C.~Moeslinger, T.~Schmickl, and K.~Crailsheim.
+\newblock Emergent flocking in low-end swarms.
+\newblock {\em University of Graz, Artificial Life Lab of the Department of
+  Zoology}, 2010.
+
+\bibitem{Yim}
+M.~Yim.
+\newblock {\em Locomotion with a Unit-Modular Reconfigurable Robot}.
+\newblock PhD thesis, Stanford University, 1995.
 
 \end{thebibliography}
