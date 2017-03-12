@@ -258,7 +258,7 @@ public:
                  (right_obstacle)) {
         setLEDs(0);
         // separation();
-        objectDetection(0.75);
+        objectDetection(1.0);
 
       } else if (robots < ALIGN_THRESHOLD) {
         setLEDs(0);
@@ -266,7 +266,7 @@ public:
 
       } else if ((robots >= ALIGN_THRESHOLD) && signalStrength[index] > 10) {
         setLEDs(0);
-        objectDetection(0.5);
+        objectDetection(1.0);
       }
 
       std::cout << printName() << "Robots " << robots << std::endl;
