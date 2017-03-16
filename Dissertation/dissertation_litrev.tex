@@ -6,16 +6,18 @@ In this chapter, an analysis of previous work completed in the field of swarm ro
 \section{Biologically Inspired Computation and Engineering}
 
 Nature has provided examples of outwardly complex biological systems which are often efficient, fluid
-and resilient to partial breakdowns. Colonies of ants are able to forage for food and build complex
-structures. Fireflies are able to synchronize their flashing. Flocks of birds and schools of fish exhibit fluid
+and resilient to partial breakdowns. Colonies of ants are able to forage for food and build large, complex
+structures. Fireflies are able to synchronize their flashing with one another. Flocks of birds and schools of fish exhibit fluid
 and efficient group movement. In the majority of cases, nature has achieved these despite utilizing very little to
 no communication between individual creatures and in the absence of a higher level director or supervisor.
 The animals react only to environmental stimuli, either the strength or type of pheromones detected in the environment in the case of
-ants (termed \textsl{stigmergy}) or the positions of other individuals in the case of fish and birds.
+ants (termed \textsl{stigmergy}) or the positions of other individuals in the case of fish and birds. For example, it has been shown that over time, the velocity of a flock of birds converges to a state where each individual has equal velocity. \cite{cucker-smale}
 
 This is defined as \textsl{emergent behaviour}, the rise of previously unpredicted and complex behaviour through the interaction of simple rules.
 
 Researchers have attempted to replicate this in an artificial system via various means. For example, Bojinov et. al (2000) demonstrated how simple, local sensory rules can produce complex and useful structures in metamorphic robots. \cite{Bojinov2000}  Metamorphic, or modular, robots are a relatively new concept which can be described as "a robot that is composed of modules that are all identical". \cite{Yim} In their paper, Bojinov et. al explored the use of purely \textit{local} rules and interactions to develop control algorithms which enabled a Proteo robot to accomplish some otherwise difficult and complex tasks. Such tasks include forming three dimensional structures, locomotion and dynamic adaptation.
+
+Previous work on this front has utilised an exact, a-priori definition of the configuration of the robot, calculated via algorithms that use heuristics. \cite{metricsrob} These algorithms all require knowledge of the problem, the environment and the desired shape before hand, which in a real world setting is not always feasible.  What makes the work of Bojinov et. al interesting is that their algorithm does not aim to produce a pre-defined shape, rather it aims to produce a shape with the desired \textsl{properties} needed to solve the problem at hand. In this way, the algorithm produced is robust to unknowns, noise or changes in the environment, in a similar manner to how animals can adapt to changes in their environment.
 
 From an engineering perspective, mimicking these systems could provide better solutions to a multitude
 of problems across various industries. One way that is gaining major interest from academics and the

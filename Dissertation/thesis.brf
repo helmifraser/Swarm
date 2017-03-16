@@ -1,4 +1,6 @@
 \backcite {Bojinov2000}{{1}{1.1}{section.1.1}}
-\backcite {Moeslinger2010}{{4}{2.3}{section.2.3}}
-\backcite {Bojinov2000}{{5}{3.1}{section.3.1}}
-\backcite {Yim}{{5}{3.1}{section.3.1}}
+\backcite {Moeslinger2010}{{3}{2.3}{section.2.3}}
+\backcite {cucker-smale}{{4}{3.1}{section.3.1}}
+\backcite {Bojinov2000}{{4}{3.1}{section.3.1}}
+\backcite {Yim}{{4}{3.1}{section.3.1}}
+\backcite {metricsrob}{{5}{3.1}{section.3.1}}

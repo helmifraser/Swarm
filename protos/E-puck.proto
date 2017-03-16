@@ -793,117 +793,6 @@ DifferentialWheels {
     }
     DEF EPUCK_RECEIVER Receiver {
       type                "infra-red"  # or "serial" or "infra-red"
-      aperture             -1      # -1 or [0,2pi]
-      channel             0        # [-1,inf)
-      baudRate            -1       # -1 or [0,inf)
-      byteSize            8      # [8,inf)
-      bufferSize          -1       # -1 or [0,inf)
-      signalStrengthNoise 0        # [0,inf)
-      directionNoise      0        # [0,inf)
-      translation 0.01 0.0329 -0.03
-      rotation 0 1 0 1.27
-      name "rc0"
-      channel IS receiver_channel
-    }
-    DEF EPUCK_RECEIVER Receiver {
-      type                "infra-red"  # or "serial" or "infra-red"
-      aperture            1.57       # -1 or [0,2pi]
-      channel             0        # [-1,inf)
-      baudRate            -1       # -1 or [0,inf)
-      byteSize            8      # [8,inf)
-      bufferSize          -1       # -1 or [0,inf)
-      signalStrengthNoise 0        # [0,inf)
-      directionNoise      0        # [0,inf)
-      translation 0.025 0.0329 -0.022
-      rotation 0 1 0 0.77
-      name "rc1"
-      channel IS receiver_channel
-    }
-    DEF EPUCK_RECEIVER Receiver {
-      type                "infra-red"  # or "serial" or "infra-red"
-      aperture            1.57       # -1 or [0,2pi]
-      channel             0        # [-1,inf)
-      baudRate            -1       # -1 or [0,inf)
-      byteSize            8      # [8,inf)
-      bufferSize          -1       # -1 or [0,inf)
-      signalStrengthNoise 0        # [0,inf)
-      directionNoise      0        # [0,inf)
-      translation 0.031 0.033 0
-      name "rc2"
-      channel IS receiver_channel
-    }
-    DEF EPUCK_RECEIVER Receiver {
-      type                "infra-red"  # or "serial" or "infra-red"
-      aperture            1.57       # -1 or [0,2pi]
-      channel             0        # [-1,inf)
-      baudRate            -1       # -1 or [0,inf)
-      byteSize            8      # [8,inf)
-      bufferSize          -1       # -1 or [0,inf)
-      signalStrengthNoise 0        # [0,inf)
-      directionNoise      0        # [0,inf)
-      translation 0.015 0.0329 0.03
-      rotation 0 1 0 5.21
-      name "rc3"
-      channel IS receiver_channel
-    }
-    DEF EPUCK_RECEIVER Receiver {
-      type                "infra-red"  # or "serial" or "infra-red"
-      aperture            1.57       # -1 or [0,2pi]
-      channel             0        # [-1,inf)
-      baudRate            -1       # -1 or [0,inf)
-      byteSize            8      # [8,inf)
-      bufferSize          -1       # -1 or [0,inf)
-      signalStrengthNoise 0        # [0,inf)
-      directionNoise      0        # [0,inf)
-      translation -0.015 0.0329 0.03
-      rotation 0 1 0 4.21
-      name "rc4"
-      channel IS receiver_channel
-    }
-    DEF EPUCK_RECEIVER Receiver {
-      type                "infra-red"  # or "serial" or "infra-red"
-      aperture            1.57       # -1 or [0,2pi]
-      channel             0        # [-1,inf)
-      baudRate            -1       # -1 or [0,inf)
-      byteSize            8      # [8,inf)
-      bufferSize          -1       # -1 or [0,inf)
-      signalStrengthNoise 0        # [0,inf)
-      directionNoise      0        # [0,inf)
-      translation -0.031 0.0329 0
-      rotation 0 1 0 3.14159
-      name "rc5"
-      channel IS receiver_channel
-    }
-    DEF EPUCK_RECEIVER Receiver {
-      type                "infra-red"  # or "serial" or "infra-red"
-      aperture            1.57       # -1 or [0,2pi]
-      channel             0        # [-1,inf)
-      baudRate            -1       # -1 or [0,inf)
-      byteSize            8      # [8,inf)
-      bufferSize          -1       # -1 or [0,inf)
-      signalStrengthNoise 0        # [0,inf)
-      directionNoise      0        # [0,inf)
-      translation -0.025 0.0329 -0.022
-      rotation 0 1 0 2.37
-      name "rc6"
-      channel IS receiver_channel
-    }
-    DEF EPUCK_RECEIVER Receiver {
-      type                "infra-red"  # or "serial" or "infra-red"
-      aperture            -1       # -1 or [0,2pi]
-      channel             1        # [-1,inf)
-      baudRate            -1       # -1 or [0,inf)
-      byteSize            8      # [8,inf)
-      bufferSize          -1       # -1 or [0,inf)
-      signalStrengthNoise 0        # [0,inf)
-      directionNoise      0        # [0,inf)
-      translation 0.0 0.034 0.0
-      rotation 0 0 0 0
-      name "rc7"
-      channel IS receiver_channel
-    }
-    DEF EPUCK_RECEIVER Receiver {
-      type                "infra-red"  # or "serial" or "infra-red"
       aperture            -1       # -1 or [0,2pi]
       channel             0        # [-1,inf)
       baudRate            -1       # -1 or [0,inf)
@@ -913,111 +802,8 @@ DifferentialWheels {
       directionNoise      0        # [0,inf)
       translation 0.0 0.033 0.0
       rotation 0 0 0 0
-      name "rc8"
+      name "receiver"
       channel IS receiver_channel
-    }
-    DEF EPUCK_EMITTER Emitter {
-      type         "infra-red"  # or "serial" or "infra-red
-      range        0.2       # -1 or positive
-      maxRange     0.2       # -1 or positive
-      aperture     -1       # -1 or between 0 and 2*pi
-      channel      0
-      baudRate     -1       # -1 or positive
-      byteSize      32       # 8 or more
-      bufferSize   -1       # -1 or positive
-      translation 0.01 0.033 -0.03
-      rotation 0 1 0 1.27
-      name "em0"
-    }
-    DEF EPUCK_EMITTER Emitter {
-      type         "infra-red"  # or "serial" or "infra-red
-      range        0.2       # -1 or positive
-      maxRange     0.2       # -1 or positive
-      aperture     1.57       # -1 or between 0 and 2*pi
-      channel      0
-      baudRate     -1       # -1 or positive
-      byteSize      32       # 8 or more
-      bufferSize   -1       # -1 or positive
-      translation 0.025 0.033 -0.022
-      rotation 0 1 0 0.77
-      name "em1"
-    }
-    DEF EPUCK_EMITTER Emitter {
-      type         "infra-red"  # or "serial" or "infra-red
-      range        0.2       # -1 or positive
-      maxRange     0.2       # -1 or positive
-      aperture     1.57       # -1 or between 0 and 2*pi
-      channel      0
-      baudRate     -1       # -1 or positive
-      byteSize      32       # 8 or more
-      bufferSize   -1       # -1 or positive
-      translation 0.031 0.033 0
-      name "em2"
-    }
-    DEF EPUCK_EMITTER Emitter {
-      type         "infra-red"  # or "serial" or "infra-red
-      range        0.2       # -1 or positive
-      maxRange     0.2       # -1 or positive
-      aperture    1.57       # -1 or between 0 and 2*pi
-      channel      0
-      baudRate     -1       # -1 or positive
-      byteSize      32       # 8 or more
-      bufferSize   -1       # -1 or positive
-      translation 0.015 0.033 0.03
-      rotation 0 1 0 5.21
-      name "em3"
-    }
-    DEF EPUCK_EMITTER Emitter {
-      type         "infra-red"  # or "serial" or "infra-red
-      range        0.2       # -1 or positive
-      maxRange     0.2       # -1 or positive
-      aperture     1.57       # -1 or between 0 and 2*pi
-      channel      0
-      baudRate     -1       # -1 or positive
-      byteSize      32       # 8 or more
-      bufferSize   -1       # -1 or positive
-      translation -0.015 0.033 0.03
-      rotation 0 1 0 4.21
-      name "em4"
-    }
-    DEF EPUCK_EMITTER Emitter {
-      type         "infra-red"  # or "serial" or "infra-red
-      range        0.2       # -1 or positive
-      maxRange     0.2       # -1 or positive
-      aperture     1.57       # -1 or between 0 and 2*pi
-      channel      0
-      baudRate     -1       # -1 or positive
-      byteSize      32       # 8 or more
-      bufferSize   -1       # -1 or positive
-      translation -0.031 0.033 0
-      rotation 0 1 0 3.14159
-      name "em5"
-    }
-    DEF EPUCK_EMITTER Emitter {
-      type         "infra-red"  # or "serial" or "infra-red
-      range        0.2       # -1 or positive
-      maxRange     0.2       # -1 or positive
-      aperture     1.57       # -1 or between 0 and 2*pi
-      channel      0
-      baudRate     -1       # -1 or positive
-      byteSize      32       # 8 or more
-      bufferSize   -1       # -1 or positive
-      translation -0.025 0.033 -0.022
-      rotation 0 1 0 2.37
-      name "em6"
-    }
-    DEF EPUCK_EMITTER Emitter {
-      type         "infra-red"  # or "serial" or "infra-red
-      range        1       # -1 or positive
-      maxRange     -1       # -1 or positive
-      aperture     -1       # -1 or between 0 and 2*pi
-      channel      1
-      baudRate     -1       # -1 or positive
-      byteSize      32       # 8 or more
-      bufferSize   -1       # -1 or positive
-      translation 0.00 0.34 0.00
-      rotation 0 0 0 0
-      name "em7"
     }
     DEF EPUCK_EMITTER Emitter {
       type         "infra-red"  # or "serial" or "infra-red
@@ -1030,7 +816,7 @@ DifferentialWheels {
       bufferSize   -1       # -1 or positive
       translation 0.00 0.33 0.00
       rotation 0 0 0 0
-      name "em8"
+      name "emitter"
     }
     DEF EPUCK_PS0 E-puckDistanceSensor {
       translation 0.01 0.033 -0.03

@@ -7,11 +7,23 @@ H.~Bojinov, A.~Casal, and T.~Hogg.
   Conference on Robotics and Automation. Symposia Proceedings (Cat.
   No.00CH37065)}, 2:1734--1741, 2000.
 
+\bibitem{cucker-smale}
+F.~Cucker and S.~Smale.
+\newblock Emergent behavior in flocks.
+\newblock {\em IEEE Transactions on Automatic Control}, 52(5):852--862, May
+  2007.
+
 \bibitem{Moeslinger2010}
 C.~Moeslinger, T.~Schmickl, and K.~Crailsheim.
 \newblock Emergent flocking in low-end swarms.
 \newblock {\em University of Graz, Artificial Life Lab of the Department of
   Zoology}, 2010.
+
+\bibitem{metricsrob}
+A.~Pamecha, I.~Ebert-Uphoff, and G.~S. Chirikjian.
+\newblock Useful metrics for modular robot motion planning.
+\newblock {\em IEEE Transactions on Robotics and Automation}, 13(4):531--545,
+  Aug 1997.
 
 \bibitem{Yim}
 M.~Yim.
