@@ -1,4 +1,28 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{tesla}
+Autopilot | tesla.
+\newblock
+  \url{https://www.tesla.com/en_GB/autopilot/?utm_campaign=GL_AP_101916&utm=&redirect=no}.
+
+\bibitem{artlife}
+Dictionary.
+\newblock \url{http://www.dictionary.com/browse/artificial--life}.
+
+\bibitem{ants}
+Stanford university news service.
+\newblock \url{http://news.stanford.edu/pr/93/931115Arc3062.html}.
+
+\bibitem{soft-exo}
+A.~T. Asbeck, S.~M. M.~De Rossi, I.~Galiana, Y.~Ding, and C.~J. Walsh.
+\newblock Stronger, smarter, softer: Next-generation wearable robots.
+\newblock {\em IEEE Robotics Automation Magazine}, 21(4):22--33, Dec 2014.
+
+\bibitem{Beni1989}
+Wang~J. Beni, G.
+\newblock Swarm intelligence in cellular robotic systems.
+\newblock {\em Proceed. NATO Advanced Workshop on Robots and Biological
+  Systems}, June 1989.
 
 \bibitem{Bojinov2000}
 H.~Bojinov, A.~Casal, and T.~Hogg.
@@ -7,23 +31,48 @@ H.~Bojinov, A.~Casal, and T.~Hogg.
   Conference on Robotics and Automation. Symposia Proceedings (Cat.
   No.00CH37065)}, 2:1734--1741, 2000.
 
+\bibitem{bonabeau}
+E.~Bonabeau, M.~Dorigo, and G.~Theraulaz.
+\newblock Swarm intelligence : From natural to artificial systems.
+\newblock {\em Santa Fe Institute studies in the sciences of complexity}, 1999.
+
+\bibitem{braitenberg1986vehicles}
+V.~Braitenberg.
+\newblock {\em Vehicles: Experiments in Synthetic Psychology}.
+\newblock Bradford Books. MIT Press, 1986.
+
 \bibitem{cucker-smale}
 F.~Cucker and S.~Smale.
 \newblock Emergent behavior in flocks.
 \newblock {\em IEEE Transactions on Automatic Control}, 52(5):852--862, May
   2007.
 
-\bibitem{Moeslinger2010}
-C.~Moeslinger, T.~Schmickl, and K.~Crailsheim.
-\newblock Emergent flocking in low-end swarms.
-\newblock {\em University of Graz, Artificial Life Lab of the Department of
-  Zoology}, 2010.
+\bibitem{haykin2009neural}
+S.S. Haykin.
+\newblock {\em Neural Networks and Learning Machines}.
+\newblock Number v. 10 in Neural networks and learning machines. Prentice Hall,
+  2009.
 
 \bibitem{metricsrob}
 A.~Pamecha, I.~Ebert-Uphoff, and G.~S. Chirikjian.
 \newblock Useful metrics for modular robot motion planning.
 \newblock {\em IEEE Transactions on Robotics and Automation}, 13(4):531--545,
   Aug 1997.
+
+\bibitem{langton}
+The~MIT Press.
+\newblock {\em The MIT Encyclopedia of the Cognitive Sciences}.
+\newblock 2003.
+
+\bibitem{Reynolds:1987:FHS:37402.37406}
+Craig~W. Reynolds.
+\newblock Flocks, herds and schools: A distributed behavioral model.
+\newblock {\em SIGGRAPH Comput. Graph.}, 21(4):25--34, August 1987.
+
+\bibitem{russell-norvig}
+Stuart~J. Russell and Peter Norvig.
+\newblock {\em Artificial Intelligence: A Modern Approach}.
+\newblock Pearson Education, 2 edition, 2003.
 
 \bibitem{Yim}
 M.~Yim.

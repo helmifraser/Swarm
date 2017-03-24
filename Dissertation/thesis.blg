@@ -1,46 +1,59 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis.aux
 The style file: plain.bst
 Database file #1: bib.bib
-You've used 5 entries,
+Warning--to sort, need author or key in tesla
+Warning--to sort, need author or key in artlife
+Too many commas in name 1 of "Beni, G., Wang, J." for entry Beni1989
+while executing---line 1049 of file plain.bst
+Name 3 in "Bonabeau, E. and Dorigo, M. and Theraulaz, G.," has a comma at the end for entry bonabeau
+while executing---line 1049 of file plain.bst
+Warning--to sort, need author or key in ants
+Too many commas in name 1 of "Beni, G., Wang, J." for entry Beni1989
+while executing---line 1090 of file plain.bst
+Name 3 in "Bonabeau, E. and Dorigo, M. and Theraulaz, G.," has a comma at the end for entry bonabeau
+while executing---line 1090 of file plain.bst
+Warning--empty publisher in langton
+You've used 15 entries,
             2118 wiz_defined-function locations,
-            532 strings with 4819 characters,
-and the built_in function-call counts, 1546 in all, are:
-= -- 151
-> -- 74
-< -- 0
-+ -- 29
-- -- 24
-* -- 117
-:= -- 277
-add.period$ -- 15
-call.type$ -- 5
-change.case$ -- 26
+            584 strings with 6012 characters,
+and the built_in function-call counts, 3852 in all, are:
+= -- 371
+> -- 153
+< -- 1
++ -- 64
+- -- 48
+* -- 248
+:= -- 650
+add.period$ -- 44
+call.type$ -- 15
+change.case$ -- 65
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 52
-empty$ -- 114
-format.name$ -- 24
-if$ -- 309
+cite$ -- 19
+duplicate$ -- 153
+empty$ -- 338
+format.name$ -- 48
+if$ -- 808
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 4
-newline$ -- 28
-num.names$ -- 10
-pop$ -- 20
+int.to.str$ -- 15
+missing$ -- 15
+newline$ -- 75
+num.names$ -- 24
+pop$ -- 85
 preamble$ -- 1
-purify$ -- 22
+purify$ -- 54
 quote$ -- 0
-skip$ -- 35
+skip$ -- 103
 stack$ -- 0
-substring$ -- 98
-swap$ -- 5
-text.length$ -- 0
+substring$ -- 183
+swap$ -- 16
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
-warning$ -- 0
-while$ -- 14
-width$ -- 6
-write$ -- 56
+type$ -- 52
+warning$ -- 4
+while$ -- 31
+width$ -- 17
+write$ -- 151
+(There were 4 error messages)
