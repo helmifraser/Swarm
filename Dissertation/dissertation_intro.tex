@@ -1,15 +1,37 @@
 \chapter{Introduction}
 \label{chap:Introduction}
 
+Nature has shown that it is often beneficial for animals to live and travel with groups of similar animals. In predatory social animals, they are often called packs and in prey animals the nomenclature varies from animal to animal, from flocks to herds, to schools. Indeed, humans are not exempt from this, with early humans coming together to form sizeable groups. 
+
+It is thought that the reason for this is that it is evolutionarily advantageous. For example, predators hunting in a group allow the hunting of far bigger prey animals than themselves, which provides an easier source of sustenance at the cost of being forced to share their bounty. \cite{social-predation} Conversely, other animals - like birds, fish, sheep and so on - group together in an effort to avoid such predations. These animals have developed antipredator adaptations through evolution because there is safety in numbers. Acting as a unit can provide protection and decrease the likelihood of an attack or fatality.
+
+As can be seen, the concept of \textit{flocking} and group behaviour is highly beneficial within natural systems. If this can be understood fully and leveraged for artificial systems, it can bring with it many of the benefits it has shown in nature. This is especially suited for implementation within robotics, specifically the field of \textit{swarm robotics}.
+
+Swarm robotics is a relatively new field of multi-robotics, in which the aim is to co-ordinate a large number of robots in a decentralized manner, similar to biological systems found in nature. The crux of a swarm system is feedback: a swarm cannot operate without some sort of feedback to its constituent individual agents. Systems may contain direct or indirect methods of feedback, either agent-agent communication or agent-environment-agent communication. In addition to this, swarm systems promote \textit{scalability}, by emphasizing a large number of agents.
+
+Where this project is concerned, flocking is used to demonstrate the applicability of biologically inspired techniques when applied to a swarm of robots. Flocking behaviour and the techniques that are used in its operation can be especially useful when working with a group of robots.
+
+
 \section{Aim}
-Something about aim
+This project aims to model, implement and explore the flocking behaviour exhibited in biological systems such as social insects, birds, schools of fish and bacteria. This will be achieved by developing a robot controller that will operate on every individual agent within a simulated robot swarm. The resulting global behaviour will then be compared against those found in natural systems.
 
 
 \section{Objectives}
-Aims and objectives are different, somehow
+ This project's objectives are:-
+
+\begin{enumerate}
+	\item To understand the theory and concepts behind a swarm system, be they natural or artificial.
+	\item To develop a robot controller which exhibits \textit{flocking} behaviour, based on the techniques of self-organising swarm systems.
+	\item To analyse the resulting behaviour and compare the similarity and effectiveness of the controller against other solutions and biological equivalents.
+\end{enumerate}
 
 \section{Relevance}
 
 From an engineering perspective, mimicking natural systems could provide better solutions to a multitude of problems across various industries. One way that is gaining major interest from academics and the industry alike is the application of swarm robotics.
 
-Swarm robotics is a relatively new field of multi-robotics, in which the aim is to co-ordinate a large number of robots in a decentralized manner, similar to biological systems found in nature. This can be applied to any problem that would benefit from having multiple agents solving it, such as search and rescue, subsea and space exploration and autonomous vehicles. In order to carry out this project, a thorough understanding of the concepts and mechanisms that underpin swarm robotics systems will need to be achieved, as well as a strong working understanding of various tools used in their implementation such as simulation software and higher level programming.
+In a world where there exists an increasing reliance on ``smart'' products and artificial intelligence, distributed computing and distributed robotics is becoming more and more commonplace. In effect, the world is a multi-agent system and there exists a need for artificial systems to be able to effectively operate in it.
+
+Swarming theory can be applied to any problem that would benefit from having multiple agents solving it, such as search and rescue, subsea and space exploration and autonomous vehicles. 
+
+The potential use of the implementation of these algorithms in a commercial application is plentiful. For example, foraging and dispersal techniques can see major use in optimizing both disaster relief/rescue and agriculture. Flocking techniques can be applied to autonomous vehicles - which are predicted to significantly increase in market share in the coming years - in order to improve collision detection and efficiency. Of course, real life systems will be more nuanced and will need further development, but a proof of concept in the lab is vital to developing an engineer’s understanding of these technologies further.
+

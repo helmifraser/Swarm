@@ -1,59 +1,67 @@
 This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis.aux
-The style file: plain.bst
+The style file: unsrtnat.bst
+Illegal, another \bibstyle command---line 35 of file thesis.aux
+ : \bibstyle
+ :          {unsrtnat}
+I'm skipping whatever remains of this command
 Database file #1: bib.bib
-Warning--to sort, need author or key in tesla
-Warning--to sort, need author or key in artlife
 Too many commas in name 1 of "Beni, G., Wang, J." for entry Beni1989
-while executing---line 1049 of file plain.bst
-Name 3 in "Bonabeau, E. and Dorigo, M. and Theraulaz, G.," has a comma at the end for entry bonabeau
-while executing---line 1049 of file plain.bst
-Warning--to sort, need author or key in ants
-Too many commas in name 1 of "Beni, G., Wang, J." for entry Beni1989
-while executing---line 1090 of file plain.bst
-Name 3 in "Bonabeau, E. and Dorigo, M. and Theraulaz, G.," has a comma at the end for entry bonabeau
-while executing---line 1090 of file plain.bst
+while executing---line 1233 of file unsrtnat.bst
+Warning--empty title in social-predation
+Warning--can't use both author and editor fields in Ghasemlou2015
+Warning--empty year in tesla
+Warning--empty year in artlife
 Warning--empty publisher in langton
-You've used 15 entries,
-            2118 wiz_defined-function locations,
-            584 strings with 6012 characters,
-and the built_in function-call counts, 3852 in all, are:
-= -- 371
-> -- 153
-< -- 1
-+ -- 64
-- -- 48
-* -- 248
-:= -- 650
-add.period$ -- 44
-call.type$ -- 15
-change.case$ -- 65
-chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 153
-empty$ -- 338
-format.name$ -- 48
-if$ -- 808
-int.to.chr$ -- 0
-int.to.str$ -- 15
-missing$ -- 15
-newline$ -- 75
-num.names$ -- 24
-pop$ -- 85
+Too many commas in name 1 of "Beni, G., Wang, J." for entry Beni1989
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Beni, G., Wang, J." for entry Beni1989
+while executing---line 1315 of file unsrtnat.bst
+Name 3 in "Bonabeau, E. and Dorigo, M. and Theraulaz, G.," has a comma at the end for entry bonabeau
+while executing---line 1315 of file unsrtnat.bst
+Name 3 in "Bonabeau, E. and Dorigo, M. and Theraulaz, G.," has a comma at the end for entry bonabeau
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty year in ants
+You've used 17 entries,
+            2481 wiz_defined-function locations,
+            677 strings with 7550 characters,
+and the built_in function-call counts, 5739 in all, are:
+= -- 529
+> -- 202
+< -- 11
++ -- 92
+- -- 58
+* -- 409
+:= -- 900
+add.period$ -- 73
+call.type$ -- 17
+change.case$ -- 28
+chr.to.int$ -- 17
+cite$ -- 26
+duplicate$ -- 316
+empty$ -- 564
+format.name$ -- 76
+if$ -- 1249
+int.to.chr$ -- 1
+int.to.str$ -- 18
+missing$ -- 18
+newline$ -- 112
+num.names$ -- 42
+pop$ -- 147
 preamble$ -- 1
-purify$ -- 54
+purify$ -- 17
 quote$ -- 0
-skip$ -- 103
+skip$ -- 182
 stack$ -- 0
-substring$ -- 183
-swap$ -- 16
-text.length$ -- 1
+substring$ -- 176
+swap$ -- 50
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 52
-warning$ -- 4
-while$ -- 31
-width$ -- 17
-write$ -- 151
-(There were 4 error messages)
+type$ -- 104
+warning$ -- 6
+while$ -- 38
+width$ -- 0
+write$ -- 258
+(There were 6 error messages)
