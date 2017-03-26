@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -13,17 +13,6 @@ Guy Beauchamp.
 \newblock \doi{http://dx.doi.org/10.1016/B978-0-12-407228-2.01001-5}.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/B9780124072282010015}.
-
-\bibitem[Ghasemlou et~al.(2015)Ghasemlou, Mohades, Shangari, and
-  Tavassoli]{Ghasemlou2015}
-Shervin Ghasemlou, Ali Mohades, Taher~Abbas Shangari, and Mohammadreza
-  Tavassoli.
-\newblock \emph{Homecoming: A Multi-robot Exploration Method for Conjunct
-  Environments with a Systematic Return Procedure}, pages 111--127.
-\newblock Springer International Publishing, Cham, 2015.
-\newblock ISBN 978-3-319-17130-2.
-\newblock \doi{10.1007/978-3-319-17130-2_8}.
-\newblock URL \url{http://dx.doi.org/10.1007/978-3-319-17130-2_8}.
 
 \bibitem[Cucker and Smale(2007)]{cucker-smale}
 F.~Cucker and S.~Smale.

@@ -1,7 +1,22 @@
 \chapter{Methodology}
 \label{chap:Methodology}
 
+Within this chapter, an overview of the tools utilised during the course of the project is provided. 
+
+After a thorough investigation during the early stages of the project, it was decided that the project shall progress as a simulation only model. This was done for a number of reasons:-
+
+\begin{enumerate}
+	\item  A simulation based approach negated the possibility of hardware failure, errors or major discrepancies between units. This is especially relevant for this project, where a swarm can be comprised of a large number of units, as the focus can lie with fixing software issues instead of both hardware and software.
+	\item A simulation based approach is highly flexible, effective and time efficient. It enables rapid testing of various experimental parameters. 
+	\item A simulation based approach is not restricted to available lab space/experimental environments. It is possible to alter the swarm's environment at will, for example if a larger arena or various objects are needed.
+	\item A simulation based approach is cost efficient. There are no monetary restraints with regard to adding more robots to the swarm, or costs for repairs on broken robots/replacement parts.
+\end{enumerate}
+Moreover, as the utilised software package directly simulates real robotic platforms, there will be no need for a major overhaul of the codebase for it to function on a real robot.
+
 \section{Hardware}
+
+Though the project is conducted entirely in simulation, the agents are based on a real robotic platform, the e-puck (or E-puck, epuck, Epuck). For this reason, an understanding of the capabilities and applications of the platform is essential.
+
 \subsection{E-puck robots}
 E-pucks
 \subsection{Alternatives}
@@ -9,6 +24,7 @@ Others
 
 \section{Software}
 \subsection{Webots simulator}
+\label{webots}
 \subsubsection{Concepts}
 
 \subsection{C++ programming language}

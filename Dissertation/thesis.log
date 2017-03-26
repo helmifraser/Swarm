@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.3.18)  24 MAR 2017 15:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.3.18)  26 MAR 2017 19:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -401,11 +401,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 Chapter 1.
 [1
 
-]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
- [2]) (./dissertation_litrev.tex [3]
+] [2]) (./dissertation_litrev.tex [3]
 Chapter 2.
 [4
 
@@ -419,37 +415,41 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
  [8]) (./dissertation_method.tex [9]
 Chapter 3.
-) (./dissertation_implem.tex [10
 
-]
+Underfull \vbox (badness 1270) has occurred while \output is active []
+
+ [10
+
+])
+(./dissertation_implem.tex [11]
 Chapter 4.
-) (./dissertation_eval.tex [11
+) (./dissertation_eval.tex [12
 
 ]
 Chapter 5.
-) (./dissertation_conclusion.tex [12
+) (./dissertation_conclusion.tex [13
 
 ]
 Chapter 6.
-) [13
+) [14
 
 ] (./thesis.bbl (./thesis.brf)
 \tf@brf=\write5
 \openout5 = `thesis.brf'.
 
- [14
+ [15
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 117--117
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
 []\OT1/cmr/m/n/10.95 Stanford uni-ver-sity news ser-vice.  [][]$\OT1/cmtt/m/n/1
 0.95 http : / / news . stanford . edu / pr / 93 /
  []
 
-) [15]
+) [16]
 Appendix A.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 206.
-[16
+[17
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 206.
@@ -463,13 +463,13 @@ Package rerunfilecheck Info: File `thesis.brf' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 206.
  ) 
 Here is how much of TeX's memory you used:
- 6874 strings out of 494945
- 100916 string characters out of 6181032
- 197104 words of memory out of 5000000
- 9980 multiletter control sequences out of 15000+600000
+ 6872 strings out of 494945
+ 100806 string characters out of 6181032
+ 197076 words of memory out of 5000000
+ 9974 multiletter control sequences out of 15000+600000
  10323 words of font info for 36 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,12n,50p,1611b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,12n,48p,1611b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
@@ -478,10 +478,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmtt10.pfb>
-Output written on thesis.pdf (21 pages, 193582 bytes).
+Output written on thesis.pdf (22 pages, 194556 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
- 368 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
+ 411 PDF objects out of 1000 (max. 8388607)
+ 373 compressed objects within 4 object streams
+ 90 named destinations out of 1000 (max. 500000)
  294 words of extra memory for PDF output out of 10000 (max. 10000000)
 
