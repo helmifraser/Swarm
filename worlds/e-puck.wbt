@@ -1,9 +1,9 @@
 #VRML_SIM V8.5 utf8
 WorldInfo {
   info [
-    "The model of the E-puck robot"
+    "Demonstration of decentralised flocking"
   ]
-  title "E-puck simulation"
+  title "Swarm arena"
   northDirection 0 0 -10
 }
 Viewpoint {

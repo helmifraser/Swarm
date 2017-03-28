@@ -14,6 +14,32 @@
 % New alternative hyperref options for print version, AJS, 11 Sep 2008
 % "DRAFT" on header, AJS, 12 Sep 2008
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXTRA PACKAGES
+
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{wrapfig, caption, tabu, caption, subcaption, verbatim}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath,amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\lstset{
+	frame=tb, % draw a frame at the top and bottom of the code block
+	tabsize=3, % tab space width
+	showstringspaces=false, % don't mark spaces in strings
+	numbers=left, % display line numbers on the left
+	commentstyle=\color{green}, % comment color
+	keywordstyle=\color{blue}, % keyword color
+	stringstyle=\color{red}, % string color
+	backgroundcolor=\color{black!5},
+	basicstyle=\small,
+	breaklines=true,
+	postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LINE SPACING
@@ -72,7 +98,6 @@
 %\renewcommand{\backrefpagesname}{Cited on}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BEGIN DOCUMENT
 \begin{document}
@@ -82,6 +107,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PREAMBLE: roman page numbering i, ii, iii, ...
 \pagenumbering{roman}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -155,6 +181,7 @@ Last but certainly not least, I would like to thank my loving girlfriend, Victor
 % MAIN THESIS TEXT: arabic page numbering 1, 2, 3, ...
 \newpage
 \pagenumbering{arabic}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

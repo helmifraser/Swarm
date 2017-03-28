@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <defs>
+        <pattern latexdraw:type="crosshatch"
+            latexdraw:rotationAngle="-0.7853981633974483"
+            latexdraw:size="7.05555534362793"
+            patternUnits="userSpaceOnUse" id="pattern491" x="0" y="0"
+            width="364" height="251">
+            <g stroke="#215bf5" stroke-width="0.8" stroke-dasharray="none">
+                <path d="M 237.28062438964844 240.1979858994524 L 248.39005731343823 251.3074188232422 M 237.28062438964844 229.0885529756626 L 259.49949023722803 251.3074188232422 M 237.28062438964844 217.9791200518728 L 270.60892316101786 251.3074188232422 M 237.28062438964844 206.869687128083 L 281.7183560848076 251.3074188232422 M 237.28062438964844 195.7602542042932 L 292.8277890085974 251.3074188232422 M 237.28062438964844 184.6508212805034 L 303.93722193238716 251.3074188232422 M 237.28062438964844 173.5413883567136 L 315.04665485617693 251.3074188232422 M 237.28062438964844 162.43195543292381 L 326.1560877799667 251.3074188232422 M 237.28062438964844 151.32252250913402 L 337.26552070375647 251.3074188232422 M 237.28062438964844 140.21308958534422 L 348.37495362754623 251.3074188232422 M 237.28062438964844 129.10365666155442 L 359.484386551336 251.3074188232422 M 237.28062438964844 117.99422373776463 L 370.59381947512577 251.3074188232422 M 237.28062438964844 106.88479081397483 L 381.70325239891554 251.3074188232422 M 237.28062438964844 95.77535789018503 L 392.8126853227053 251.3074188232422 M 237.28062438964844 84.66592496639524 L 403.9221182464951 251.3074188232422 M 237.28062438964844 73.55649204260544 L 415.03155117028484 251.3074188232422 M 237.28062438964844 62.447059118815645 L 426.1409840940746 251.3074188232422 M 237.28062438964844 51.33762619502585 L 437.2504170178644 251.3074188232422 M 237.28062438964844 40.22819327123605 L 448.35984994165415 251.3074188232422 M 237.28062438964844 29.118760347446255 L 459.4692828654439 251.3074188232422 M 237.28062438964844 18.009327423656458 L 470.5787157892337 251.3074188232422 M 237.28062438964844 6.89989449986666 L 481.68814871302345 251.3074188232422 M 237.28062438964844 -4.209538423923139 L 492.7975816368132 251.3074188232422 M 237.28062438964844 -15.318971347712937 L 503.907014560603 251.3074188232422 M 237.28062438964844 -26.428404271502735 L 515.0164474843928 251.3074188232422 M 237.28062438964844 -37.53783719529253 L 526.1258804081825 251.3074188232422 M 237.28062438964844 -48.64727011908233 L 537.2353133319723 251.3074188232422 M 237.28062438964844 -59.756703042872125 L 548.3447462557621 251.3074188232422 M 237.28062438964844 -70.86613596666193 L 559.4541791795518 251.3074188232422 M 237.28062438964844 -81.97556889045173 L 570.5636121033416 251.3074188232422 M 237.28062438964844 -93.08500181424152 L 581.6730450271314 251.3074188232422 M 237.28062438964844 -104.19443473803132 L 592.7824779509211 251.3074188232422 M 237.28062438964844 -115.30386766182112 L 603.8919108747109 251.3074188232422 M 237.28062438964844 -126.41330058561091 L 615.0013437985007 251.3074188232422 M 237.28062438964844 -137.52273350940072 L 626.1107767222904 251.3074188232422 M 237.28062438964844 104.1094329237898 L 248.39005731343823 93.0 M 237.28062438964844 115.2188658475796 L 259.49949023722803 93.0 M 237.28062438964844 126.32829877136939 L 270.60892316101786 93.0 M 237.28062438964844 137.4377316951592 L 281.7183560848076 93.0 M 237.28062438964844 148.54716461894898 L 292.8277890085974 93.0 M 237.28062438964844 159.65659754273878 L 303.93722193238716 93.0 M 237.28062438964844 170.76603046652858 L 315.04665485617693 93.0 M 237.28062438964844 181.87546339031837 L 326.1560877799667 93.0 M 237.28062438964844 192.98489631410817 L 337.26552070375647 93.0 M 237.28062438964844 204.09432923789797 L 348.37495362754623 93.0 M 237.28062438964844 215.20376216168776 L 359.484386551336 93.0 M 237.28062438964844 226.31319508547756 L 370.59381947512577 93.0 M 237.28062438964844 237.42262800926736 L 381.70325239891554 93.0 M 237.28062438964844 248.53206093305715 L 392.8126853227053 93.0 M 237.28062438964844 259.641493856847 L 403.9221182464951 93.0 M 237.28062438964844 270.7509267806368 L 415.03155117028484 93.0 M 237.28062438964844 281.8603597044266 L 426.1409840940746 93.0 M 237.28062438964844 292.96979262821645 L 437.2504170178644 93.0 M 237.28062438964844 304.0792255520063 L 448.35984994165415 93.0 M 237.28062438964844 315.1886584757961 L 459.4692828654439 93.0 M 237.28062438964844 326.2980913995859 L 470.5787157892337 93.0 M 237.28062438964844 337.40752432337575 L 481.68814871302345 93.0 M 237.28062438964844 348.5169572471656 L 492.7975816368132 93.0 M 237.28062438964844 359.6263901709554 L 503.907014560603 93.0 M 237.28062438964844 370.73582309474523 L 515.0164474843928 93.0 M 237.28062438964844 381.84525601853505 L 526.1258804081825 93.0 M 237.28062438964844 392.9546889423249 L 537.2353133319723 93.0 M 237.28062438964844 404.0641218661147 L 548.3447462557621 93.0 M 237.28062438964844 415.17355478990453 L 559.4541791795518 93.0 M 237.28062438964844 426.28298771369435 L 570.5636121033416 93.0 M 237.28062438964844 437.3924206374842 L 581.6730450271314 93.0 M 237.28062438964844 448.501853561274 L 592.7824779509211 93.0 M 237.28062438964844 459.61128648506383 L 603.8919108747109 93.0 M 237.28062438964844 470.72071940885365 L 615.0013437985007 93.0 M 237.28062438964844 481.8301523326435 L 626.1107767222904 93.0 "/>
+            </g>
+        </pattern>
+        <marker overflow="visible" orient="auto" id="arrow2-519">
+            <path
+                d="M 0.0 0.0 L -4.652083333333334 1.6614583333333335 L -2.79125 0.0 L -4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="#010101"/>
+        </marker>
+    </defs>
+    <g>
+        <g latexdraw:type="circle" id="id487">
+            <circle cx="301.0" cy="254.0" r="123.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="line" id="id489">
+            <line x1="92.0" x2="518.0" y1="253.0" y2="252.0"
+                stroke-width="2.0" stroke="#301ffd"
+                stroke-dasharray="8.0, 8.0" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="line" id="id490">
+            <line x1="300.0" x2="301.0" y1="251.0" y2="409.0"
+                stroke-width="2.0" stroke="#301ffd"
+                stroke-dasharray="8.0, 8.0" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="triangle" id="id491" latexdraw:points="237.0 253.0 365.0 253.0 237.0 93.0 365.0 93.0">
+            <polygon
+                points="301.0,250.30742 363.71936,94.0 238.28062,94.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="#fefefe" fill="url(#pattern491)" stroke-dasharray="8.0, 8.0"/>
+        </g>
+        <g latexdraw:type="text" id="id492" font-family="Dialog"
+            fill="black" font-size="18" latexdraw:x="258.0" font-weight="bold">
+            <text x="258.0" y="56.0"><![CDATA[Sector 1]]></text>
+        </g>
+        <g latexdraw:type="text" id="id495" font-family="Dialog"
+            fill="black" font-size="18" latexdraw:x="104.0" font-weight="bold">
+            <text x="104.0" y="165.0"><![CDATA[Sector 2]]></text>
+        </g>
+        <g latexdraw:type="text" id="id498" font-family="Dialog"
+            fill="black" font-size="18" latexdraw:x="105.0" font-weight="bold">
+            <text x="105.0" y="381.0"><![CDATA[Sector 3]]></text>
+        </g>
+        <g latexdraw:type="text" id="id501" font-family="Dialog"
+            fill="black" font-size="18" latexdraw:x="403.0" font-weight="bold">
+            <text x="403.0" y="382.0"><![CDATA[Sector 4]]></text>
+        </g>
+        <g latexdraw:type="text" id="id504" font-family="Dialog"
+            fill="black" font-size="18" latexdraw:x="407.0" font-weight="bold">
+            <text x="407.0" y="163.0"><![CDATA[Sector 5]]></text>
+        </g>
+        <g latexdraw:type="line" id="id507">
+            <line x1="300.0" x2="302.0" y1="88.0" y2="252.0"
+                stroke-width="2.0" stroke="#f80b32"
+                stroke-dasharray="8.0, 8.0" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="arc" id="id508">
+            <path d="M 299.0 151.0 A 16.0 16.0 0.0 0 0 267.0 151.0 "
+                stroke-width="2.0" stroke="#fefefe" fill="none"
+                stroke-dasharray="8.0, 8.0" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="arc" id="id512">
+            <path
+                d="M 297.46015510839146 161.5398448916085 A 15.5 15.5 0.0 0 0 271.0 172.5 "
+                stroke-width="2.0" stroke="red" fill="none"
+                stroke-dasharray="8.0, 8.0" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="text" id="id516" font-family="Dialog"
+            fill="black" font-size="16" latexdraw:x="94.0" font-style="italic">
+            <text x="94.0" y="80.0"><![CDATA[\psframebox[linewidth=0.04]{ALIGN_ERROR}]]></text>
+        </g>
+        <g latexdraw:type="line" id="id519">
+            <line x1="202.0" x2="270.0" y1="95.0" y2="182.0"
+                stroke-width="2.0" stroke="#010101"
+                latexdraw:rotationAngle="0.0" marker-end="url(#arrow2-519)"/>
+        </g>
+        <g latexdraw:type="text" id="id520" font-family="Dialog"
+            fill="black" font-size="18" latexdraw:x="296.0">
+            <text x="296.0" y="75.0"><![CDATA[0]]></text>
+        </g>
+        <g latexdraw:type="text" id="id523" font-family="Dialog"
+            fill="black" font-size="18" latexdraw:x="530.0">
+            <text x="530.0" y="257.0"><![CDATA[90]]></text>
+        </g>
+        <g latexdraw:type="text" id="id526" font-family="Dialog"
+            fill="black" font-size="18" latexdraw:x="284.0">
+            <text x="284.0" y="428.0"><![CDATA[180]]></text>
+        </g>
+        <g latexdraw:type="text" id="id529" font-family="Dialog"
+            fill="black" font-size="18" latexdraw:x="45.0">
+            <text x="45.0" y="257.0"><![CDATA[270]]></text>
+        </g>
+    </g>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:displayBorders>false</latexdraw:displayBorders>
+            <latexdraw:autoAdjust>true</latexdraw:autoAdjust>
+            <latexdraw:ppc>50</latexdraw:ppc>
+            <latexdraw:zoom>1.75</latexdraw:zoom>
+            <latexdraw:unit>cm</latexdraw:unit>
+            <latexdraw:classicGrid>false</latexdraw:classicGrid>
+            <latexdraw:gridGap>10</latexdraw:gridGap>
+            <latexdraw:code>0</latexdraw:code>
+            <latexdraw:displayGrid>true</latexdraw:displayGrid>
+            <latexdraw:magneticGrid>false</latexdraw:magneticGrid>
+            <latexdraw:autoUpdate>true</latexdraw:autoUpdate>
+            <latexdraw:version>2.0.8</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1920</latexdraw:width>
+                <latexdraw:height>1056</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>0</latexdraw:x>
+                <latexdraw:y>24</latexdraw:y>
+            </latexdraw:position>
+            <latexdraw:dividerPosition>0.8</latexdraw:dividerPosition>
+            <latexdraw:displayCodePanel>true</latexdraw:displayCodePanel>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:delimitorOpacity>130</latexdraw:delimitorOpacity>
+        </latexdraw:metadata>
+    </metadata>
+</svg>

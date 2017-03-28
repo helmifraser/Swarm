@@ -22,45 +22,51 @@ while executing---line 1315 of file unsrtnat.bst
 Name 3 in "Bonabeau, E. and Dorigo, M. and Theraulaz, G.," has a comma at the end for entry bonabeau
 while executing---line 1315 of file unsrtnat.bst
 Warning--empty year in ants
-You've used 16 entries,
+Warning--empty year in afron
+Warning--empty year in khepera
+Warning--empty year in onea
+Warning--empty year in cyberbotics-about
+Warning--empty year in c++-history
+Warning--empty year in tiobe
+You've used 25 entries,
             2481 wiz_defined-function locations,
-            664 strings with 7051 characters,
-and the built_in function-call counts, 5156 in all, are:
-= -- 473
-> -- 175
-< -- 10
-+ -- 82
-- -- 50
-* -- 362
-:= -- 813
-add.period$ -- 67
-call.type$ -- 16
-change.case$ -- 27
-chr.to.int$ -- 16
-cite$ -- 24
-duplicate$ -- 287
-empty$ -- 518
-format.name$ -- 67
-if$ -- 1118
+            704 strings with 8390 characters,
+and the built_in function-call counts, 7950 in all, are:
+= -- 709
+> -- 280
+< -- 11
++ -- 132
+- -- 82
+* -- 557
+:= -- 1180
+add.period$ -- 92
+call.type$ -- 25
+change.case$ -- 45
+chr.to.int$ -- 25
+cite$ -- 45
+duplicate$ -- 441
+empty$ -- 830
+format.name$ -- 102
+if$ -- 1755
 int.to.chr$ -- 1
-int.to.str$ -- 17
-missing$ -- 16
-newline$ -- 104
-num.names$ -- 39
-pop$ -- 138
+int.to.str$ -- 26
+missing$ -- 19
+newline$ -- 147
+num.names$ -- 48
+pop$ -- 246
 preamble$ -- 1
-purify$ -- 16
+purify$ -- 25
 quote$ -- 0
-skip$ -- 162
+skip$ -- 272
 stack$ -- 0
-substring$ -- 142
-swap$ -- 38
-text.length$ -- 1
+substring$ -- 227
+swap$ -- 70
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 100
-warning$ -- 5
-while$ -- 33
+type$ -- 163
+warning$ -- 11
+while$ -- 43
 width$ -- 0
-write$ -- 238
+write$ -- 338
 (There were 6 error messages)

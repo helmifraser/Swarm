@@ -155,22 +155,11 @@ void Swarm::flock() {
 
   while (step(TIME_STEP != -1) && quit != 1) {
 
-    int quitKey = readKey();
-
-    switch (quitKey) {
-    case 53:
-      quit = 1;
-      break;
-
-    default:
-      break;
-    }
-
     getReceiverData();
+    processReceiverData(myData.orientationString);
+
     saveCompassValues();
     distanceCheck();
-
-    processReceiverData(myData.orientationString);
 
     int index = std::distance(
         signalStrength,
@@ -196,18 +185,8 @@ void Swarm::flock() {
       setLEDs(0);
       adjust(nearestNeighbour);
 
-    } else if ((robots >= ALIGN_THRESHOLD) && (left_obstacle) &&
-               (right_obstacle)) {
-      setLEDs(0);
-      // separation();
-      objectDetection(1.0);
-
-    } else if (robots < ALIGN_THRESHOLD) {
-      setLEDs(0);
-      objectDetection(1.0);
-
-    } else if ((robots >= ALIGN_THRESHOLD) && signalStrength[index] > 10) {
-      setLEDs(0);
+    } else {
+      setLEDs(1);
       objectDetection(1.0);
     }
 
@@ -215,8 +194,6 @@ void Swarm::flock() {
 
     if (robots >= 1) {
       emitter->setRange(RANGE * (robotsDouble + 1));
-      // std::cout << printName() << "Range " << irEm[8]->getRange()
-      //           << std::endl;
     }
 
     std::array<double, 3> position = getGPSValue();
@@ -231,8 +208,18 @@ void Swarm::flock() {
 
     sendCurrentOrientation();
     step_count++;
+
+    int quitKey = readKey();
+
+    switch (quitKey) {
+    case 53:
+      quit = 1;
+      break;
+
+    default:
+      break;
+    }
   }
-  // std::cout << step_count << std::endl;
   move(0, 0);
   data.close();
 }
@@ -391,17 +378,6 @@ void Swarm::sendCurrentOrientation() {
   sendPacket(message);
 }
 
-// void neural_network::getReceiverData() {
-//   const size_t spartans = 400;
-//   Receiver *copy = (Receiver *)malloc(spartans);
-//   for (int i = 0; i < receiver->getQueueLength(); i++) {
-//     data = (char *)receiver->getData();
-//     memcpy(copy, data, spartans);
-//     receivedWeights = (char *)copy;
-//     receiver->nextPacket();
-//   }
-// }
-
 void Swarm::getReceiverData() {
     Receiver *copy = (Receiver *)malloc(sizeof(Receiver));
     myData.orientationString = {};
@@ -427,7 +403,6 @@ void Swarm::processReceiverData(std::array<std::string, ARRAY_SIZE> data) {
     myData.orientationDouble[i] = 0;
   }
   try {
-    // std::regex re("[*0-9*]+|[-][*0-9*]+|[*0-9*.*0-9*]+|[-][*0-9*.*0-9*]");
     std::regex re("[*0-9*.*0-9*]+");
     for (int i = 0; i < robots; i++) {
       std::sregex_iterator next(data[i].begin(), data[i].end(), re);
@@ -445,8 +420,6 @@ void Swarm::processReceiverData(std::array<std::string, ARRAY_SIZE> data) {
         }
       }
     }
-
-    // myData.received = false;
   } catch (std::regex_error &e) {
   }
 }

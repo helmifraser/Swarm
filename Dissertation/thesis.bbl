@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -112,5 +112,56 @@ Craig~W. Reynolds.
 \newblock ISSN 0097-8930.
 \newblock \doi{10.1145/37402.37406}.
 \newblock URL \url{http://doi.acm.org/10.1145/37402.37406}.
+
+\bibitem[Mondada et~al.(2009)Mondada, Bonani, Raemy, Pugh, Cianci, Klaptocz,
+  Magnenat, Zufferey, Floreano, and Martinoli]{epfl-epuck}
+F.~Mondada, M.~Bonani, X.~Raemy, J.~Pugh, C.~Cianci, A.~Klaptocz, S.~Magnenat,
+  J.~Zufferey, D.~Floreano, and A.~Martinoli.
+\newblock The e-puck, a robot designed for education in engineering.
+\newblock \emph{Proceedings of the 9th Conference on Autonomous Robot Systems
+  and Competitions, vol. 1, num. 1, p. 59-65}, 2009.
+
+\bibitem[Christensen et~al.(2009)Christensen, O'Grady, and
+  Dorigo]{Christensen:2009:FFS:1650386.1650393}
+Anders~Lyhne Christensen, Rehan O'Grady, and Marco Dorigo.
+\newblock From fireflies to fault-tolerant swarms of robots.
+\newblock \emph{Trans. Evol. Comp}, 13\penalty0 (4):\penalty0 754--766, August
+  2009.
+\newblock ISSN 1089-778X.
+\newblock \doi{10.1109/TEVC.2009.2017516}.
+\newblock URL \url{http://dx.doi.org/10.1109/TEVC.2009.2017516}.
+
+\bibitem[afr()]{afron}
+{African Robotics Network}.
+\newblock \url{https://www.wired.com/2012/09/afron-winners/}.
+
+\bibitem[Rubenstein et~al.(2012)Rubenstein, Ahler, and Nagpal]{kilobot}
+M.~Rubenstein, C.~Ahler, and R.~Nagpal.
+\newblock Kilobot: A low cost scalable robot system for collective behaviors.
+\newblock In \emph{2012 IEEE International Conference on Robotics and
+  Automation}, pages 3293--3298, May 2012.
+\newblock \doi{10.1109/ICRA.2012.6224638}.
+
+\bibitem[khe()]{khepera}
+Khepera {IV}.
+\newblock
+  \url{https://www.k-team.com/mobile-robotics-products/khepera-iv/introduction}.
+
+\bibitem[one()]{onea}
+{Bot'n Roll ONE A}.
+\newblock
+  \url{http://www.botnroll.com/en/bot-n-roll-one-a/1135-bot-n-roll-one-a-assembled.html}.
+
+\bibitem[cyb()]{cyberbotics-about}
+Cyberbotics - {About}.
+\newblock \url{https://www.cyberbotics.com/company}.
+
+\bibitem[c++()]{c++-history}
+C++ history.
+\newblock \url{http://www.cplusplus.com/info/history/}.
+
+\bibitem[tio()]{tiobe}
+{TIOBE} index.
+\newblock \url{https://www.tiobe.com/tiobe-index/}.
 
 \end{thebibliography}

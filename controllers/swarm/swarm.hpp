@@ -32,7 +32,7 @@
 using namespace webots;
 
 #define TIME_STEP 32
-#define PS_THRESHOLD 150
+#define PS_THRESHOLD 60
 #define SEPARATION_THRESHOLD 80
 #define WHEEL_SPEED 1000
 #define ARRAY_SIZE 10
