@@ -23,46 +23,12 @@ Though the project is conducted entirely in simulation, the agents are based on 
 
 Developed by \citeauthor{epfl-epuck} at the Autonomous Systems Lab of \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne (EPFL), the e-puck (see Fig \ref{fig:epuck-pic}) is  an open source, two wheeled, differential robot measuring roughly 7cm in diameter. \cite{epfl-epuck}
 
-\begin{wraptable}{l}{6cm}
-\begin{tabu} to 0.4\textwidth { | X[l] | X[c] | }
-	\hline
-	Diameter & 7cm \\
-	\hline
-	Weight & 200g \\
-	\hline
-	Top speed & 13cm/s \\
-	\hline
-	Battery & 2 hours \\
-	\hline
-	Processor & dsPIC 30 CPU @ 30 MHz (15 MIPS) \\
-	\hline
-	RAM & 8KB \\
-	\hline
-	Memory & 144KB Flash \\
-	\hline
-	Motors & Step \\
-	\hline
-	IR sensors & 8 infra-red proximity and light sensors \\
-	\hline 
-	Camera & Front facing, 640x480 resolution \\
-	\hline
-	LEDs & 8 circumferential, 1 body, 1 front \\
-	\hline
-	Accelerometer & 1, three dimensional \\
-	\hline
-	Microphones & 3 \\
-	\hline
-	Speaker & 1 \\
-	\hline
-\end{tabu}
-\caption{e-puck specifications} 	% \caption IS ALWAYS FIRST
-\label{fig:tech-specs} 	% \label IS ALWAYS SECOND
-\end{wraptable} 
 The e-puck was originally developed to allow students to address a wide range of engineering fields. 
 
-The platform features a wide range of sensing capabilities as standard (see Table \ref{fig:tech-specs}), with the additional option to expand through the use of top and bottom extension slots. These physical extensions can range from extra sensors, to additional controllers for more computational capabilities (such as an Arduino board).
+The platform features a wide range of sensing capabilities as standard (see Table \ref{fig:tech-specs}), with the additional option to expand through the use of top and bottom extension slots. (Fig.\ref{fig:flycam}, \ref{fig:randb}) These physical extensions can range from extra sensors, to additional controllers for more computational capabilities (such as an Arduino board).
 
 The flexibility of the platform, coupled with low purchasing costs (owing to the open source nature of the hardware and the software) has thus led to swift adoption by robotics researchers worldwide.
+\clearpage
 
 After thorough research of other suitable robotic platforms (see \ref{alt}), the e-puck was chosen as the most desireable base unit to create a swarm. This was due to several factors: -
 
@@ -72,16 +38,8 @@ After thorough research of other suitable robotic platforms (see \ref{alt}), the
 	\item Its relative ease of use and good documentation will enable a quicker development cycle compared to other robots on the market.
 \end{enumerate}
 
-\begin{figure}
-	\begin{minipage}{.75\textwidth}
-		\centering
-		\includegraphics[width=1.1\linewidth]{electronics.png}
-		\captionof{figure}{e-puck electronics systems \cite{epfl-epuck}}
-		\label{fig:epuck-elec}
-	\end{minipage}
-\end{figure}
 
-\begin{figure}
+\begin{figure}[!b]
 	\centering
 	\begin{minipage}{.5\textwidth}
 		\centering
@@ -99,6 +57,7 @@ After thorough research of other suitable robotic platforms (see \ref{alt}), the
 
 \clearpage
 
+
 The eight circumferential IR sensors that the robot possesses are crucial in order to exhibit swarm behaviour. These sensors are what allows the robot to "see" its immediate environment and without them the robot will be unable to react to its surroundings.
 
 In addition to this, these sensors allow the use of an IR communication protocol alongside their normal function as proximity or ambient light sensors. In this way, the robots are capable of limited, short range communication with one another.
@@ -111,20 +70,49 @@ The e-puck's small size, flexibility and relative low cost are things which woul
 
 As can be seen, the array of useful sensors and actuators that are available to the e-puck platform lends itself well to a swarm system application. 
 
+\begin{figure}[!b]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+	\includegraphics[width=0.7\textwidth]{flycam}
+	\caption{\label{fig:flycam}Flycam vision turret.}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{randb}
+		\captionof{figure}{Range and bearing turret}
+		\label{fig:randb}
+	\end{minipage}
+\end{figure}
+
+
+\clearpage
+
 \subsection{Alternatives}
 \label{alt}
 
 The e-puck platform is not alone in the market of mobile, relatively small robots.
 
-Another potential platform for the project is the Kilobot. Developed by Hardvard University's Self-Organizing Systems Research Group and winner of the ``African Robotics Network \$10 Robot Challenge'' \cite{afron}, the Kilobot is a simple and low cost small robot. Envisaged to enable the testing of control algorithms on large swarms accessible to researchers, the Kilobot was designed to prioritise cost and ease of use.  \cite{kilobot} To that end, each unit consists of only \$14 (around \pounds11) worth of parts, requires 5 minutes of assembly time and allows a single operator to control a large group with ease. The control is achieved using an overhead infra-red controller connected to a control station (a computer). This allows a user to broadcast a command or program and have it received by all robots in a swarm within a fixed amount of time, regardless of the number of robots.
+Another potential platform for the project is the Kilobot (Fig. \ref{fig:kilobot}) Developed by Hardvard University's Self-Organizing Systems Research Group and winner of the ``African Robotics Network \$10 Robot Challenge'' \cite{afron}, the Kilobot is a simple and low cost small robot. Envisaged to enable the testing of control algorithms on large swarms accessible to researchers, the Kilobot was designed to prioritise cost and ease of use.  \cite{kilobot} To that end, each unit consists of only \$14 (around \pounds11) worth of parts, requires 5 minutes of assembly time and allows a single operator to control a large group with ease. The control is achieved using an overhead infra-red controller connected to a control station (a computer). This allows a user to broadcast a command or program and have it received by all robots in a swarm within a fixed amount of time, regardless of the number of robots.
 
 Though extremely promising, this platform was not chosen simply for the fact that there was no simulated equivalent available. Also, though cheaper than the vast majority of platforms, the attractive price is only valid if bought or created in bulk.
 
-K-Team's Khepera IV is also an attractive alternative. The basic feature set of the Khepera IV far outstrips that of the e-puck, with the former housing a WiFi chipset, 4 IR ground sensors as standard, 5 sonar sensors, a run time of 5 hours and an extension ecosystem. In addition to this, the robot embeds a complete Linux operating system, allowing "almost any existing library" to be easily ported. \cite{khepera}
+K-Team's Khepera IV is also an attractive alternative (Fig. \ref{fig:khepera}). The basic feature set of the Khepera IV far outstrips that of the e-puck, with the former housing a WiFi chipset, 4 IR ground sensors as standard, 5 sonar sensors, a run time of 5 hours and an extension ecosystem. In addition to this, the robot embeds a complete Linux operating system, allowing "almost any existing library" to be easily ported. \cite{khepera}
 
 This was not chosen as though it is technically superior, the extra functionality does not offer any substantial gains over the e-puck for this application. It is not open source, so not as widespread as the e-puck. In addition to this, the Khepera IV is significantly more expensive than the e-puck, at 2650 CHF (around \pounds2140) for a single unit.
 
 Bot'n Roll's ONE A unit was also considered. Aimed more toward beginners rather than researchers, the ONE A is a differential wheeled robot with an LCD screen mounted on an Arduino programmable board. It comes with two forward facing IR sensors used for distance sensing. \cite{onea} This was not chosen as though it provided a few external connections for additional sensors, the extra sensors did not come as standard and has to be soldered manually. At 199 EUR, it also provided very little value for money compared with other platforms, and its simplicity is liable to be a hinderance.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{kilobots}
+	\caption{\label{fig:kilobot}Kilobot}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{khepera}
+	\caption{\label{fig:khepera}Khepera IV}
+\end{figure}
 \clearpage
 
 \section{Software}
@@ -141,7 +129,7 @@ Webots, developed by Cyberbotics, is a professional development and simulation e
 		\centering
 		\includegraphics[width=1.35\linewidth]{webots-screen}
 		\captionof{figure}{Webots simulator}
-		\label{fig:epuck-elec}
+		\label{fig:screen}
 	\end{minipage}
 \end{figure}
 

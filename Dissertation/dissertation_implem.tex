@@ -4,12 +4,12 @@
 This chapter details the design process of the swarm system, and the approach used when tackling the problem of multi-agent interactions.
 
 Firstly, an outline of the problem representation is shown and then the structure and reasoning behind the software implementation.
-
 \section{Design}
 
 As shown in section \ref{section: hardware}, the standard configuration of the e-puck has all of the required capabilities to implement swarming behaviour.
 
 \subsection{Simulation Setup}
+\label{subsection:simulation-setup}
 
 Firstly, a new project was created in Webots.
 
@@ -56,20 +56,22 @@ The simulation consisted of a bounded, rectangular arena of size 3 metres by 3 m
 	\end{minipage}
 \end{figure}
 
-\begin{figure}[h]
-		\centering
-		\includegraphics[width=.6\linewidth]{top-down-simulation}
-		\captionof{figure}{Arena}
-		\label{fig:arena}
-\end{figure}
-
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=.6\linewidth]{sideways}
-	\captionsetup{width=.7\textwidth}
-	\captionof{figure}{Arrows denote the positive world axes directions}
-	\label{fig:axes}
+	\begin{minipage}{.45\textwidth}
+		\centering
+\includegraphics[width=1\linewidth]{top-down-simulation}
+\captionof{figure}{Arena}
+\label{fig:arena}
+	\end{minipage}
+	\begin{minipage}{.45\textwidth}
+	\centering
+\includegraphics[width=1\linewidth]{sideways}
+\captionof{figure}{Arrows denote the positive world axes directions}
+\label{fig:axes}
+	\end{minipage}
 \end{figure}
+
 
 Figure \ref{fig:axes} shows the positive directions of the x, y and z axes. Red denotes positive x, green denotes positive y, blue denotes positive z. Hence the north direction has been set to (0, 0, -10). \newline
 
@@ -97,11 +99,14 @@ One solution was to add an emitter and receiver at the positions of each proximi
 
 A better solution was implemented. Instead of eight emitter/receiver pairs, only one is utilised, placed on top of the centre of the robot. However, this emitter/receiver has a wide aperture of 360\textdegree. In this manner, the simulated robot can communicate with any neighbouring flockmates in a similar way to real e-puck, while significantly reducing the computational overhead of the simulator.
 
+A necessary modification was the addition of a compass module. This simulated a real e-puck's ``Range and Bearing turret'' (Fig. \ref{fig:randb}), which enabled the e-puck to obtain a localised bearing.
+
 Another modification made was the addition of a GPS unit to each e-puck. This is not utilised during the course of exhibiting flocking behaviour, rather it is added as an experimental tool to collect data on the trajectories of every e-puck in the world.
 
 \section{Code Implementation}
+\label{section:code}
 
-The approach taken to implementing the desired swarming behaviour can be divided into two processes: defining the low level dependencies of the system, and then defining the high level operations.
+The approach taken to implementing the desired swarming behaviour can be divided into two processes: abstracting the higher level desired behaviour, then implementing the required lower level dependencies.
 
 A full code listing can be found in Appendix TODO.
 
@@ -120,19 +125,18 @@ do something
 In order to keep system complexity as low as possible, the use of any external C++ libraries were minimised. In this project, only the default Webots function library and the C++ standard library were utilised. This also aids in keeping program compatibility across different computers and operating systems.
 
 The use of the \textit{libircom} library for infra-red communication using the proximity sensors was investigated at the early stages of this project, though this was eschewed due to the problems outlined in section \ref{subsection:mod-desc}.
-\clearpage
 
-\subsection{Algorithm Heirarchy}
+\subsection{Swarming Algorithm}
 
-The algorithm can be split up into three main processes: receive data from the environment and other agents (proximity sensors and messages), process the received data and decide on the next course of action, execute the next course of action. 
+The algorithm can be split up into three main processes: receive data from the environment and other agents (proximity sensors and messages), process the received data and decide on the next course of action, execute the next course of action.
 
 Figure \ref{fig:flow-1} shows a highly abstracted procedure of the robot controller. Subsequent flow charts will detail the lower level processes within each abstracted process.
-
+\clearpage
 \subsubsection{Overall procedure}
 
-\tikzstyle{decision} = [diamond, draw, fill=green!20, 
-text width=3cm, text badly centered, node distance=3cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+\tikzstyle{decision} = [diamond, draw, fill=green!20,
+text width=3cm, text badly centered, node distance=3.5cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
 text width=4cm, text centered, rounded corners, minimum height=4em]
 \tikzstyle{line} = [draw, -latex']
 \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
@@ -202,7 +206,7 @@ void Swarm::getReceiverData() {
 		data = (char *)receiver->getData();
 		signalStrength[k] = (double)receiver->getSignalStrength();
 		for (int n = 0; n < 3; n++) {
-			emitterDirection[k][n] = 
+			emitterDirection[k][n] =
 										receiver->getEmitterDirection()[n];
 		}
 		memcpy(copy, data, sizeof(Receiver));
@@ -246,7 +250,6 @@ void Swarm::processReceiverData(std::array<std::string, ARRAY_SIZE> data) {
 
 Listing \ref{lst:mess-pro} details the method by which a received message of type string is processed. This was achieved by iterating through an array containing the messages from every robot and using a regular expression to parse these strings. The regular expression, in this case, searches for a decimal number with trailing digits. If a match is detected, the number is converted from a string type into a double type and saved in a global variable (line 14).
 
-\clearpage
 
 \begin{lstlisting}[language=C++, caption={Getting orientation data},label={lst:compass-poll}]
 void Swarm::saveCompassValues() {
@@ -278,7 +281,8 @@ Listing \ref{lst:prox} demonstrates how the robot can access the data from its c
 \subsubsection{Decision and actuation}
 \begin{figure}[!h]
 	\centering
-	\begin{tikzpicture}[node distance = 2.5cm,auto]
+	\resizebox{.7\linewidth}{!}{
+	\begin{tikzpicture}[node distance = 2.5cm]
 \node [cloud] (start) {Obtaining data};
 \node [block, below of=start] (direction) {Obtain directions of detected robots};
 \node [decision, below of=direction] (check1) {Other robots and no obstacles?};
@@ -296,17 +300,19 @@ Listing \ref{lst:prox} demonstrates how the robot can access the data from its c
 \draw [arrow] (check1) -- node {yes} (adjust);
 \draw [arrow] (adjust) -- (check2);
 \draw [arrow] (object) |- (check2.north);
-\draw [arrow] (check2) -- node {yes} (range);
+\draw [arrow] (check2) -- node[anchor=east] {yes} (range);
 \draw [arrow] (check2) -| ++(5cm,0) -- ++(0,-5.2cm) -- node {no} (send.east);
 \draw [arrow] (range) -- (send);
 \draw [arrow] (send) -- (check3);
 \draw [arrow] (check3.east) -- node{yes} (stop);
-\draw [arrow] (check3.west) -- node[above]{no} ++(-2cm,0) -- ++(0cm,20.2) -- (start);
+\draw [arrow] (check3.west) -- node[above]{no} ++(-2cm,0) -- ++(0cm,21.7) -- (start);
 	\end{tikzpicture}
+}
 	\captionof{figure}{Second and third process}
 	\label{fig:flow-3}
 \end{figure}
 
+\clearpage
 \begin{lstlisting}[language=C++, caption={Calculating target vector},label={lst:dir-vec}]
 int index = std::distance(signalStrength, std::max_element(signalStrength, signalStrength + sizeof(signalStrength) / sizeof(double)));
 
@@ -326,6 +332,7 @@ double nearestNeighbour = computeVectorAngle(direction);
 \end{lstlisting}
 
 Listing \ref{lst:dir-vec} demonstrates the method by which the robot can determine the direction of the neighbour it should steer toward. This is achieved by returning the vector of its second nearest neighbour in the case that the number of robots detected is greater than a pre-defined value, or the nearest neighbour in the case that only one robot is detected.
+\clearpage
 
 \begin{lstlisting}[language=C++, caption={Action for next step},label={lst:fsm}]
 if ((robots >= ALIGN_THRESHOLD) && (!left_obstacle) && (!right_obstacle) && signalStrength[index] < 10) {
@@ -343,7 +350,7 @@ Listing \ref{lst:fsm} is a crucial step in the algorithm. This process defines t
 void Swarm::adjust(double angle) {
 	double left_speed = WHEEL_SPEED;
 	double right_speed = WHEEL_SPEED;
-	
+
 	if (((angle > (360 - ALIGN_ERROR)) & (angle < 360)) | ((angle > 0) & (angle < ALIGN_ERROR))) {
 		right_speed = left_speed = WHEEL_SPEED;
 	} else if ((angle > 270) & (angle < (360 - ALIGN_ERROR))) {
@@ -359,20 +366,20 @@ void Swarm::adjust(double angle) {
 		right_speed = (1 - (angle - ALIGN_ERROR) / (90 - ALIGN_ERROR)) * WHEEL_SPEED;
 		left_speed = WHEEL_SPEED;
 	}
-	
+
 	if (left_speed > 1000) {
 		left_speed = 1000;
 	}
-	
+
 	if (right_speed > 1000) {
 		right_speed = 1000;
 	}
-	
+
 	move((int)left_speed, (int)right_speed);
 }
 \end{lstlisting}
 
-Listing \ref{lst:adjust} details the method by which the robot adjusts its heading to steer toward a specified angle. 
+Listing \ref{lst:adjust} details the method by which the robot adjusts its heading to steer toward a specified angle.
 
 Given an angle to steer toward, this function adjust the wheel speeds dynamically dependent on the magnitude of the error to a ``zero'' heading. For example, adjusting to a heading of 180\textdegree will result in a more pronounced speed difference versus adjusting to a heading infront of the robot.
 
@@ -389,32 +396,83 @@ Given an angle to steer toward, this function adjust the wheel speeds dynamicall
 Shown in Figure \ref{fig:robot-sectors} are the sectors of the angle discretizations. It was necessary to apply an error value, \textit{ALIGN\_ERROR}, when determining a ``zero'' heading to prevent unwanted oscillations. The function determines which of these sectors the desired heading is located in and applies one of several velocity equations:-
 
 \begin{enumerate}
-	\item \textit{left wheel speed} = BASE\_WHEEL\_SPEED \newline
+	\item Sector 1: \newline \textit{left wheel speed} = BASE\_WHEEL\_SPEED \newline
 	\textit{right wheel speed} = BASE\_WHEEL\_SPEED
-	
-	\item \textit{left wheel speed} = \(1 + \dfrac{ANGLE\_ERROR + angle - 360}{90 - ANGLE\_ERROR} \times BASE\_WHEEL\_SPEED\) \newline
+
+	\item Sector 2: \newline \textit{left wheel speed} = \(1 + \dfrac{ANGLE\_ERROR + angle - 360}{90 - ANGLE\_ERROR} \times BASE\_WHEEL\_SPEED\) \newline
 	\textit{right wheel speed} = BASE\_WHEEL\_SPEED
-	
-	\item \textit{left wheel speed} = \(\dfrac{angle - 270}{90} \times BASE\_WHEEL\_SPEED\) \newline
+
+	\item Sector 3: \newline\textit{left wheel speed} = \(\dfrac{angle - 270}{90} \times BASE\_WHEEL\_SPEED\) \newline
 	\textit{right wheel speed} = BASE\_WHEEL\_SPEED
-	
-	\item \textit{left wheel speed} = BASE\_WHEEL\_SPEED  \newline
+
+	\item Sector 4: \newline\textit{left wheel speed} = BASE\_WHEEL\_SPEED  \newline
 	\textit{right wheel speed} = \(\dfrac{90 - angle}{90} \times BASE\_WHEEL\_SPEED\)
-	
-	\item \textit{left wheel speed} = BASE\_WHEEL\_SPEED  \newline
-	\textit{right wheel speed} = \(1 + \dfrac{ANGLE\_ERROR + angle - 360}{90 - ANGLE\_ERROR} \times BASE\_WHEEL\_SPEED\)
-	
+
+	\item Sector 5: \newline\textit{left wheel speed} = BASE\_WHEEL\_SPEED  \newline\newline
+	\textit{right wheel speed} = \(1 - \dfrac{angle - ANGLE\_ERROR}{90 - ANGLE\_ERROR} \times BASE\_WHEEL\_SPEED\)
+
 \end{enumerate}
 
-\subsection{Low level}
+\begin{figure}[h]
+	\begin{minipage}{.75\textwidth}
+		\includegraphics[width=1.2\linewidth]{control}
+		\captionof{figure}{Wheel speed control}
+		\label{fig:control}
+	\end{minipage}
+\end{figure}
 
-It is essential that the low level operations are first constructed, before any implementation of the higher level behaviour is undertaken. 
+In this manner, the velocity varies with the distance to zero.
 
-This is because some of the higher level functions will rely on the lower level operations. For example, in order for a robot to move towards another robot, there are a host of underlying operations that will need to be performed before the physical actuation of the wheels begin.
+\begin{lstlisting}[language=C++, caption={Object avoidance},label={lst:avoid}]
+	void Swarm::objectDetection(double speedAdjust) {
+	  distanceCheck();
 
-Perhaps
+	  double left_speed = speedAdjust * WHEEL_SPEED;
+	  double right_speed = speedAdjust * WHEEL_SPEED;
 
+	  if (!left_obstacle & right_obstacle) {
+	    left_speed -= speedAdjust * WHEEL_SPEED;
+	    right_speed += speedAdjust * WHEEL_SPEED;
+	  } else if (!right_obstacle & left_obstacle) {
+	    left_speed += speedAdjust * WHEEL_SPEED;
+	    right_speed -= speedAdjust * WHEEL_SPEED;
+	  } else if (right_obstacle & left_obstacle) {
+	    left_speed = -speedAdjust * WHEEL_SPEED;
+	    right_speed = -speedAdjust * WHEEL_SPEED;
+	  }
 
+	  if (left_speed > 1000) {
+	    left_speed = 1000;
+	  }
 
-\subsection{High level}
+	  if (right_speed > 1000) {
+	    right_speed = 1000;
+	  }
+	  move((int)left_speed, (int)right_speed);
+	}
+\end{lstlisting}
 
+Listing \ref{lst:avoid} details the method by which the robot can perform basic obstacle avoidance. This is achieved by first polling the distance sensors (line 2), then simply checking where there exists an obstacle. If one is detected, the wheel speeds are adjusted appropriately.
+
+Lines 18 to 24 perform velocity clipping, this is needed as the maximum allowable velocity is \textit{1000}, as the controller can crash if this is exceeded.
+
+\begin{lstlisting}[language=C++, caption={Emitter range manipulation},label={lst:emitter}]
+	if (robots >= 1) {
+		emitter->setRange(RANGE * (robotsDouble + 1));
+	}
+\end{lstlisting}
+
+Listing \ref{lst:emitter} shows how the robot's emitter range is modified. The range varies linearly with the number of robots detected + 1.
+
+This adds a ``gravity''
+to a group. The larger a group is, the more influence it exerts on the environment.
+\clearpage
+
+\begin{lstlisting}[language=C++, caption={Broadcast current orientation},label={lst:broadcast}]
+	void Swarm::sendCurrentOrientation() {
+	  std::string message = std::to_string(getCurrentOrientation());
+	  sendPacket(message);
+	}
+\end{lstlisting}
+
+This method enables the robot to broadcast its current orientation to its neighbours.

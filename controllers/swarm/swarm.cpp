@@ -54,10 +54,10 @@ Swarm::Swarm() {
 }
 
 void Swarm::run() {
+  std::cout << "1 for keyboard control, 2 for object avoidance, 3 for "
+  "flocking, 4 for randomVal"
+  << std::endl;
   while (step(TIME_STEP) != -1) {
-    std::cout << "1 for keyboard control, 2 for object avoidance, 3 for "
-                 "flocking, 4 for randomVal"
-              << std::endl;
     int decide = readKey();
     switch (decide) {
     case 49:
@@ -196,16 +196,6 @@ void Swarm::flock() {
       emitter->setRange(RANGE * (robotsDouble + 1));
     }
 
-    std::array<double, 3> position = getGPSValue();
-
-    if (data.is_open()) {
-      data << position[0] << ",";
-      data << position[2] << ",";
-      data << robots << ",";
-      data << getCurrentOrientation() << ",";
-      data << " \n";
-    }
-
     sendCurrentOrientation();
     step_count++;
 
@@ -218,6 +208,16 @@ void Swarm::flock() {
 
     default:
       break;
+    }
+
+    std::array<double, 3> position = getGPSValue();
+
+    if (data.is_open()) {
+      data << position[0] << ",";
+      data << position[2] << ",";
+      data << robots << ",";
+      data << getCurrentOrientation() << ",";
+      data << " \n";
     }
   }
   move(0, 0);
@@ -342,7 +342,6 @@ void Swarm::adjust(double angle) {
   } else if ((angle > 270) & (angle < (360 - ALIGN_ERROR))) {
     left_speed =
         (1 + (ALIGN_ERROR + angle - 360) / (90 - ALIGN_ERROR)) * WHEEL_SPEED;
-    // right_speed = ( ( (360 - ALIGN_ERROR) - angle)/85) )*WHEEL_SPEED;
     right_speed = WHEEL_SPEED;
   } else if ((angle >= 180) & (angle < 270)) {
     left_speed = ((angle - 270) / 90) * WHEEL_SPEED;
@@ -437,10 +436,10 @@ void Swarm::distanceCheck() {
   }
 
   // detect obsctacles
-  left_obstacle = (ps_values[0] > PS_THRESHOLD) ||
+  right_obstacle = (ps_values[0] > PS_THRESHOLD) ||
                   (ps_values[1] > PS_THRESHOLD) ||
                   (ps_values[2] > PS_THRESHOLD);
-  right_obstacle = (ps_values[5] > PS_THRESHOLD) ||
+  left_obstacle = (ps_values[5] > PS_THRESHOLD) ||
                    (ps_values[6] > PS_THRESHOLD) ||
                    (ps_values[7] > PS_THRESHOLD);
   front_obstacle =
@@ -449,28 +448,20 @@ void Swarm::distanceCheck() {
 }
 
 void Swarm::objectDetection(double speedAdjust) {
-  // setLEDs(1);
   distanceCheck();
 
-  // init speeds
   double left_speed = speedAdjust * WHEEL_SPEED;
   double right_speed = speedAdjust * WHEEL_SPEED;
 
-  // modify speeds according to obstacles
-  if (left_obstacle & !right_obstacle) {
-    // turn left
+  if (!left_obstacle & right_obstacle) {
     left_speed -= speedAdjust * WHEEL_SPEED;
     right_speed += speedAdjust * WHEEL_SPEED;
-    // std::cout << printName() << "Turning left" << std::endl;
-  } else if (right_obstacle & !left_obstacle) {
-    // turn right
+  } else if (!right_obstacle & left_obstacle) {
     left_speed += speedAdjust * WHEEL_SPEED;
     right_speed -= speedAdjust * WHEEL_SPEED;
-    // std::cout << printName() << "Turning right" << std::endl;
   } else if (right_obstacle & left_obstacle) {
     left_speed = -speedAdjust * WHEEL_SPEED;
     right_speed = -speedAdjust * WHEEL_SPEED;
-    // std::cout << printName() << "Backwards" << std::endl;
   }
 
   if (left_speed > 1000) {

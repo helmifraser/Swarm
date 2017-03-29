@@ -1,19 +1,57 @@
-%-----------------------------------------------------
-% Chapter: Conclusion
-%-----------------------------------------------------
+
 \chapter{Conclusion}
 \label{chap:Conclusion}
 
-I was right all along.
+In conclusion, this project set out to study the swarming behaviour exhibited in some biological systems such as social insects, flocks of birds, schools of fish and implement them in an artifical system: a group of mobile robots. It has shown that the application of biologically inspired techniques to the field of swarm robotics can provide interesting and useful results. 
+
+In particular, the rise of emergent self-organisational behaviour within this system satisfies \citeauthor{VanDykeParunak2004}'s definition of a swarm, \textit{``useful self-organization of multiple entities through local interactions''} \cite{VanDykeParunak2004}.
+
+The original objectives of this project were:-
+
+\begin{enumerate}
+	\item To understand the theory and concepts behind a swarm system, be they natural or artificial, in order to apply them within an engineering design.
+	\item To develop a robot controller which exhibits \textit{flocking} behaviour, based on the techniques of self-organising swarm systems.
+	\item To evaluate the developed system under dynamic environmental conditions and stressors.
+	%\item To analyse the resulting behaviour and compare the similarity and effectiveness of the controller against other solutions and biological equivalents.
+\end{enumerate}
+
+As shown in previous sections, all three objectives were achieved. 
+
+Objective 1 was fulfilled through in depth analysis of current state-of-the-art research within the fields of biologically inspired engineering and collective robotics. This provided a basis for the fundamental knowledge needed to fulfill objective 2, to engineer a swarm system from first principles. 
+
+Objective 2 was fulfilled through the design and implementation of the swarming algorithm detailed in Section \ref{section:code}. One of the significant achievements of this work was the development of a single robot controller to exhibit system wide swarming. The principal biologically inspired techniques used within this controller were the concepts of locality and limited agent-agent communication. As discussed and experimentally proven in Section \ref{chap:Evaluation}, this provides a system that is scalable, tolerant of faults and is capable of self-organisation. In addition to this, having one adaptable controller that can be distributed to as many robots as desired is far more time efficient than developing a bespoke controller for every robot in the swarm.
+
+Objective 3 was achieved through experimental analysis, detailed in Section \ref{section:results}. The system was tested to measure its performance in a variety of environments and conditions. These environments and conditions are typical of those faced by swarms, such as a changing world, agent failure, obstacle avoidance and flock merging. The ability of the system to adequately cope with these stressors is a crucial proof of concept of the applicability of swarming techniques within artificial systems. It would be highly beneficial if these useful traits could be obtained for use in other applications, for example use within a collective of autonomous vehicles.
+
+%There are parallels that can be drawn between the behaviour exhibited by this system and the behaviour exhibited by natural systems such as bees (Fig. \ref{fig:bees}), birds and fish. This is useful 
 
 \section{Problems encountered}
 
-I was right about the following things.
+During the course of the project, many technical problems were encountered.
+
+The main problem encountered was dealing with obstacle recognition. Animals or insects that exhibit flocking behaviour are able to distinguish between, for example, a wall and a member of its own species. The simulated e-puck has no way of doing this natively, the proximity sensors simply tell the e-puck how close an object is, and not \textit{what} the object is. In contrast, a real e-puck is able to utilise its proximity sensors as a way of signalling its presence, by broadcasting infra-red light. In order to overcome this problem, the use of an infra-red emitter was decided upon. The e-puck uses this emitter to broadcast its orientation, and in this way, provides a way to signal its presence to other e-pucks.
+
+Leading on from this, the next problem was to provide a method that allows the e-puck to interpret an incoming message packet into actionable information. This problem was overcome through the messaging processing methods detailed in Listing \ref{lst:mess-receive} and \ref{lst:mess-pro}. 
+
+Another issue that arose was determining a suitable method to gather data, especially neighbourhood data. One solution was to graphically measure the emitter ranges of every robot and hence determine how many other robots it detects. Doing this many times over in every simulation would be extremely time consuming and could lead to false results. Instead, it was decided to implement data gathering features within the robot controller itself. The robots automatically write any needed values (such as neighbourhood, orientation and GPS data) to files, for later analysis. Then, a MATLAB script was created that parses these files, extracts the data and plots them. In this manner, plenty of accurate data is gathered.
 
 \section{Limitations}
 
-People thought they understood, but they didn't.
+The main limitation of this work is that the swarm stuggles to move in a similar heading for more than a few seconds, with its movements tending more toward attraction and aggregation. This is due to the fact that no overall goal is presented to the swarm, such as moving to a defined co-ordinate as a group. 
+
+Another limitation was the performance of the simulator itself. Adding more e-pucks to the simulation consumed more computational resources, which decreased the execution time and limited the ability to validate and test the scalability of the swarm.
+
+It was found that the algorithm developed in this project, though inspired by Reynolds' rules \cite{Reynolds:1987:FHS:37402.37406}, was not as effective at providing flocking-like behaviour, though the behaviour exhibited is still similar to some biological systems.
 
 \section{Future work}
 
-Of course.
+This project serves as a case study into the effectiveness of applying biologically inspired techniques to engineering designs and is demonstrated successfully during the course of this project. Mimicking natural systems could provide a number of solutions to problems within industry. 
+
+This work can be extended on several fronts:-
+
+\begin{enumerate}
+	\item Using evolutionary robotics techniques such as evolving a neural network (which would act as the robot controller) with a genetic algorithm could provide a more robust controller. This would be at the cost of time and complexity.
+	\item Implementing a method of user interaction with the swarm (such as following the user's mouse cursor) would increase the scope of experimental testing and could lead to more cohesive behaviour.
+	\item Implementing an ability for the simulation to read parameters contained within files would enable experiments to be run much easier.
+	\item Using a radio transmitter instead of infra-red would allow signals to travel through obstacles. This would allow the development of different behaviour.
+\end{enumerate} 

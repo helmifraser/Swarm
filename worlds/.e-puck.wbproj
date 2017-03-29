@@ -9,12 +9,15 @@ orthographicViewHeight: 1.56713
 textFiles: 0 "controllers/swarm/swarm.cpp"
 documentationBook: 
 documentationPage: 
-renderingDevicePerspectives: 2304;1;0.153846;0;0
-renderingDevicePerspectives: 2955;1;0.153846;0;0
-renderingDevicePerspectives: 312;1;0.153846;0;0
-renderingDevicePerspectives: 1600;1;0.153846;0;0
-renderingDevicePerspectives: 956;1;0.153846;0;0
-renderingDevicePerspectives: 2633;1;0.153846;0;0
+renderingDevicePerspectives: 2566;1;0.153846;0;0
+renderingDevicePerspectives: 3270;1;0.153846;0;0
+renderingDevicePerspectives: 3921;1;0.153846;0;0
+renderingDevicePerspectives: 3599;1;0.153846;0;0
 renderingDevicePerspectives: 1278;1;0.153846;0;0
+renderingDevicePerspectives: 2244;1;0.153846;0;0
 renderingDevicePerspectives: 1922;1;0.153846;0;0
-renderingDevicePerspectives: 634;1;0.153846;0;0
+renderingDevicePerspectives: 956;1;1;0;0
+renderingDevicePerspectives: 634;1;1;0;0
+renderingDevicePerspectives: 1600;1;0.153846;0;0
+renderingDevicePerspectives: 2888;1;0.153846;0;0
+renderingDevicePerspectives: 312;1;1;0;0

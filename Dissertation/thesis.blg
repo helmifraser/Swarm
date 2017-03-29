@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis.aux
 The style file: unsrtnat.bst
-Illegal, another \bibstyle command---line 33 of file thesis.aux
+Illegal, another \bibstyle command---line 32 of file thesis.aux
  : \bibstyle
  :          {unsrtnat}
 I'm skipping whatever remains of this command
@@ -28,45 +28,46 @@ Warning--empty year in onea
 Warning--empty year in cyberbotics-about
 Warning--empty year in c++-history
 Warning--empty year in tiobe
-You've used 25 entries,
+Warning--can't use both author and editor fields in VanDykeParunak2004
+You've used 26 entries,
             2481 wiz_defined-function locations,
-            704 strings with 8390 characters,
-and the built_in function-call counts, 7950 in all, are:
-= -- 709
-> -- 280
-< -- 11
-+ -- 132
-- -- 82
-* -- 557
-:= -- 1180
-add.period$ -- 92
-call.type$ -- 25
-change.case$ -- 45
-chr.to.int$ -- 25
-cite$ -- 45
-duplicate$ -- 441
-empty$ -- 830
-format.name$ -- 102
-if$ -- 1755
+            717 strings with 8786 characters,
+and the built_in function-call counts, 8487 in all, are:
+= -- 766
+> -- 295
+< -- 13
++ -- 138
+- -- 86
+* -- 594
+:= -- 1255
+add.period$ -- 98
+call.type$ -- 26
+change.case$ -- 46
+chr.to.int$ -- 26
+cite$ -- 47
+duplicate$ -- 470
+empty$ -- 876
+format.name$ -- 109
+if$ -- 1880
 int.to.chr$ -- 1
-int.to.str$ -- 26
-missing$ -- 19
-newline$ -- 147
-num.names$ -- 48
-pop$ -- 246
+int.to.str$ -- 27
+missing$ -- 21
+newline$ -- 155
+num.names$ -- 51
+pop$ -- 255
 preamble$ -- 1
-purify$ -- 25
+purify$ -- 26
 quote$ -- 0
-skip$ -- 272
+skip$ -- 294
 stack$ -- 0
-substring$ -- 227
-swap$ -- 70
-text.length$ -- 2
+substring$ -- 261
+swap$ -- 82
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 163
-warning$ -- 11
-while$ -- 43
+type$ -- 167
+warning$ -- 12
+while$ -- 48
 width$ -- 0
-write$ -- 338
+write$ -- 358
 (There were 6 error messages)

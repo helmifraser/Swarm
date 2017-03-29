@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,12pt]{report}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -19,12 +19,17 @@
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{wrapfig, caption, tabu, caption, subcaption, verbatim}
+\usepackage{rotating}
 \usepackage{textcomp}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{amsmath,amsfonts}
+%\usepackage[none]{hyphenat}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
+
+\usepackage[flushleft]{ragged2e}
+%\justify
 
 \lstset{
 	frame=tb, % draw a frame at the top and bottom of the code block
@@ -66,7 +71,7 @@
 \usepackage[british]{babel}
 % The left-hand-side should be 40mm.  The top and bottom margins should be
 % 25mm deep.  The right hand margin should be 20mm.
-\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=4cm,right=2cm,headsep=10pt]{geometry}
+\usepackage[a4paper,top=3cm,bottom=3cm,left=4cm,right=2.5cm,headsep=10pt]{geometry}
 \flushbottom
 % Pages should be numbered consecutively thorugh the main text.  Page numbers
 % should be located centrally at the top of the page.
@@ -74,9 +79,10 @@
 \fancypagestyle{plain}{
 	\fancyhf{}
 	% Add "DRAFT: <today's date>" to header (comment out the following to remove)
-	\lhead{\textit{DRAFT: \today}}
+	%\lhead{\textit{DRAFT: \today}}
 	%
-	\chead{\thepage}
+	%\chead{\thepage}
+	\cfoot{\thepage}
 	\renewcommand{\headrulewidth}{0pt}
 }
 \pagestyle{plain}
@@ -106,6 +112,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PREAMBLE: roman page numbering i, ii, iii, ...
+\cfoot{\thepage}
 \pagenumbering{roman}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,7 +155,9 @@ April 2017
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DECLARATIONS
 \chapter*{Declaration}
-I, Helmi Fraser, confirm that this work submitted for assessment is my own and is expressed in my own words.
+I, Helmi Fraser
+
+State that this work submitted for assessment is my own and expressed in my own words. Any uses made within it of works of other authors in any form (eg. ideas, figures, text, tables) are properly acknowledged at their point of use. A list of the references employed is included.
 % ADDITIONAL DECLARATIONS HERE (IF ANY)
 
 \vskip5mm
@@ -169,6 +178,8 @@ Thanks to my supervisor, Dr Matthew Dunnigan, for providing me with project rela
 Last but certainly not least, I would like to thank my loving girlfriend, Victoria, for keeping me motivated and focused and without whom my time as an undergraduate student would not have been the same.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\input{synopsis}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TABLE OF CONTENTS, LISTS OF TABLES & FIGURES
@@ -180,12 +191,14 @@ Last but certainly not least, I would like to thank my loving girlfriend, Victor
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN THESIS TEXT: arabic page numbering 1, 2, 3, ...
 \newpage
+\pagestyle{fancy}
+\cfoot{\thepage}
 \pagenumbering{arabic}
-
+\flushleft
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% \input{dissertation_abstract}
+%\input{synopsis}
 
 \input{dissertation_intro}
 
@@ -216,6 +229,63 @@ Last but certainly not least, I would like to thank my loving girlfriend, Victor
 \appendix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\chapter{e-puck Specifications}
+
+\subsection{Electronic Systems}
+
+\begin{figure}[!h]
+	\begin{minipage}{.75\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{electronics.png}
+		\captionof{figure}{e-puck electronics systems \cite{epfl-epuck}}
+		\label{fig:epuck-elec}
+	\end{minipage}
+\end{figure}
+
+\clearpage
+
+\subsection{Technical Specifications}
+\begin{figure}[]
+	\centering
+		\begin{minipage}{1\textwidth}
+		\centering
+\begin{wraptable}{l}{6cm}
+	\begin{tabu} to 0.4\textwidth { | X[l] | X[c] | }
+		\hline
+		Diameter & 7cm \\
+		\hline
+		Weight & 200g \\
+		\hline
+		Top speed & 13cm/s \\
+		\hline
+		Battery & 2 hours \\
+		\hline
+		Processor & dsPIC 30 CPU @ 30 MHz (15 MIPS) \\
+		\hline
+		RAM & 8KB \\
+		\hline
+		Memory & 144KB Flash \\
+		\hline
+		Motors & Step \\
+		\hline
+		IR sensors & 8 infra-red proximity and light sensors \\
+		\hline 
+		Camera & Front facing, 640x480 resolution \\
+		\hline
+		LEDs & 8 circumferential, 1 body, 1 front \\
+		\hline
+		Accelerometer & 1, three dimensional \\
+		\hline
+		Microphones & 3 \\
+		\hline
+		Speaker & 1 \\
+		\hline
+	\end{tabu}
+	\caption{e-puck specifications} 	% \caption IS ALWAYS FIRST
+	\label{fig:tech-specs} 	% \label IS ALWAYS SECOND
+\end{wraptable} 
+	\end{minipage}
+\end{figure}
 
 %-----------------------------------------------------
 % Appendix: Code

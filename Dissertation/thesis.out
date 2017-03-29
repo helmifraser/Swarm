@@ -20,16 +20,21 @@
 \BOOKMARK [2][-]{subsection.4.1.2}{4.1.2 e-puck Model Modifications}{section.4.1}% 20
 \BOOKMARK [1][-]{section.4.2}{4.2 Code Implementation}{chapter.4}% 21
 \BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Libraries and dependencies}{section.4.2}% 22
-\BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Algorithm Heirarchy}{section.4.2}% 23
-\BOOKMARK [2][-]{subsection.4.2.3}{4.2.3 Low level}{section.4.2}% 24
-\BOOKMARK [2][-]{subsection.4.2.4}{4.2.4 High level}{section.4.2}% 25
-\BOOKMARK [0][-]{chapter.5}{5 Evaluation}{}% 26
-\BOOKMARK [1][-]{section.5.1}{5.1 Testing}{chapter.5}% 27
-\BOOKMARK [1][-]{section.5.2}{5.2 Results}{chapter.5}% 28
-\BOOKMARK [1][-]{section.5.3}{5.3 Analysis}{chapter.5}% 29
-\BOOKMARK [0][-]{chapter.6}{6 Conclusion}{}% 30
-\BOOKMARK [1][-]{section.6.1}{6.1 Problems encountered}{chapter.6}% 31
-\BOOKMARK [1][-]{section.6.2}{6.2 Limitations}{chapter.6}% 32
-\BOOKMARK [1][-]{section.6.3}{6.3 Future work}{chapter.6}% 33
-\BOOKMARK [0][-]{section*.19}{Bibliography}{}% 34
-\BOOKMARK [0][-]{appendix.A}{A Code}{}% 35
+\BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Swarming Algorithm}{section.4.2}% 23
+\BOOKMARK [0][-]{chapter.5}{5 Evaluation}{}% 24
+\BOOKMARK [1][-]{section.5.1}{5.1 Testing}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.2}{5.2 Results and Analysis}{chapter.5}% 26
+\BOOKMARK [2][-]{subsection.5.2.1}{5.2.1 Experiment 1}{section.5.2}% 27
+\BOOKMARK [2][-]{subsection.5.2.2}{5.2.2 Experiment 2}{section.5.2}% 28
+\BOOKMARK [2][-]{subsection.5.2.3}{5.2.3 Experiment 3}{section.5.2}% 29
+\BOOKMARK [2][-]{subsection.5.2.4}{5.2.4 Experiment 4}{section.5.2}% 30
+\BOOKMARK [2][-]{subsection.5.2.5}{5.2.5 Experiment 5}{section.5.2}% 31
+\BOOKMARK [0][-]{chapter.6}{6 Conclusion}{}% 32
+\BOOKMARK [1][-]{section.6.1}{6.1 Problems encountered}{chapter.6}% 33
+\BOOKMARK [1][-]{section.6.2}{6.2 Limitations}{chapter.6}% 34
+\BOOKMARK [1][-]{section.6.3}{6.3 Future work}{chapter.6}% 35
+\BOOKMARK [0][-]{section*.38}{Bibliography}{}% 36
+\BOOKMARK [0][-]{appendix.A}{A e-puck Specifications}{}% 37
+\BOOKMARK [1][-]{subsection.A.0.1}{A.0.1 Electronic Systems}{appendix.A}% 38
+\BOOKMARK [2][-]{subsection.A.0.2}{A.0.2 Technical Specifications}{subsection.A.0.1}% 39
+\BOOKMARK [0][-]{appendix.B}{B Code}{}% 40
