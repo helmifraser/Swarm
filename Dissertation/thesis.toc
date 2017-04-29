@@ -1,0 +1,50 @@
+\select@language {british}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Aim}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Objectives}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Relevance}{3}{section.1.3}
+\contentsline {chapter}{\numberline {2}Literature Review}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Biologically Inspired Computation and Engineering}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Artificial Intelligence and Artificial Life}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Swarm Intelligence and Behaviour}{8}{section.2.3}
+\contentsline {chapter}{\numberline {3}Methodology}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Hardware}{12}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}E-puck robotic platform}{12}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Alternatives}{15}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Software}{17}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Webots simulator}{17}{subsection.3.2.1}
+\contentsline {subsubsection}{Concepts}{18}{section*.12}
+\contentsline {subsection}{\numberline {3.2.2}C++ programming language}{19}{subsection.3.2.2}
+\contentsline {chapter}{\numberline {4}Implementation}{20}{chapter.4}
+\contentsline {section}{\numberline {4.1}Design}{20}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Simulation Setup}{20}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}e-puck Model Modifications}{22}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Code Implementation}{23}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Libraries and dependencies}{23}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Swarming Algorithm}{24}{subsection.4.2.2}
+\contentsline {subsubsection}{Overall procedure}{25}{section*.15}
+\contentsline {subsubsection}{Obtaining data}{26}{section*.17}
+\contentsline {subsubsection}{Decision and actuation}{31}{section*.19}
+\contentsline {chapter}{\numberline {5}Evaluation}{39}{chapter.5}
+\contentsline {section}{\numberline {5.1}Testing}{40}{section.5.1}
+\contentsline {subsubsection}{Experiment 1: Can the system be described as exhibiting flocking behaviour in line with the definition of a swarm system?}{40}{section*.23}
+\contentsline {subsubsection}{Experiment 2: How quickly does the system form a state of flocking?}{40}{section*.24}
+\contentsline {subsubsection}{Experiment 3: Does the swarm have the ability to form splinter groups?}{40}{section*.25}
+\contentsline {subsubsection}{Experiment 3: Can these splinter groups amalgamate to form one flock?}{40}{section*.26}
+\contentsline {subsubsection}{Experiment 4: How well does the system deal with failure?}{41}{section*.27}
+\contentsline {subsubsection}{Experiment 5: Is the swarm system scalable?}{41}{section*.28}
+\contentsline {section}{\numberline {5.2}Results and Analysis}{42}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Experiment 1}{42}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Experiment 2}{47}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Experiment 3}{48}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Experiment 4}{49}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Experiment 5}{51}{subsection.5.2.5}
+\contentsline {chapter}{\numberline {6}Conclusion}{53}{chapter.6}
+\contentsline {section}{\numberline {6.1}Problems encountered}{54}{section.6.1}
+\contentsline {section}{\numberline {6.2}Limitations}{55}{section.6.2}
+\contentsline {section}{\numberline {6.3}Future work}{56}{section.6.3}
+\contentsline {chapter}{Bibliography}{57}{section*.39}
+\contentsline {chapter}{\numberline {A}e-puck Specifications}{60}{appendix.A}
+\contentsline {subsection}{\numberline {A.0.1}Electronic Systems}{60}{subsection.A.0.1}
+\contentsline {subsection}{\numberline {A.0.2}Technical Specifications}{61}{subsection.A.0.2}
+\contentsline {chapter}{\numberline {B}Code}{62}{appendix.B}

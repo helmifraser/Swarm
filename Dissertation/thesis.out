@@ -1,0 +1,40 @@
+\BOOKMARK [0][-]{contents_bookmark.0}{Contents}{}% 1
+\BOOKMARK [0][-]{chapter.1}{1 Introduction}{}% 2
+\BOOKMARK [1][-]{section.1.1}{1.1 Aim}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{1.2 Objectives}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{1.3 Relevance}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{2 Literature Review}{}% 6
+\BOOKMARK [1][-]{section.2.1}{2.1 Biologically Inspired Computation and Engineering}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.2}{2.2 Artificial Intelligence and Artificial Life}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{2.3 Swarm Intelligence and Behaviour}{chapter.2}% 9
+\BOOKMARK [0][-]{chapter.3}{3 Methodology}{}% 10
+\BOOKMARK [1][-]{section.3.1}{3.1 Hardware}{chapter.3}% 11
+\BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 E-puck robotic platform}{section.3.1}% 12
+\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 Alternatives}{section.3.1}% 13
+\BOOKMARK [1][-]{section.3.2}{3.2 Software}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Webots simulator}{section.3.2}% 15
+\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 C++ programming language}{section.3.2}% 16
+\BOOKMARK [0][-]{chapter.4}{4 Implementation}{}% 17
+\BOOKMARK [1][-]{section.4.1}{4.1 Design}{chapter.4}% 18
+\BOOKMARK [2][-]{subsection.4.1.1}{4.1.1 Simulation Setup}{section.4.1}% 19
+\BOOKMARK [2][-]{subsection.4.1.2}{4.1.2 e-puck Model Modifications}{section.4.1}% 20
+\BOOKMARK [1][-]{section.4.2}{4.2 Code Implementation}{chapter.4}% 21
+\BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Libraries and dependencies}{section.4.2}% 22
+\BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Swarming Algorithm}{section.4.2}% 23
+\BOOKMARK [0][-]{chapter.5}{5 Evaluation}{}% 24
+\BOOKMARK [1][-]{section.5.1}{5.1 Testing}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.2}{5.2 Results and Analysis}{chapter.5}% 26
+\BOOKMARK [2][-]{subsection.5.2.1}{5.2.1 Experiment 1}{section.5.2}% 27
+\BOOKMARK [2][-]{subsection.5.2.2}{5.2.2 Experiment 2}{section.5.2}% 28
+\BOOKMARK [2][-]{subsection.5.2.3}{5.2.3 Experiment 3}{section.5.2}% 29
+\BOOKMARK [2][-]{subsection.5.2.4}{5.2.4 Experiment 4}{section.5.2}% 30
+\BOOKMARK [2][-]{subsection.5.2.5}{5.2.5 Experiment 5}{section.5.2}% 31
+\BOOKMARK [0][-]{chapter.6}{6 Conclusion}{}% 32
+\BOOKMARK [1][-]{section.6.1}{6.1 Problems encountered}{chapter.6}% 33
+\BOOKMARK [1][-]{section.6.2}{6.2 Limitations}{chapter.6}% 34
+\BOOKMARK [1][-]{section.6.3}{6.3 Future work}{chapter.6}% 35
+\BOOKMARK [0][-]{section*.39}{Bibliography}{}% 36
+\BOOKMARK [0][-]{appendix.A}{A e-puck Specifications}{}% 37
+\BOOKMARK [1][-]{subsection.A.0.1}{A.0.1 Electronic Systems}{appendix.A}% 38
+\BOOKMARK [2][-]{subsection.A.0.2}{A.0.2 Technical Specifications}{subsection.A.0.1}% 39
+\BOOKMARK [0][-]{appendix.B}{B Code}{}% 40
