@@ -11,5 +11,4 @@ build/release/swarm.o: swarm.cpp swarm.hpp \
  /usr/local/webots/include/controller/cpp/webots/Keyboard.hpp \
  /usr/local/webots/include/controller/cpp/webots/LED.hpp \
  /usr/local/webots/include/controller/cpp/webots/LightSensor.hpp \
- /usr/local/webots/include/controller/cpp/webots/Receiver.hpp \
- configLoader.hpp
+ /usr/local/webots/include/controller/cpp/webots/Receiver.hpp

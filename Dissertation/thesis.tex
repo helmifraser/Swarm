@@ -1,19 +1,6 @@
 \documentclass[a4paper,12pt]{report}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% University of Sussex thesis template
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Modification History
-%
-% Based on usthesis.cls by Jonathon Read
-% http://www.cogs.susx.ac.uk/users/jlr24/latex.html
-% Modified by Anthony Smith, Feb 2007
-% Incorporated into single thesis.tex file, Anthony Smith, 30 June 2008
-% Minor alterations to page numbering, AJS, 25 July 2008
-% New alternative hyperref options for print version, AJS, 11 Sep 2008
-% "DRAFT" on header, AJS, 12 Sep 2008
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % EXTRA PACKAGES
 
 \usepackage{multirow}
@@ -24,12 +11,10 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{amsmath,amsfonts}
-%\usepackage[none]{hyphenat}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 
 \usepackage[flushleft]{ragged2e}
-%\justify
 
 \lstset{
 	frame=tb, % draw a frame at the top and bottom of the code block
@@ -126,9 +111,11 @@
 %%	(iv) the name of the University of Sussex;
 %%	(v) the month and year of submission.
 \thispagestyle{empty}
-\begin{flushright}
-\includegraphics[width=6cm]{HW_logo}
-\end{flushright}	
+
+\begin{figure}
+	\centering
+	\includegraphics[width=6cm]{HW_logo}
+\end{figure}	
 \vskip40mm
 \begin{center}
 % TITLE
@@ -144,10 +131,12 @@
 \begin{flushleft}
 \large
 % QUALIFICATION
-Submitted for the degree of Bachelor of Engineering \\
+An Honours report submitted for the degree of:\\
+BEng in Robotics, Autonomous and Interactive Systems \\
 Heriot-Watt University	\\
+Supervisor: Dr. Matthew W. Dunnigan
 % DATE OF SUBMISSION
-April 2017
+%March 2017
 \end{flushleft}		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -173,9 +162,12 @@ Helmi Fraser
 \renewcommand{\baselinestretch}{\linespacing}
 \small\normalsize
 % ACKNOWLEDGEMENTS HERE:
-Thanks to my supervisor, Dr Matthew Dunnigan, for providing me with project related support and advice. I would also like to thank Mohammed, my library friend, for lending me his industry experience and advising me on valuable software engineering practices. 
+\begin{flushleft}
+I would like to thank my supervisor, Dr Matthew Dunnigan, for providing me with project related support and advice. I would also like to thank Mohamed, my library friend, for lending me his industry experience and advising me on valuable software engineering practices. 
 
 Last but certainly not least, I would like to thank my loving girlfriend, Victoria, for keeping me motivated and focused and without whom my time as an undergraduate student would not have been the same.
+\end{flushleft}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{synopsis}
@@ -183,22 +175,27 @@ Last but certainly not least, I would like to thank my loving girlfriend, Victor
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TABLE OF CONTENTS, LISTS OF TABLES & FIGURES
-\newpage
+%\newpage
 \pdfbookmark[0]{Contents}{contents_bookmark}
 \tableofcontents
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN THESIS TEXT: arabic page numbering 1, 2, 3, ...
-\newpage
+%\newpage
 \pagestyle{fancy}
 \cfoot{\thepage}
-\pagenumbering{arabic}
+\clearpage
+\pagenumbering{gobble}
 \flushleft
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %\input{synopsis}
+
+\clearpage
+\pagenumbering{arabic}
 
 \input{dissertation_intro}
 
@@ -293,9 +290,11 @@ Last but certainly not least, I would like to thank my loving girlfriend, Victor
 \chapter{Code}
 \label{app:code}
 
-\begin{verbatim}
-10 PRINT "HELLO WORLD"
-\end{verbatim}
+Complete source code can be found at: \url{https://github.com/helmifraser/Swarm}.
+
+%\input{swarm-header}
+
+%\input{swarm-cpp}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%

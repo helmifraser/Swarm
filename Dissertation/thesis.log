@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.3.18)  29 MAR 2017 19:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.3.18)  21 APR 2017 13:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -859,30 +859,40 @@ File: hpdftex.def 2016/06/24 v6.83q Hyperref driver for pdfTeX
 \c@bookmark@seq@number=\count155
 \Hy@SectionHShift=\skip78
 ) (./thesis.aux)
+Runaway argument?
+{{4.8}{36}{Object avoidance}{lstlistin 
+! File ended while scanning use of \@newl@bel.
+<inserted text> 
+                \par 
+l.94 \begin{document}
+                     
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 109.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 109.
-
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 94.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 94.
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -906,7 +916,7 @@ Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count162
  ABD: EveryShipout initializing macros
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 109.
+LaTeX Info: Redefining \selectfont on input line 94.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -943,8 +953,8 @@ LaTeX Info: Redefining \selectfont on input line 109.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box49
-Package backref Info: ** backref set up for natbib ** on input line 109.
-Package hyperref Info: Link coloring ON on input line 109.
+Package backref Info: ** backref set up for natbib ** on input line 94.
+Package hyperref Info: Link coloring ON on input line 94.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -953,19 +963,19 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count163
 )
-LaTeX Info: Redefining \ref on input line 109.
-LaTeX Info: Redefining \pageref on input line 109.
-LaTeX Info: Redefining \nameref on input line 109.
+LaTeX Info: Redefining \ref on input line 94.
+LaTeX Info: Redefining \pageref on input line 94.
+LaTeX Info: Redefining \nameref on input line 94.
 
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
 
- <HW_logo.png, id=167, 439.6425pt x 227.85126pt>
+ <HW_logo.png, id=7, 439.6425pt x 227.85126pt>
 File: HW_logo.png Graphic file (type png)
 
 <use HW_logo.png>
-Package pdftex.def Info: HW_logo.png used on input line 130.
+Package pdftex.def Info: HW_logo.png used on input line 117.
 (pdftex.def)             Requested size: 170.71652pt x 88.47571pt.
  [1
 
@@ -975,60 +985,142 @@ Package pdftex.def Info: HW_logo.png used on input line 130.
 
 ]) [4
 
-] (./thesis.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 3.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 3.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [5
-
-])
+] (./thesis.toc)
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
- [6]
-(./dissertation_intro.tex [1]
-Chapter 1.
-[2
+ [5
 
-] [3]) (./dissertation_litrev.tex [4]
-Chapter 2.
-[5
+] [1
 
 ]
+(./dissertation_intro.tex
+Chapter 1.
+
+Package natbib Warning: Citation `social-predation' on page 1 undefined on inpu
+t line 6.
+
+[1
+
+
+] [2]) (./dissertation_litrev.tex [3]
+Chapter 2.
+
+Package natbib Warning: Citation `cucker-smale' on page 4 undefined on input li
+ne 11.
+
+[4
+
+]
+
+Package natbib Warning: Citation `Bojinov2000' on page 5 undefined on input lin
+e 15.
+
+
+Package natbib Warning: Citation `Yim' on page 5 undefined on input line 15.
+
+
+Package natbib Warning: Citation `metricsrob' on page 5 undefined on input line
+ 17.
+
+
+Package natbib Warning: Citation `soft-exo' on page 5 undefined on input line 2
+1.
+
+
+Package natbib Warning: Citation `soft-exo' on page 5 undefined on input line 2
+1.
+
+
 Underfull \vbox (badness 1478) has occurred while \output is active []
 
- [6]
-[7]
+ [5]
+
+Package natbib Warning: Citation `russell-norvig' on page 6 undefined on input 
+line 26.
+
+
+Package natbib Warning: Citation `haykin2009neural' on page 6 undefined on inpu
+t line 30.
+
+[6]
+
+Package natbib Warning: Citation `tesla' on page 7 undefined on input line 34.
+
+
+Package natbib Warning: Citation `artlife' on page 7 undefined on input line 36
+.
+
+
+Package natbib Warning: Citation `langton' on page 7 undefined on input line 36
+.
+
+
 Underfull \vbox (badness 1478) has occurred while \output is active []
 
- [8]
-[9]
+ [7]
+
+Package natbib Warning: Citation `braitenberg1986vehicles' on page 8 undefined 
+on input line 40.
+
+
+Package natbib Warning: Citation `Beni1989' on page 8 undefined on input line 4
+8.
+
+
+Package natbib Warning: Citation `bonabeau' on page 8 undefined on input line 4
+8.
+
+[8]
+
+Package natbib Warning: Citation `ants' on page 9 undefined on input line 50.
+
+
+Package natbib Warning: Citation `Reynolds:1987:FHS:37402.37406' on page 9 unde
+fined on input line 58.
+
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [10] <boids.png, id=324, 1488.56125pt x 922.44624pt>
+[9] <boids.png, id=96, 1488.56125pt x 922.44624pt>
 File: boids.png Graphic file (type png)
  <use boids.png>
 Package pdftex.def Info: boids.png used on input line 73.
 (pdftex.def)             Requested size: 412.56497pt x 255.66516pt.
 )
-(./dissertation_method.tex [11 <./boids.png>]
+(./dissertation_method.tex [10 <./boids.png>]
 Chapter 3.
-[12
+[11
 
-] [13] <epuck.jpg, id=354, 915.42pt x 915.42pt>
+]
+
+Package natbib Warning: Citation `epfl-epuck' on page 12 undefined on input lin
+e 24.
+
+
+Package natbib Warning: Citation `epfl-epuck' on page 12 undefined on input lin
+e 24.
+
+
+LaTeX Warning: Reference `fig:tech-specs' on page 12 undefined on input line 28
+.
+
+[12] <epuck.jpg, id=123, 915.42pt x 915.42pt>
 File: epuck.jpg Graphic file (type jpg)
  <use epuck.jpg>
 Package pdftex.def Info: epuck.jpg used on input line 46.
 (pdftex.def)             Requested size: 154.71185pt x 154.71141pt.
+LaTeX Font Info:    Try loading font information for U+msa on input line 49.
 
-<e-puck_sensors_and_leds.png, id=355, 690.58pt x 646.415pt>
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 49.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<e-puck_sensors_and_leds.png, id=124, 690.58pt x 646.415pt>
 File: e-puck_sensors_and_leds.png Graphic file (type png)
 
 <use e-puck_sensors_and_leds.png>
@@ -1039,38 +1131,70 @@ Underfull \hbox (badness 1540) in paragraph at lines 53--53
 []\OT1/cmr/m/n/12 Figure 3.2: |e-puck sen-sor po-si-tions,
  []
 
-[14
+[13
 
  <./epuck.jpg> <./e-puck_sensors_and_leds.png>]
-<flycam.jpg, id=366, 441.65pt x 441.65pt>
+
+Package natbib Warning: Citation `epfl-epuck' on page 14 undefined on input lin
+e 65.
+
+
+Package natbib Warning: Citation `Christensen:2009:FFS:1650386.1650393' on page
+ 14 undefined on input line 67.
+
+
+Package natbib Warning: Citation `Christensen:2009:FFS:1650386.1650393' on page
+ 14 undefined on input line 67.
+
+<flycam.jpg, id=134, 441.65pt x 441.65pt>
 File: flycam.jpg Graphic file (type jpg)
  <use flycam.jpg>
 Package pdftex.def Info: flycam.jpg used on input line 77.
 (pdftex.def)             Requested size: 144.39711pt x 144.39714pt.
 
-<randb.png, id=367, 255.95625pt x 144.87459pt>
+<randb.png, id=135, 255.95625pt x 144.87459pt>
 File: randb.png Graphic file (type png)
  <use randb.png>
 Package pdftex.def Info: randb.png used on input line 82.
 (pdftex.def)             Requested size: 206.28249pt x 116.75752pt.
- [15
+ [14
 
- <./flycam.jpg> <./randb.png>] <kilobots.jpg, id=381, 642.4pt x 246.9225pt>
+ <./flycam.jpg> <./randb.png>]
+
+Package natbib Warning: Citation `afron' on page 15 undefined on input line 96.
+
+
+
+Package natbib Warning: Citation `kilobot' on page 15 undefined on input line 9
+6.
+
+
+Package natbib Warning: Citation `khepera' on page 15 undefined on input line 1
+00.
+
+
+Package natbib Warning: Citation `onea' on page 15 undefined on input line 104.
+
+
+<kilobots.jpg, id=144, 642.4pt x 246.9225pt>
 File: kilobots.jpg Graphic file (type jpg)
-
-<use kilobots.jpg>
+ <use kilobots.jpg>
 Package pdftex.def Info: kilobots.jpg used on input line 107.
 (pdftex.def)             Requested size: 412.56497pt x 158.5837pt.
- [16
+ [15
 
-] <khepera.jpg, id=392, 291.33844pt x 234.8775pt>
+]
+<khepera.jpg, id=153, 291.33844pt x 234.8775pt>
 File: khepera.jpg Graphic file (type jpg)
-
-<use khepera.jpg>
+ <use khepera.jpg>
 Package pdftex.def Info: khepera.jpg used on input line 113.
 (pdftex.def)             Requested size: 206.28249pt x 166.30902pt.
- [17 <./kilobots.jpg> <./khepera.jpg>]
-<webots-screen.png, id=399, 1024.57782pt x 559.33969pt>
+ [16 <./kilobots.jpg> <./khepera.jpg>]
+
+Package natbib Warning: Citation `cyberbotics-about' on page 17 undefined on in
+put line 125.
+
+<webots-screen.png, id=158, 1024.57782pt x 559.33969pt>
 File: webots-screen.png Graphic file (type png)
 
 <use webots-screen.png>
@@ -1081,27 +1205,41 @@ Overfull \hbox (108.30019pt too wide) in paragraph at lines 130--131
  [][] 
  []
 
-[18
+[17
 
- <./webots-screen.png>] [19]) (./dissertation_implem.tex [20]
+ <./webots-screen.png>]
+
+Package natbib Warning: Citation `c++-history' on page 18 undefined on input li
+ne 158.
+
+[18]
+
+Package natbib Warning: Citation `tiobe' on page 19 undefined on input line 160
+.
+
+) (./dissertation_implem.tex [19]
 Chapter 4.
-[21
+[20
 
-] <top-down-simulation.png, id=435, 612.78937pt x 475.02469pt>
+] <top-down-simulation.png, id=195, 612.78937pt x 475.02469pt>
 File: top-down-simulation.png Graphic file (type png)
 
 <use top-down-simulation.png>
 Package pdftex.def Info: top-down-simulation.png used on input line 63.
 (pdftex.def)             Requested size: 185.65297pt x 143.91466pt.
 
-<sideways.png, id=436, 612.78937pt x 475.02469pt>
+<sideways.png, id=196, 612.78937pt x 475.02469pt>
 File: sideways.png Graphic file (type png)
  <use sideways.png>
 Package pdftex.def Info: sideways.png used on input line 69.
 (pdftex.def)             Requested size: 185.65297pt x 143.91466pt.
- [22 <./top-down-simulation.png> <./sideways.png>] [23] [24] [25] [26
+ [21 <./top-down-simulation.png> <./sideways.png>] [22]
 
-] [27
+LaTeX Warning: Reference `app:code' on page 23 undefined on input line 111.
+
+[23] [24] [25
+
+] [26
 
 ]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1113,42 +1251,42 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 198.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 188.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 198.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 201.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 188.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 191.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 201.
- [28
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 191.
+ [27
 
 ]
 Underfull \vbox (badness 2932) has occurred while \output is active []
 
- [29
+ [28
 
 ]
-[30] [31] [32
+[29] [30] [31
+
+] [32
 
 ] [33
 
-] [34
-
 ]
-<sections_robot.jpg, id=623, 519.9425pt x 400.49625pt>
+<sections_robot.jpg, id=387, 519.9425pt x 400.49625pt>
 File: sections_robot.jpg Graphic file (type jpg)
 
 <use sections_robot.jpg>
-Package pdftex.def Info: sections_robot.jpg used on input line 390.
+Package pdftex.def Info: sections_robot.jpg used on input line 380.
 (pdftex.def)             Requested size: 309.42372pt x 238.33795pt.
 
 
@@ -1157,237 +1295,80 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35]
-[36 <./sections_robot.jpg>] <control.jpeg, id=660, 578.16pt x 434.5836pt>
+ [34]
+[35 <./sections_robot.jpg>] <control.jpeg, id=424, 578.16pt x 434.5836pt>
 File: control.jpeg Graphic file (type jpg)
 
 <use control.jpeg>
-Package pdftex.def Info: control.jpeg used on input line 418.
+Package pdftex.def Info: control.jpeg used on input line 408.
 (pdftex.def)             Requested size: 371.30751pt x 279.09407pt.
 
-Overfull \hbox (61.88379pt too wide) in paragraph at lines 418--419
+Overfull \hbox (61.88379pt too wide) in paragraph at lines 408--409
 [][] 
  []
 
-[37 <./control.jpeg>] [38]) (./dissertation_eval.tex [39
+[36 <./control.jpeg>]
+
+LaTeX Warning: Reference `lst:avoid' on page 37 undefined on input line 445.
+
+
+LaTeX Warning: Reference `lst:emitter' on page 37 undefined on input line 455.
+
+[37]) (./dissertation_eval.tex [38
 
 ]
 Chapter 5.
+[39
+
+]
+
+Package natbib Warning: Citation `VanDykeParunak2004' on page 40 undefined on i
+nput line 24.
+
+
+Package natbib Warning: Citation `VanDykeParunak2004' on page 40 undefined on i
+nput line 24.
+
 [40
 
-] [41
-
-] [42] <swarm_test_1.png, id=741, 612.78937pt x 475.02469pt>
+] [41] <swarm_test_1.png, id=502, 612.78937pt x 475.02469pt>
 File: swarm_test_1.png Graphic file (type png)
 
 <use swarm_test_1.png>
 Package pdftex.def Info: swarm_test_1.png used on input line 61.
 (pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
- <swarm_test_2.png, id=742, 612.78937pt x 475.02469pt>
+ <swarm_test_2.png, id=503, 612.78937pt x 475.02469pt>
 File: swarm_test_2.png Graphic file (type png)
 
 <use swarm_test_2.png>
 Package pdftex.def Info: swarm_test_2.png used on input line 67.
 (pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
- <swarm_test_3.png, id=743, 612.78937pt x 475.02469pt>
+ <swarm_test_3.png, id=504, 612.78937pt x 475.02469pt>
 File: swarm_test_3.png Graphic file (type png)
 
 <use swarm_test_3.png>
 Package pdftex.def Info: swarm_test_3.png used on input line 73.
 (pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
- <swarm_test_4.png, id=744, 612.78937pt x 475.02469pt>
+ <swarm_test_4.png, id=505, 612.78937pt x 475.02469pt>
 File: swarm_test_4.png Graphic file (type png)
 
 <use swarm_test_4.png>
 Package pdftex.def Info: swarm_test_4.png used on input line 79.
 (pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
- [43
+
+
+LaTeX Warning: Reference `fig:sw5' on page 42 undefined on input line 87.
+
+
+LaTeX Warning: Reference `fig:exp1' on page 42 undefined on input line 89.
+
+
+LaTeX Warning: Reference `fig:exp1-avg' on page 42 undefined on input line 89.
+
+[42
 
  <./swarm_test_1.png> <./swarm_test_2.png> <./swarm_test_3.png> <./swarm_test_4
-.png>] [44]
-<data1.png, id=764, 1344.02126pt x 801.99625pt>
+.png>] [43] <data1.png, id=522, 1344.02126pt x 801.99625pt>
 File: data1.png Graphic file (type png)
  <use data1.png>
-Package pdftex.def Info: data1.png used on input line 96.
-(pdftex.def)             Requested size: 674.33032pt x 402.37996pt.
- [45 <./data1.png>] <data1-average.png, id=769, 715.67375pt x 518.93875pt>
-File: data1-average.png Graphic file (type png)
-
-<use data1-average.png>
-Package pdftex.def Info: data1-average.png used on input line 107.
-(pdftex.def)             Requested size: 412.56497pt x 299.15555pt.
- [46
-
-
- <./data1-average.png>]
-<bee-swarm.jpg, id=777, 340.27126pt x 510.90875pt>
-File: bee-swarm.jpg Graphic file (type jpg)
- <use bee-swarm.jpg>
-Package pdftex.def Info: bee-swarm.jpg used on input line 122.
-(pdftex.def)             Requested size: 146.4588pt x 219.90475pt.
-
-<epuck-bees.png, id=778, 612.78937pt x 475.02469pt>
-File: epuck-bees.png Graphic file (type png)
- <use epuck-bees.png>
-Package pdftex.def Info: epuck-bees.png used on input line 123.
-(pdftex.def)             Requested size: 206.28249pt x 159.90437pt.
-
-[47
-
- <./bee-swarm.jpg> <./epuck-bees.png>] [48
-
-]
-<segregate1.png, id=793, 612.78937pt x 475.02469pt>
-File: segregate1.png Graphic file (type png)
- <use segregate1.png>
-Package pdftex.def Info: segregate1.png used on input line 173.
-(pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
-
-<segregate2.png, id=794, 612.78937pt x 475.02469pt>
-File: segregate2.png Graphic file (type png)
- <use segregate2.png>
-Package pdftex.def Info: segregate2.png used on input line 179.
-(pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
-
-<segregate3.png, id=795, 612.78937pt x 475.02469pt>
-File: segregate3.png Graphic file (type png)
- <use segregate3.png>
-Package pdftex.def Info: segregate3.png used on input line 185.
-(pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
-
-<segregate4.png, id=796, 612.78937pt x 475.02469pt>
-File: segregate4.png Graphic file (type png)
- <use segregate4.png>
-Package pdftex.def Info: segregate4.png used on input line 191.
-(pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
-
-[49
-
- <./segregate1.png> <./segregate2.png> <./segregate3.png> <./segregate4.png>] <
-failure1.png, id=809, 612.78937pt x 475.02469pt>
-File: failure1.png Graphic file (type png)
- <use failure1.png>
-Package pdftex.def Info: failure1.png used on input line 212.
-(pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
-
-<failure2.png, id=810, 612.78937pt x 475.02469pt>
-File: failure2.png Graphic file (type png)
- <use failure2.png>
-Package pdftex.def Info: failure2.png used on input line 218.
-(pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
-
-<failure3.png, id=811, 612.78937pt x 475.02469pt>
-File: failure3.png Graphic file (type png)
- <use failure3.png>
-Package pdftex.def Info: failure3.png used on input line 224.
-(pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
-
-<data-failure.png, id=814, 1551.7975pt x 842.14626pt>
-File: data-failure.png Graphic file (type png)
- <use data-failure.png>
-Package pdftex.def Info: data-failure.png used on input line 242.
-(pdftex.def)             Requested size: 674.33032pt x 365.95801pt.
-
-[50
-
- <./failure1.png> <./failure2.png> <./failure3.png>] [51 <./data-failure.png>] 
-<scalable1.png, id=828, 612.78937pt x 475.02469pt>
-File: scalable1.png Graphic file (type png)
- <use scalable1.png>
-Package pdftex.def Info: scalable1.png used on input line 255.
-(pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
-
-<scalable2.png, id=829, 612.78937pt x 475.02469pt>
-File: scalable2.png Graphic file (type png)
- <use scalable2.png>
-Package pdftex.def Info: scalable2.png used on input line 261.
-(pdftex.def)             Requested size: 154.71185pt x 119.9301pt.
-
-<data-scale1.png, id=830, 753.81625pt x 471.7625pt>
-File: data-scale1.png Graphic file (type png)
- <use data-scale1.png>
-Package pdftex.def Info: data-scale1.png used on input line 273.
-(pdftex.def)             Requested size: 309.42372pt x 193.64702pt.
-
-[52
-
- <./scalable1.png> <./scalable2.png> <./data-scale1.png>])
-(./dissertation_conclusion.tex [53]
-Chapter 6.
-[54
-
-] [55] [56]) [57] (./thesis.bbl (./thesis.brf)
-\tf@brf=\write6
-\openout6 = `thesis.brf'.
-
- [58
-
-
-] [59]) [60]
-Appendix A.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 234.
-
-<electronics.png, id=943, 853.1875pt x 853.1875pt>
-File: electronics.png Graphic file (type png)
- <use electronics.png>
-Package pdftex.def Info: electronics.png used on input line 239.
-(pdftex.def)             Requested size: 309.42372pt x 309.42552pt.
-
-[61
-
- <./electronics.png>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 248.
-
-
-Overfull \hbox (2.86806pt too wide) in paragraph at lines 283--283
-[]\OT1/cmr/m/n/12 Accelerometer|  
- []
-
-[62
-
-]
-Appendix B.
-[63
-
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
- (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 303.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 317F405D68963B27FF2F8331FD7D5BBA;2688.
-Package rerunfilecheck Info: File `thesis.brf' has not changed.
-(rerunfilecheck)             Checksum: FBFF0A5DF7B6B0184A4A5DA35D81A9E5;1942.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 303.
- ) 
-Here is how much of TeX's memory you used:
- 23241 strings out of 494945
- 421893 string characters out of 6181032
- 577042 words of memory out of 5000000
- 25702 multiletter control sequences out of 15000+600000
- 13850 words of font info for 51 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 55i,18n,65p,1611b,1770s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/helmi/.texlive2016/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600
-pk> </home/helmi/.texlive2016/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.60
-0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (69 pages, 9608079 bytes).
-PDF statistics:
- 1082 PDF objects out of 1200 (max. 8388607)
- 935 compressed objects within 10 object streams
- 371 named destinations out of 1000 (max. 500000)
- 498 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+Package

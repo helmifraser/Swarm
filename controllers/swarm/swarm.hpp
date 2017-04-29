@@ -1,4 +1,4 @@
-// webots
+// webots libraries
 #include <webots/Camera.hpp>
 #include <webots/Compass.hpp>
 #include <webots/DifferentialWheels.hpp>
@@ -11,7 +11,7 @@
 #include <webots/Receiver.hpp>
 #include <webots/Robot.hpp>
 
-// standard
+// standard libraries
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -26,19 +26,22 @@
 #include <thread>
 #include <vector>
 
-// own
-#include "configLoader.hpp"
-
 using namespace webots;
 
+// define the parameters for the simulation and
 #define TIME_STEP 32
+
+// threshold value for proximity sensors
 #define PS_THRESHOLD 60
-#define SEPARATION_THRESHOLD 80
 #define WHEEL_SPEED 1000
 #define ARRAY_SIZE 10
 #define SECTOR_ANGLE 45
 #define ALIGN_ERROR 15
+
+// number of robots to detect before adjustments to steering are made
 #define ALIGN_THRESHOLD 2
+
+// base emitter range in metres
 #define RANGE 0.35
 #define ROULETTE 7
 
@@ -47,12 +50,13 @@ struct ReceiverData {
   bool received;
   std::array<std::string, ARRAY_SIZE> orientationString;
   std::array<double, ARRAY_SIZE> orientationDouble;
-  double surrounding[2][2];
 };
 
 
 class Swarm : public DifferentialWheels{
 private:
+
+  // define needed webots objects
   Camera *camera;
   DistanceSensor *distanceSensors[8];
   LED *leds[8];

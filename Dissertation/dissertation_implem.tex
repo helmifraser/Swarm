@@ -108,17 +108,7 @@ Another modification made was the addition of a GPS unit to each e-puck. This is
 
 The approach taken to implementing the desired swarming behaviour can be divided into two processes: abstracting the higher level desired behaviour, then implementing the required lower level dependencies.
 
-A full code listing can be found in Appendix TODO.
-
-\begin{comment}
-\begin{lstlisting}
-for (int i=0; i<iterations;i++)
-{
-do something
-}
-\end{lstlisting}
-\end{comment}
-
+A full code listing can be found in Appendix \ref{app:code}.
 
 \subsection{Libraries and dependencies}
 
@@ -304,7 +294,7 @@ Listing \ref{lst:prox} demonstrates how the robot can access the data from its c
 \draw [arrow] (check2) -| ++(5cm,0) -- ++(0,-5.2cm) -- node {no} (send.east);
 \draw [arrow] (range) -- (send);
 \draw [arrow] (send) -- (check3);
-\draw [arrow] (check3.east) -- node{yes} (stop);
+\draw [arrow] (check3.east) -- node[above]{yes} (stop);
 \draw [arrow] (check3.west) -- node[above]{no} ++(-2cm,0) -- ++(0cm,21.7) -- (start);
 	\end{tikzpicture}
 }
@@ -388,7 +378,7 @@ Given an angle to steer toward, this function adjust the wheel speeds dynamicall
 	\begin{minipage}{.75\textwidth}
 		\centering
 		\includegraphics[width=1\linewidth]{sections_robot}
-		\captionof{figure}{Sector discretizations}
+		\captionof{figure}{Sector discretizations, where 0\textdegree \space is straight ahead}
 		\label{fig:robot-sectors}
 	\end{minipage}
 \end{figure}

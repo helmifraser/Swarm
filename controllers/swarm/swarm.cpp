@@ -53,15 +53,23 @@ Swarm::Swarm() {
   }
 }
 
+/* this function waits for a keyboard input to specify which mode the simulation
+ *    should run in
+ */
+
 void Swarm::run() {
   std::cout << "1 for keyboard control, 2 for object avoidance, 3 for "
-  "flocking, 4 for randomVal"
-  << std::endl;
+               "flocking"
+            << std::endl;
+  std::cout << "Press 5 to stop the simulation. Not doing this will corrupt "
+               "the data output."
+            << std::endl;
   while (step(TIME_STEP) != -1) {
     int decide = readKey();
     switch (decide) {
     case 49:
-      std::cout << "Keyboard control mode" << std::endl;
+      std::cout << "Keyboard control mode (epuck2)" << std::endl;
+      std::cout << "WASDQE keys for control" << std::endl;
       teleop();
       break;
     case 50:
@@ -72,11 +80,115 @@ void Swarm::run() {
       std::cout << "Flock" << std::endl;
       flock();
       break;
-    case 52:
-      randomAlign();
-      break;
     }
   }
+}
+
+/*
+  Flocking algorithm.
+  This function provides the swarming behaviour.
+  A detailed explanation of which can be found in the Implementation section.
+ */
+
+void Swarm::flock() {
+
+  // creates a robot specific .csv file for outputting data to
+  std::string filename = printName() + "_data.csv";
+  std::ofstream data(filename, std::ios::out);
+  if (data.is_open()) {
+    data << printName() << "\n";
+    data << "x-value,z-value,robots,orientation\n";
+  }
+
+  // spins each robot to a random angle
+  randomAlign();
+
+  int quit = 0;
+  int step_count = 0;
+
+  // this loop runs infinitely until Webots throws an error or the escape key is
+  // pressed
+  while (step(TIME_STEP != -1) && quit != 1) {
+
+    getReceiverData();
+    processReceiverData(myData.orientationString);
+
+    saveCompassValues();
+    distanceCheck();
+
+    int index = std::distance(
+        signalStrength,
+        std::max_element(signalStrength,
+                         signalStrength +
+                             sizeof(signalStrength) / sizeof(double)));
+
+    std::array<double, 3> direction = {0, 0, 0};
+    if (robots > ALIGN_THRESHOLD) {
+      for (int k = 0; k < 3; k++) {
+        direction[k] = emitterDirection[index + 1][k];
+      }
+    } else if (robots == 1) {
+      for (int k = 0; k < 3; k++) {
+        direction[k] = emitterDirection[index][k];
+      }
+    }
+
+    double nearestNeighbour = computeVectorAngle(direction);
+
+    /* simple finite state machine arbitration
+
+       If the conditions are right to swarm, robot adjusts its heading.
+       Else, move away from any obstacles.
+
+     */
+
+    if ((robots >= ALIGN_THRESHOLD) && (!left_obstacle) && (!right_obstacle) &&
+        signalStrength[index] < 10) {
+      setLEDs(0);
+      adjust(nearestNeighbour);
+
+    } else {
+      setLEDs(1);
+      objectDetection(1.0);
+    }
+
+    double robotsDouble = robots;
+
+    /* Dynamically adaptable range.
+       This adds a "gravitational" aspect to a large group, encouraging
+       robots to aggregate.
+     */
+
+    if (robots >= 1) {
+      emitter->setRange(RANGE * (robotsDouble + 1));
+    }
+
+    sendCurrentOrientation();
+    step_count++;
+
+    int quitKey = readKey();
+
+    switch (quitKey) {
+    case 53:
+      quit = 1;
+      break;
+
+    default:
+      break;
+    }
+
+    std::array<double, 3> position = getGPSValue();
+
+    if (data.is_open()) {
+      data << position[0] << ",";
+      data << position[2] << ",";
+      data << robots << ",";
+      data << getCurrentOrientation() << ",";
+      data << " \n";
+    }
+  }
+  move(0, 0);
+  data.close();
 }
 
 void Swarm::randomAlign() {
@@ -130,98 +242,12 @@ void Swarm::teleop() {
         std::cout << position[i] << " ";
       }
       std::cout << std::endl;
-
-      // sendCurrentOrientation();
     }
     if (robot_name.compare("e2") != 0) {
       flock();
       sendCurrentOrientation();
     }
   }
-}
-
-void Swarm::flock() {
-  std::string filename = printName() + "_data.csv";
-  std::ofstream data(filename, std::ios::out);
-  if (data.is_open()) {
-    data << printName() << "\n";
-    data << "x-value,z-value,robots,orientation\n";
-  }
-
-  randomAlign();
-
-  int quit = 0;
-  int step_count = 0;
-
-  while (step(TIME_STEP != -1) && quit != 1) {
-
-    getReceiverData();
-    processReceiverData(myData.orientationString);
-
-    saveCompassValues();
-    distanceCheck();
-
-    int index = std::distance(
-        signalStrength,
-        std::max_element(signalStrength,
-                         signalStrength +
-                             sizeof(signalStrength) / sizeof(double)));
-
-    std::array<double, 3> direction = {0, 0, 0};
-    if (robots > ALIGN_THRESHOLD) {
-      for (int k = 0; k < 3; k++) {
-        direction[k] = emitterDirection[index + 1][k];
-      }
-    } else if (robots == 1) {
-      for (int k = 0; k < 3; k++) {
-        direction[k] = emitterDirection[index][k];
-      }
-    }
-
-    double nearestNeighbour = computeVectorAngle(direction);
-
-    if ((robots >= ALIGN_THRESHOLD) && (!left_obstacle) && (!right_obstacle) &&
-        signalStrength[index] < 10) {
-      setLEDs(0);
-      adjust(nearestNeighbour);
-
-    } else {
-      setLEDs(1);
-      objectDetection(1.0);
-    }
-
-    double robotsDouble = robots;
-
-    if (robots >= 1) {
-      emitter->setRange(RANGE * (robotsDouble + 1));
-    }
-
-    sendCurrentOrientation();
-    step_count++;
-
-    int quitKey = readKey();
-
-    switch (quitKey) {
-    case 53:
-      quit = 1;
-      break;
-
-    default:
-      break;
-    }
-
-    std::array<double, 3> position = getGPSValue();
-
-    if (data.is_open()) {
-      data << position[0] << ",";
-      data << position[2] << ",";
-      data << robots << ",";
-      data << getCurrentOrientation() << ",";
-      data << " \n";
-    }
-  }
-  move(0, 0);
-  data.close();
 }
 
 void Swarm::computeDirections(std::array<double, 100> &allDirections) {
@@ -260,7 +286,7 @@ void Swarm::computeCluster(std::array<double, 100> &allDirections,
 }
 
 int Swarm::chooseSector(std::array<int, 4> &output) {
-  // roullette wheel selection using a fitness function
+  // roulette wheel selection using a fitness function
   int sum = 0;
   std::array<int, 4> outputCopy = output;
 
@@ -378,22 +404,22 @@ void Swarm::sendCurrentOrientation() {
 }
 
 void Swarm::getReceiverData() {
-    Receiver *copy = (Receiver *)malloc(sizeof(Receiver));
-    myData.orientationString = {};
-    robots = roundNum((receiver->getQueueLength() + 1) / 2);
-    for (int i = 0; i < 100; i++) {
-      signalStrength[i] = 0;
+  Receiver *copy = (Receiver *)malloc(sizeof(Receiver));
+  myData.orientationString = {};
+  robots = roundNum((receiver->getQueueLength() + 1) / 2);
+  for (int i = 0; i < 100; i++) {
+    signalStrength[i] = 0;
+  }
+  for (int k = 0; k < receiver->getQueueLength(); k++) {
+    data = (char *)receiver->getData();
+    signalStrength[k] = (double)receiver->getSignalStrength();
+    for (int n = 0; n < 3; n++) {
+      emitterDirection[k][n] = receiver->getEmitterDirection()[n];
     }
-    for (int k = 0; k < receiver->getQueueLength(); k++) {
-      data = (char *)receiver->getData();
-      signalStrength[k] = (double)receiver->getSignalStrength();
-      for (int n = 0; n < 3; n++) {
-        emitterDirection[k][n] = receiver->getEmitterDirection()[n];
-      }
-      memcpy(copy, data, sizeof(Receiver));
-      myData.orientationString[k] = (char *)copy;
-      receiver->nextPacket();
-    }
+    memcpy(copy, data, sizeof(Receiver));
+    myData.orientationString[k] = (char *)copy;
+    receiver->nextPacket();
+  }
 }
 
 void Swarm::processReceiverData(std::array<std::string, ARRAY_SIZE> data) {
@@ -437,11 +463,11 @@ void Swarm::distanceCheck() {
 
   // detect obsctacles
   right_obstacle = (ps_values[0] > PS_THRESHOLD) ||
-                  (ps_values[1] > PS_THRESHOLD) ||
-                  (ps_values[2] > PS_THRESHOLD);
+                   (ps_values[1] > PS_THRESHOLD) ||
+                   (ps_values[2] > PS_THRESHOLD);
   left_obstacle = (ps_values[5] > PS_THRESHOLD) ||
-                   (ps_values[6] > PS_THRESHOLD) ||
-                   (ps_values[7] > PS_THRESHOLD);
+                  (ps_values[6] > PS_THRESHOLD) ||
+                  (ps_values[7] > PS_THRESHOLD);
   front_obstacle =
       (ps_values[0] > PS_THRESHOLD) & (ps_values[7] > PS_THRESHOLD);
   back_obstacle = (ps_values[3] > PS_THRESHOLD) & (ps_values[4] > PS_THRESHOLD);
@@ -526,7 +552,6 @@ void Swarm::align(int heading) {
     target = 315;
     break;
   }
-  // std::cout << "Target: " << target << std::endl;
   int current = getCurrentOrientation();
   int max = target + ALIGN_ERROR;
   int min = target - ALIGN_ERROR;
@@ -536,15 +561,12 @@ void Swarm::align(int heading) {
 
   if ((current >= min) & (current <= max)) {
     move(0, 0);
-    // std::cout << "Stop" << std::endl;
     aligned = true;
   } else if (current >= max) {
     move(-WHEEL_SPEED, WHEEL_SPEED);
-    // std::cout << "Move" << std::endl;
     aligned = false;
   } else if (current <= min) {
     move(WHEEL_SPEED, -WHEEL_SPEED);
-    // std::cout << "Move" << std::endl;
     aligned = false;
   }
 }
@@ -714,13 +736,7 @@ int Swarm::computeAverageHeading() {
     }
   }
 
-  // for (int i = 0; i < robots; i++) {
-  //   std::cout << printName() << " " << headings[i] << std::endl;
-  // }
-
   int target = calculateMode(headings, robots);
-
-  // std::cout << printName() << "mode " << target << std::endl;
 
   return target;
 }
